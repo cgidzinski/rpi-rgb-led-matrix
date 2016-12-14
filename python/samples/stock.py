@@ -26,7 +26,7 @@ class RunText(SampleBase):
         posB = 0
         textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
-        textC = "Why you play the babby gam? " + strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        textC = strftime("%a, %d %b %Y %H:%M:%S", gmtime())
 
         while True:
             offscreenCanvas.Clear()
@@ -35,6 +35,7 @@ class RunText(SampleBase):
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
+            textC = strftime("%a, %d %b %Y %H:%M:%S", gmtime())
             posA += 1
             posB -= 1
             if (posA > offscreenCanvas.width):

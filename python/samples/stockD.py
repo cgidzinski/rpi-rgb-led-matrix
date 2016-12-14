@@ -35,7 +35,7 @@ class RunText(SampleBase):
             x=0
             # totalLength = 0
             lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-            totalLength += (lenTop+8)
+            # totalLength += (lenTop+8)
 
             # if (posA + totalOffset < 0):
             #     posA = offscreenCanvas.width

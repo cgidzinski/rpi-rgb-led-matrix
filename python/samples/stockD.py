@@ -64,7 +64,7 @@ class RunText(SampleBase):
                     IndexTop = 0
                 textQueueTop.append([offscreenCanvas.width,IndexTop])
 
-            if (textQueueBottom[len(textQueueTop)-1][0] == 8):
+            if (textQueueBottom[0][0] == 8):
                 # graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
                 if IndexBottom != 0:
                     IndexBottom-=1

@@ -34,8 +34,8 @@ class RunText(SampleBase):
             offscreenCanvas.Clear()
             textDate = strftime("%a, %d %b %Y", localtime())
             textTime = strftime("%H:%M:%S", localtime())
-            graphics.DrawText(offscreenCanvas, fontSmall, 22, 30, white, textTime)
             graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textDate)
+            graphics.DrawText(offscreenCanvas, fontSmall, 100, 30, white, textTime)
 
             totalOffsetTop = 0
             for x in xrange(0,len(textTop)):

@@ -51,7 +51,7 @@ class RunText(SampleBase):
 
 
 
-            if (posA < 180):
+            if (textQueue[x][0] == (offscreenCanvas.width - lenTop+8)):
                 x+=1
                 textQueue.append([offscreenCanvas.width,x])
 

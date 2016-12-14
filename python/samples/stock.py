@@ -2,6 +2,7 @@
 # Display a runtext with double-buffering.
 from samplebase import SampleBase
 from rgbmatrix import graphics
+from rgbmatrix import RGBMatrix
 import time
 
 class RunText(SampleBase):

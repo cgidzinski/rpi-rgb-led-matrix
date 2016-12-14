@@ -9,6 +9,7 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 
     def Run(self):
+        self.matrix = RGBMatrix(1, 8, 1)
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()

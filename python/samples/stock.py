@@ -20,17 +20,22 @@ class RunText(SampleBase):
         white = graphics.Color(255, 255, 255)
 
         posA = 0
-        posB = 0
+        posB = offscreenCanvas.width
         textA = "Costco +5.10%"
         textB = "Opentext +1.56%"
 
         while True:
             offscreenCanvas.Clear()
 
-            lenA = graphics.DrawText(offscreenCanvas, font, posA, 10, red, textA)
+            lenA = graphics.DrawText(offscreenCanvas, font, posA, 10, blue, textA)
+            lenB = graphics.DrawText(offscreenCanvas, font, posB, 10, green, textB)
+
             posA += 1
+            posB -= 1
             if (posA > offscreenCanvas.width):
                 posA = 0 - lenA
+            if (posB + lenB < 0):
+                posB = offscreenCanvas.width
             time.sleep(0.02)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

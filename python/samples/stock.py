@@ -26,23 +26,29 @@ class RunText(SampleBase):
         posB = 0
 
         textTop = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
-
+        textBottom = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
    
-        textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
 
         while True:
             offscreenCanvas.Clear()
-
-            totalOffset = 0
-            for x in xrange(0,len(textTop)):
-                lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffset), 11, textTop[x][1], textTop[x][0])
-                totalOffset += (lenAA+8)
-           
-            lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
-            lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
-           
             textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
+            lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
+
+            totalOffsetTop = 0
+            for x in xrange(0,len(textTop)):
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][1], textTop[x][0])
+                totalOffsetTop += (lenTop+8)
+
+            totalOffsetBottom = 0
+            for x in xrange(0,len(textBottom)):
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
+                totalOffsetBottom += (lenBottom+8)
+
+
+            
+           
+            
             posA += 1
             posB -= 1
             if (posA > totalOffset-(8*len(textTop))):

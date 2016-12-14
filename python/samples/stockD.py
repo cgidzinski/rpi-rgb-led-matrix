@@ -38,12 +38,12 @@ class RunText(SampleBase):
 
             totalOffsetTop = 0
             for x in xrange(0,len(textTop)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][1], textTop[x][0])
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][3], textTop[x][0]+" "+textTop[x][1] +" ("+ textTop[x][2]+")")
                 totalOffsetTop += (lenTop+8)
 
             totalOffsetBottom = 0
             for x in xrange(0,len(textBottom)):
-                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textTop[x][3],  textTop[x][0]+" "+textTop[x][1] +" ("+ textTop[x][2]+")")
                 totalOffsetBottom += (lenBottom+8)
             
             posA += 1

@@ -45,10 +45,11 @@ class RunText(SampleBase):
             
            
             
-            posA += 1
+            posA -= 1
 
-            if (posA > totalOffsetTop-(8*len(textTop))):
-                posA = 0
+             if (posA + totalOffsetTop < 0):
+                # not visible re-add
+                posA = offscreenCanvas.width
 
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

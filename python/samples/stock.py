@@ -30,7 +30,7 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
 
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, 0, 10, red, scrollTextA)
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, 0, 10, red, textA)
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 21, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            

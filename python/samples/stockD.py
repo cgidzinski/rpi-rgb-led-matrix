@@ -23,8 +23,10 @@ class RunText(SampleBase):
         white = graphics.Color(255, 255, 255)
 
         posA = 0 #offscreenCanvas.width
+        posB = 0
 
-        textTop = [["COST", "+0.53","+0.22%",green],["GILD", "+0.53","+0.22%",green],["OTX", "+0.53","+0.22%",red]]
+        textTop = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
+        textBottom = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
    
 
         while True:
@@ -36,20 +38,27 @@ class RunText(SampleBase):
 
             totalOffsetTop = 0
             for x in xrange(0,len(textTop)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][3], textTop[x][0])
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][3],  textTop[x][0] + textTop[x][1] + textTop[x][2])
-
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][1], textTop[x][0])
                 totalOffsetTop += (lenTop+8)
 
-         
+            totalOffsetBottom = 0
+            for x in xrange(0,len(textBottom)):
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
+                totalOffsetBottom += (lenBottom+8)
+
+
             
            
             
             posA += 1
+            posB -= 1
 
             if (posA > totalOffsetTop-(8*len(textTop))):
                 posA = 0
 
+            if (posB + totalOffsetBottom < 0):
+                # not visible re-add
+                posB = offscreenCanvas.width
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

@@ -40,10 +40,10 @@ class RunText(SampleBase):
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)
 
             if len(textQueueTop) == 0:
-                textQueueTop.append([offscreenCanvas.width,IndexTop])
+                textQueueTop.append([posTop,IndexTop])
 
             if len(textQueueBottom) == 0:
-                textQueueBottom.append([offscreenCanvas.width,IndexBottom])
+                textQueueBottom.append([posBottom,IndexBottom])
 
 
 

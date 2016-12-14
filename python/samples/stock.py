@@ -4,6 +4,7 @@ from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
 import time
+from time import gmtime, strftime
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -25,7 +26,7 @@ class RunText(SampleBase):
         posB = 0
         textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
-        textC = "Why you play the babby gam?"
+        textC = "Why you play the babby gam? " + strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
         while True:
             offscreenCanvas.Clear()

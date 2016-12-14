@@ -49,7 +49,7 @@ class RunText(SampleBase):
             lenBottom = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, "COST 163.24 GILD 72.54 OTX 88.46")
            
 
-            posA +=1
+            posA -=1
 
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

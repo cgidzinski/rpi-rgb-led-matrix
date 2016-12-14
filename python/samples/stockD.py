@@ -50,7 +50,7 @@ class RunText(SampleBase):
 
 
 
-            if (textQueue[len(textQueue)-1][0] == (offscreenCanvas.width - lenTop-8)):
+            if len(textQueue) != 0 and (textQueue[len(textQueue)-1][0] == (offscreenCanvas.width - lenTop-8)):
                 if x != len(textData)-1:
                     x+=1
                 else:

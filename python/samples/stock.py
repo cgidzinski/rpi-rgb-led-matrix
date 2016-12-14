@@ -32,19 +32,20 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
 
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 10, red, scrollTextA)
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, 0, 10, red, scrollTextA)
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 21, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
-            # posA += 1
+            
             # posB -= 1
-            # if (posA > offscreenCanvas.width):
-            #     posA = -lenA
+            if (posA > 30):
+                posA = 0
 
             # if (posB + lenB < 0):
             #     posB = offscreenCanvas.width
-            scrollTextA = textA[0:30]
+            scrollTextA = textA[0+posA:32+posA]
             time.sleep(0.03)
+            posA += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 

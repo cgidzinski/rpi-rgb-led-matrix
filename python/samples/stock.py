@@ -17,13 +17,14 @@ class RunText(SampleBase):
         green = graphics.Color(0, 255, 0)
         red = graphics.Color( 255, 0, 0)
         blue = graphics.Color(0, 0, 255)
-        
+        white = graphics.Color(255, 255, 255)
         pos = 0
         myText = "Costco +5.10%"
 
         while True:
             offscreenCanvas.Clear()
             len = graphics.DrawText(offscreenCanvas, font, pos, 10, red, myText)
+            print(len)
             pos += 1
             if (pos > offscreenCanvas.width):
                 pos = 0 - len

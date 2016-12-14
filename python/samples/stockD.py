@@ -25,8 +25,8 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
-        textBottom = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
+        textTop = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
+        textBottom = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
    
 
         while True:

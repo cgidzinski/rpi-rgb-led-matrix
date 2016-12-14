@@ -21,7 +21,7 @@ class RunText(SampleBase):
 
         posA = 0
         posB = offscreenCanvas.width
-        posC = 0
+
         textA = "QWERTYUIOP"
         textB = "QWERTYUIOP"
         textC = "QWERTYUIOP"
@@ -31,17 +31,15 @@ class RunText(SampleBase):
 
             lenA = graphics.DrawText(offscreenCanvas, font, posA, 9, blue, textA)
             lenB = graphics.DrawText(offscreenCanvas, font, posB, 19, green, textB)
-            lenC = graphics.DrawText(offscreenCanvas, font, posC, 32, red, textC)
+            lenC = graphics.DrawText(offscreenCanvas, font, 0, 32, red, textC)
            
             posA += 1
             posB -= 1
-            posC += 1
             if (posA > offscreenCanvas.width):
                 posA = 0 - lenA
             if (posB + lenB < 0):
                 posB = offscreenCanvas.width
-            if (posC > offscreenCanvas.width):
-                posC = 0 - lenC
+
             time.sleep(0.1)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

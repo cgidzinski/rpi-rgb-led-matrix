@@ -42,7 +42,7 @@ class RunText(SampleBase):
 
             posA -=1
 
-            if (posA + totalLength < 0):
+            if (posA  < 0):
                 posA = offscreenCanvas.width
 
 

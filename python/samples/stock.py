@@ -24,7 +24,7 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
+        textA = "COST +3.14 (+2.68%) GILD +6.54 (+3.23%) WILD +3.14 (+2.68%) KILD +3.14 (+2.68%)"
         scrollTextA = ""
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = "Why you play the babby gam?"
@@ -38,7 +38,7 @@ class RunText(SampleBase):
            
             
             # posB -= 1
-            if (posA > 30):
+            if (posA > len(TextA)):
                 posA = 0
 
             # if (posB + lenB < 0):

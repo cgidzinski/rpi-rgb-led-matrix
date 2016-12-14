@@ -9,11 +9,11 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 
     def Run(self):
-        self.matrix.brightness = 50
+        self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../fonts/7x13.bdf")
-        textColor = graphics.Color(255, 255, 0)
+        textColor = graphics.Color(255, 255, 255)
         pos = offscreenCanvas.width
         myText = "Costco +5.00%"
 

@@ -46,7 +46,7 @@ class RunText(SampleBase):
 
 
             if (posA + totalOffsetTop < 0):
-                posA = offscreenCanvas.widthl
+                posA = offscreenCanvas.width
 
 
 

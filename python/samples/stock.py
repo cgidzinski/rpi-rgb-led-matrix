@@ -28,7 +28,7 @@ class RunText(SampleBase):
         textTop = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
         textBottom = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
    
-        textC = strftime("%a, %d %b %Y                %H:%M:%S", localtime())
+        textC = strftime("%A, %B %d, %Y                %H:%M:%S", localtime())
 
         while True:
             offscreenCanvas.Clear()

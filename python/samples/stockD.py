@@ -52,15 +52,15 @@ class RunText(SampleBase):
 
 
             if (textQueue[x][0] == (offscreenCanvas.width - lenTop-8)):
-                if x < len(textData):
+                if x <= len(textData):
                     x+=1
                     textQueue.append([offscreenCanvas.width,x])
                 else:
                     x = 0
 
 
-            # lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(totalLength))
-            lenBottom2 = graphics.DrawText(offscreenCanvas, fontBig, 50, 22,blue, str(posA))
+            lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(x))
+            lenBottom2 = graphics.DrawText(offscreenCanvas, fontBig, 50, 22,blue, str(len(textData)))
 
             time.sleep(0.04)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

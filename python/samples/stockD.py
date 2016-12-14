@@ -25,8 +25,8 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
-        textBottom = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
+        textTop = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
+        textBottom = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red],["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
    
 
         while True:
@@ -46,14 +46,14 @@ class RunText(SampleBase):
                 lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
                 totalOffsetBottom += (lenBottom+8)
             
-            posA -= 1
-            posB += 1
+            posA += 1
+            posB -= 1
 
-            if (posB > totalOffsetTop-(8*len(textTop))):
-                posB = 0
+            if (posA > totalOffsetTop-(8*len(textTop))):
+                posA = 0
 
-            if (posA + totalOffsetBottom < 0):
-                posA = offscreenCanvas.width
+            if (posB + totalOffsetBottom < 0):
+                posB = offscreenCanvas.width
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

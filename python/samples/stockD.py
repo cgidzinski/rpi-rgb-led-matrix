@@ -29,8 +29,7 @@ class RunText(SampleBase):
         x=0
         totalLength = 0
 
-        # textQueue.append([offscreenCanvas.width,x])
-
+       
 
         while True:
             offscreenCanvas.Clear()
@@ -39,7 +38,8 @@ class RunText(SampleBase):
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)
 
-            
+            if len(textQueue) == 0:
+                textQueue.append([offscreenCanvas.width,x])
 
             
 
@@ -50,7 +50,7 @@ class RunText(SampleBase):
 
 
 
-            if len(textQueue) != 0 and (textQueue[len(textQueue)-1][0] == (offscreenCanvas.width - lenTop-8)):
+            if (textQueue[len(textQueue)-1][0] == (offscreenCanvas.width - lenTop-8)):
                 if x != len(textData)-1:
                     x+=1
                 else:

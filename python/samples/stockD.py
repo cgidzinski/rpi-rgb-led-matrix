@@ -45,7 +45,7 @@ class RunText(SampleBase):
 
 
             for i in xrange(0,len(textQueue)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueue[i][0], 11, textData[textQueue[i][1]][4], textData[textQueue[i][1]][0] +" "+ textData[textQueue[i][1]][1] +" "+ textData[textQueue[i][1]][2] +" ("+ textData[textQueue[i][1]][3]+")")
+                lenTop = graphics.DrawText(offscreenCanvas, fontSmall, textQueue[i][0], 11, textData[textQueue[i][1]][4], textData[textQueue[i][1]][0] +" "+ textData[textQueue[i][1]][1] +" "+ textData[textQueue[i][1]][2] +" ("+ textData[textQueue[i][1]][3]+")")
                 textQueue[i][0] -=1
 
 

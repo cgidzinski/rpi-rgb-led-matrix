@@ -25,13 +25,14 @@ class RunText(SampleBase):
         posB = 0
 
         textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
+        scrollTextA = ""
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = "Why you play the babby gam?"
 
         while True:
             offscreenCanvas.Clear()
 
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 10, red, textA)
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 10, red, scrollTextA)
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 21, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
@@ -42,7 +43,7 @@ class RunText(SampleBase):
 
             # if (posB + lenB < 0):
             #     posB = offscreenCanvas.width
-
+            scrollTextA = textA[0:10]
             time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

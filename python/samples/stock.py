@@ -42,7 +42,7 @@ class RunText(SampleBase):
             if (posB + lenB < 0):
                 posB = offscreenCanvas.width
 
-            time.sleep(0.04)
+            time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 

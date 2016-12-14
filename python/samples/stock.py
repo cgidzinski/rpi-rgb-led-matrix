@@ -24,7 +24,7 @@ class RunText(SampleBase):
 
         posA = 0 #offscreenCanvas.width
 
-        textTop = [["COST", "+0.53","+0.22%",green],["GILD", "+0.53","+0.22%",green],["OTX", "+0.53","+0.22%",red]]
+        textTop = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead [GILD]", "+0.53","+0.22%",green],["OpenText [OTX]", "+0.53","+0.22%",red]]
    
 
         while True:

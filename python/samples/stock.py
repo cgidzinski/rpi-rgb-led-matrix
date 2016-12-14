@@ -13,7 +13,7 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
-        font.LoadFont("../../fonts/7x14.bdf")
+        font.LoadFont("../../fonts/9x15.bdf")
         textColor = graphics.Color(000, 255, 255)
         pos = 0
         myText = "Costco +5.00%"
@@ -24,7 +24,7 @@ class RunText(SampleBase):
             pos += 1
             if (pos > offscreenCanvas.width):
                 pos = 0 - len
-            time.sleep(0.025)
+            time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 

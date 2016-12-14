@@ -21,14 +21,14 @@ class RunText(SampleBase):
 
         posA = 0
         posB = offscreenCanvas.width
-        textA = "Costco +5.10%"
+        textA = "PCostco +5.10%"
         textB = "Opentext +1.56%"
 
         while True:
             offscreenCanvas.Clear()
 
             lenA = graphics.DrawText(offscreenCanvas, font, posA, 10, blue, textA)
-            lenB = graphics.DrawText(offscreenCanvas, font, posB, 30, green, textB)
+            lenB = graphics.DrawText(offscreenCanvas, font, posB, 28, green, textB)
 
             posA += 1
             posB -= 1

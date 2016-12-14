@@ -52,8 +52,11 @@ class RunText(SampleBase):
 
 
             if (textQueue[x][0] == (offscreenCanvas.width - lenTop-8)):
-                x+=1
-                textQueue.append([offscreenCanvas.width,x])
+                if x < len(textData):
+                    x+=1
+                    textQueue.append([offscreenCanvas.width,x])
+                else:
+                    x = 0
 
 
             # lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(totalLength))

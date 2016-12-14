@@ -44,7 +44,7 @@ class RunText(SampleBase):
             # if (posB + lenB < 0):
             #     posB = offscreenCanvas.width
             scrollTextA = textA[0+posA:32+posA]
-            time.sleep(0.03)
+            time.sleep(0.5)
             posA += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

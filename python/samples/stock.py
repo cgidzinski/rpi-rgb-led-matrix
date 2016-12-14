@@ -36,8 +36,8 @@ class RunText(SampleBase):
 
             totalOffset = 0
             for x in xrange(0,len(textTop)):
-                lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffset+8), 11, textTop[x][1], textTop[x][0])
-                totalOffset += lenAA
+                lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffset), 11, textTop[x][1], textTop[x][0])
+                totalOffset += (lenAA+8)
            
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)

@@ -9,8 +9,8 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 
     def Run(self):
-        offscreenCanvas = self.matrix.CreateFrameCanvas()
         self.matrix.brightness = 60
+        offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../fonts/7x13.bdf")
         textColor = graphics.Color(255, 255, 255)
@@ -24,7 +24,7 @@ class RunText(SampleBase):
             if (pos + len < 0):
                 pos = offscreenCanvas.width
 
-            time.sleep(0.02)
+            time.sleep(0.005)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 

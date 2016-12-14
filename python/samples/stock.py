@@ -47,8 +47,7 @@ class RunText(SampleBase):
             
             posA -= 1
 
-             if (posA + totalOffsetTop < 0):
-                # not visible re-add
+            if (posA + totalOffsetTop < 0):
                 posA = offscreenCanvas.width
 
             time.sleep(0.035)

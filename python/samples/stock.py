@@ -13,7 +13,7 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         fontBig = graphics.Font()
-        fontBig.LoadFont("../../fonts/8x13.bdf")
+        fontBig.LoadFont("../../fonts/8x13B.bdf")
         fontSmall = graphics.Font()
         fontSmall.LoadFont("../../fonts/6x10.bdf")
         green = graphics.Color(0, 255, 0)

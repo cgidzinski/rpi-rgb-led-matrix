@@ -42,7 +42,7 @@ class RunText(SampleBase):
 
             totalOffsetBottom = 0
             for x in xrange(0,len(textBottom)):
-                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textBottom[x][1], textBottom[x][0])
                 totalOffsetBottom += (lenBottom+8)
 
 

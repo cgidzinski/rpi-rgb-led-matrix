@@ -21,7 +21,7 @@ class RunText(SampleBase):
         blue = graphics.Color(0, 0, 255)
         white = graphics.Color(255, 255, 255)
 
-        posA = offscreenCanvas.width
+        posA = 0 #offscreenCanvas.width
         posB = 0
 
         textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
@@ -35,12 +35,13 @@ class RunText(SampleBase):
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 21, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
-            posA += 1
+            # posA += 1
             posB -= 1
             if (posA > offscreenCanvas.width):
                 posA = -lenA
-            if ( lenB < posB):
-                posB = offscreenCanvas.width
+
+            # if (posB + lenB < 0):
+            #     posB = offscreenCanvas.width
 
             time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

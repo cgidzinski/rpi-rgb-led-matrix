@@ -46,7 +46,7 @@ class RunText(SampleBase):
 
             for i in xrange(0,len(textQueue)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueue[i][0], 11, textData[textQueue[i][1]][4], textData[textQueue[i][1]][0])
-                totalLength = (lenTop+8)
+                # totalLength = (lenTop+8)
                 textQueue[i][0] -=1
 
 
@@ -57,6 +57,7 @@ class RunText(SampleBase):
                     textQueue.append([offscreenCanvas.width,x])
                 else:
                     x = 0
+                    textQueue.append([offscreenCanvas.width,x])
 
 
             lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(x))

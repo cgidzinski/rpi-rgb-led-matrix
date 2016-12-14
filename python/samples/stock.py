@@ -25,7 +25,7 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = [["COST +3.14 (+2.68%)",red],["COST +3.14 (+2.68%)",blue],["COST +3.14 (+2.68%)",green]]
+        textTop = [["COST",red],["GILD",blue],["OTX",green]]
 
    
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
@@ -34,14 +34,11 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
 
-            # lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, red, textA)
-            i = 0
-            lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+0, 11, textTop[i][1], textTop[i][0])
-            i = 1
-            lenAB = graphics.DrawText(offscreenCanvas, fontBig, posA+(lenAA), 11, textTop[i][1], textTop[i][0])
-            # i = 2
-            # lenAC = graphics.DrawText(offscreenCanvas, fontBig, posA+(24*8), 11, textTop[i][1], textTop[i][0])
-
+            totalOffset = 0
+            for x in xrange(0,len(textTop)):
+                lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffset), 11, textTop[x][1], textTop[x][0])
+                totalOffset += lenAA
+           
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            

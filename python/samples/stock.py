@@ -20,9 +20,9 @@ class RunText(SampleBase):
 
         while True:
             offscreenCanvas.Clear()
-            len = graphics.DrawText(offscreenCanvas, font, pos, 1, textColor, myText)
+            len = graphics.DrawText(offscreenCanvas, font, pos, 14, textColor, myText)
             pos += 1
-            if (pos + len < offscreenCanvas.width):
+            if (pos + len > offscreenCanvas.width):
                 pos = 0
             time.sleep(5)
             time.sleep(0.025)

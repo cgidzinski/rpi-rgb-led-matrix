@@ -38,7 +38,7 @@ class RunText(SampleBase):
            
             
             # posB -= 1
-            if (posA > len(TextA)):
+            if (posA > len(textA)):
                 posA = 0
 
             # if (posB + lenB < 0):

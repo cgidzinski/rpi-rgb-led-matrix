@@ -43,7 +43,7 @@ class RunText(SampleBase):
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
             textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
-            # posA += 1
+            posA += 1
             posB -= 1
             # if (posA > offscreenCanvas.width):
             #     posA = -lenA

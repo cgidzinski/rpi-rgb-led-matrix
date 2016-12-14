@@ -39,7 +39,7 @@ class RunText(SampleBase):
             posB -= 1
             if (posA > offscreenCanvas.width):
                 posA = -lenA
-            if (posB + lenB < 0):
+            if ( lenB < posB):
                 posB = offscreenCanvas.width
 
             time.sleep(0.03)

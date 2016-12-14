@@ -39,7 +39,7 @@ class RunText(SampleBase):
             
             
             scrollTextA = textA[0+posA:32+posA]
-            time.sleep(0.3)
+            time.sleep(0.1)
             posA += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

@@ -24,8 +24,8 @@ class RunText(SampleBase):
         posA = 0
         posB = offscreenCanvas.width
 
-        textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
-        textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
+        textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
+        textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = "Why you play the babby gam?"
 
         while True:
@@ -38,7 +38,7 @@ class RunText(SampleBase):
             posA += 1
             posB -= 1
             if (posA > offscreenCanvas.width):
-                posA = 0 - lenA
+                posA = 0 
             if (posB + lenB < 0):
                 posB = offscreenCanvas.width
 

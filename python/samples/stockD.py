@@ -40,7 +40,7 @@ class RunText(SampleBase):
             totalLength = 0
             while totalLength < offscreenCanvas.width:
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+totalLength, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-                totalLength += lenTop
+                totalLength += (lenTop+8)
 
 
 
@@ -49,7 +49,7 @@ class RunText(SampleBase):
             lenBottom = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, "COST 163.24 GILD 72.54 OTX 88.46")
            
 
-
+            pos +=1
 
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

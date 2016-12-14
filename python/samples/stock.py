@@ -30,11 +30,11 @@ class RunText(SampleBase):
    
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
-
+        totalOffset = 0
         while True:
             offscreenCanvas.Clear()
 
-            totalOffset = 0
+            
             for x in xrange(0,len(textTop)):
                 lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffset), 11, textTop[x][1], textTop[x][0])
                 totalOffset += (lenAA+8)

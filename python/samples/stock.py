@@ -13,8 +13,8 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
-        font.LoadFont("../../fonts/9x15.bdf")
-        textColor = graphics.Color(000, 255, 255)
+        font.LoadFont("../../fonts/7x14.bdf")
+        textColor = graphics.Color(000, 000, 255)
         pos = 0
         myText = "Costco +5.00%"
 

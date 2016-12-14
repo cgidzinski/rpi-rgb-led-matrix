@@ -24,10 +24,10 @@ class RunText(SampleBase):
 
 
         # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
-        textData = [["C","O", "S","T",green],["G","I","L","D",blue],["O","T","E","X",red],["C","O", "S","T",green],["G","I","L","D",blue],["O","T","E","X",red]]
+        textData = [["C","O", "S","T",green],["G","I","L","D",blue],["O","T","E","X",red]]
         posA = 0
         while True:
-            offscreenCanvas.Clear()
+            # offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
             textTime = strftime("%H:%M:%S", localtime())
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
@@ -39,7 +39,6 @@ class RunText(SampleBase):
             for x in xrange(0,len(textData)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+totalLength, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
                 totalLength += (lenTop+8)
-
 
 
 

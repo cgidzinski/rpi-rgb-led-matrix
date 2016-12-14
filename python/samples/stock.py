@@ -21,11 +21,11 @@ class RunText(SampleBase):
         blue = graphics.Color(0, 0, 255)
         white = graphics.Color(255, 255, 255)
 
-        posA = 0
-        posB = offscreenCanvas.width
+        posA = offscreenCanvas.width
+        posB = 0
 
-        textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
-        textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
+        textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
+        textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = "Why you play the babby gam?"
 
         while True:

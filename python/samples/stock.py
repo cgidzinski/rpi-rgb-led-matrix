@@ -26,7 +26,7 @@ class RunText(SampleBase):
         posB = 0
         textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
-        textC = strftime("%a, %d %b %Y %H:%M:%S", localtime(none))
+        textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
 
         while True:
             offscreenCanvas.Clear()

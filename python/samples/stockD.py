@@ -56,7 +56,7 @@ class RunText(SampleBase):
                     x+=1
                     textQueue.append([offscreenCanvas.width,x])
                 else:
-                    x = 0
+                    x = 1
                     textQueue.append([offscreenCanvas.width,x])
 
 

@@ -13,7 +13,7 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
-        font.LoadFont("../../fonts/7x14.bdf")
+        font.LoadFont("../../fonts/8x13.bdf")
         green = graphics.Color(0, 255, 0)
         red = graphics.Color( 255, 0, 0)
         blue = graphics.Color(0, 0, 255)
@@ -21,8 +21,8 @@ class RunText(SampleBase):
 
         posA = 0
         posB = offscreenCanvas.width
-        textA = "PCostco +5.10%"
-        textB = "Opentext +1.56%"
+        textA = "QWERTYUIOP"
+        textB = "qwertyuiop"
 
         while True:
             offscreenCanvas.Clear()

@@ -37,7 +37,7 @@ class RunText(SampleBase):
 
             # lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, red, textA)
             i = 0
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textTop[i,1], textTop[i,0])
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textTop[i][1], textTop[i][0])
 
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)

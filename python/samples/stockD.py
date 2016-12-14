@@ -52,7 +52,7 @@ class RunText(SampleBase):
                 textQueueTop[i][0] -=1
 
             for i in xrange(0,len(textQueueBottom)):
-                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 11, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 22, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
                 textQueueBottom[i][0] -=1
 
 

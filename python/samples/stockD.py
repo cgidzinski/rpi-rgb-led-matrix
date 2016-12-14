@@ -69,7 +69,7 @@ class RunText(SampleBase):
                     IndexBottom-=1
                 else:
                     IndexBottom = len(textData)-1
-                textQueueBottom.append([offscreenCanvas.width,IndexBottom])
+                textQueueBottom.append([0,IndexBottom])
            
             time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

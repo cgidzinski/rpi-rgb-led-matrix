@@ -24,7 +24,7 @@ class RunText(SampleBase):
 
         posA = 0 #offscreenCanvas.width
 
-        textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","161.34", "+0.53","+0.22%",blue],["OTX","161.34", "+0.53","+0.22%",red]]
+        textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
    
 
         while True:
@@ -52,7 +52,7 @@ class RunText(SampleBase):
 
 
 
-            lenBottom = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, "COST 163.24 GILD 72.54 OTEX 88.46")
+            lenBottom = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, "COST 163.24 GILD 72.54 OTX 88.46")
            
 
 

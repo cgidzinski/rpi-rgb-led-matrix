@@ -28,7 +28,7 @@ class RunText(SampleBase):
         textTop = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
         textBottom = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
    
-        textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
+        textC = strftime("%a, %d %b %Y                %H:%M:%S", localtime())
 
         while True:
             offscreenCanvas.Clear()
@@ -51,10 +51,12 @@ class RunText(SampleBase):
             
             posA += 1
             posB -= 1
+
             if (posA > totalOffsetTop-(8*len(textTop))):
                 posA = 0
 
             if (posB + totalOffsetBottom < 0):
+                # not visible re-add
                 posB = offscreenCanvas.width
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

@@ -28,11 +28,10 @@ class RunText(SampleBase):
         textTop = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
         textBottom = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
    
-        textC = strftime("%A, %B %d, %Y                %H:%M:%S", localtime())
 
         while True:
             offscreenCanvas.Clear()
-            textDate = strftime("%a, %d %b %Y", localtime())
+            textDate = strftime("%A, %B %d, %Y", localtime())
             textTime = strftime("%H:%M:%S", localtime())
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)

@@ -64,7 +64,7 @@ class RunText(SampleBase):
                     IndexTop = 0
                 textQueueTop.append([offscreenCanvas.width,IndexTop])
 
-            if (textQueueBottom[0][0] == 8):
+            if (textQueueTop[len(textQueueTop)-1][0] == 8):
                 if IndexBottom != 0:
                     IndexBottom-=1
                 else:

@@ -15,7 +15,7 @@ class RunText(SampleBase):
         font.LoadFont("../../fonts/7x13.bdf")
         textColor = graphics.Color(255, 255, 255)
         pos = offscreenCanvas.width
-        myText = "Costco +5.00%"
+        myText = "Costco +5.00% ^^"
 
         while True:
             offscreenCanvas.Clear()

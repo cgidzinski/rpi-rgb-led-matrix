@@ -45,7 +45,7 @@ class RunText(SampleBase):
             textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
             posA += 1
             posB -= 1
-            if (posA > totalOffset-8):
+            if (posA > totalOffset-(8*len(textTop))):
                 posA = 0
 
             if (posB + lenB < 0):

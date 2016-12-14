@@ -25,8 +25,7 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
-        textBottom = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
+        textData = [["Costco [COST]", "+0.53","+0.22%",green],["Gilead Sciences [GILD]", "+0.53","+0.22%",blue],["OpenText [OTX]", "+0.53","+0.22%",red]]
    
 
         while True:
@@ -40,25 +39,25 @@ class RunText(SampleBase):
 
 
             totalOffsetTop = 0
-            for x in xrange(0,len(textTop)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textTop[x][3], textTop[x][1]+" "+textTop[x][1] +" ("+ textTop[x][2]+")")
+            for x in xrange(0,len(textData)):
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textData[x][3], textData[x][1]+" "+textData[x][1] +" ("+ textData[x][2]+")")
                 totalOffsetTop += (lenTop+8)
             posA -= 1
 
 
             if (posA + totalOffsetTop < 0):
-                posA = offscreenCanvas.width
+                posA = offscreenCanvas.widthl
 
 
 
 
 
             totalOffsetBottom = 0
-            for x in xrange(0,len(textBottom)):
-                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textTop[x][3],  textTop[x][1]+" "+textTop[x][1] +" ("+ textTop[x][2]+")")
+            for x in xrange(0,len(textData)):
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, posB+(totalOffsetBottom), 22, textData[x][3],  textData[x][1]+" "+textData[x][1] +" ("+ textData[x][2]+")")
                 totalOffsetBottom += (lenBottom+8)
             posB += 1
-            if (posB > totalOffsetBottom-(8*len(textBottom))):
+            if (posB > totalOffsetBottom-(8*len(textData))):
                 posB = 0
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
@@ -69,3 +68,14 @@ if __name__ == "__main__":
     parser = RunText()
     if (not parser.process()):
         parser.print_help()
+
+
+            # totalOffsetTop = 0
+            # for x in xrange(0,len(textData)):
+            #     lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textData[x][3], textData[x][1]+" "+textData[x][1] +" ("+ textData[x][2]+")")
+            #     totalOffsetTop += (lenTop+8)
+            # posA -= 1
+
+
+            # if (posA + totalOffsetTop < 0):
+            #     posA = offscreenCanvas.width

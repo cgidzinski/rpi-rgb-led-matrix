@@ -16,7 +16,7 @@ class RunText(SampleBase):
         fontBig = graphics.Font()
         fontBig.LoadFont("../../fonts/8x13B.bdf")
         fontSmall = graphics.Font()
-        fontSmall.LoadFont("../../fonts/6x10B.bdf")
+        fontSmall.LoadFont("../../fonts/6x10.bdf")
         green = graphics.Color(0, 255, 0)
         red = graphics.Color( 255, 0, 0)
         blue = graphics.Color(0, 0, 255)
@@ -24,11 +24,12 @@ class RunText(SampleBase):
 
 
         textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
-        textQueue = [] #pos #index
-        posA = offscreenCanvas.width
-        x=0
-        totalLength = 0
-
+        textQueueTop = [] #pos #index
+        textQueueBottom = [] #pos #index
+        posTop = offscreenCanvas.width
+        posBottom = offscreenCanvas.width
+        IndexTop=0
+        IndexBottom=0
        
 
         while True:
@@ -38,29 +39,30 @@ class RunText(SampleBase):
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)
 
-            if len(textQueue) == 0:
-                textQueue.append([offscreenCanvas.width,x])
+            if len(textQueueTop) == 0:
+                textQueueTop.append([offscreenCanvas.width,IndexTop])
+
+            if len(textQueueBottom) == 0:
+                textQueueBottom.append([offscreenCanvas.width,IndexBottom])
 
             
 
 
-            for i in xrange(0,len(textQueue)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontSmall, textQueue[i][0], 11, textData[textQueue[i][1]][4], textData[textQueue[i][1]][0] +" "+ textData[textQueue[i][1]][1] +" "+ textData[textQueue[i][1]][2] +" ("+ textData[textQueue[i][1]][3]+")")
-                textQueue[i][0] -=1
+            for i in xrange(0,len(textQueueTop)):
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueueTop[i][0], 11, textData[textQueueTop[i][1]][4], textData[textQueueTop[i][1]][0] +" "+ textData[textQueueTop[i][1]][1] +" "+ textData[textQueueTop[i][1]][2] +" ("+ textData[textQueueTop[i][1]][3]+")")
+                textQueueTop[i][0] -=1
 
 
 
-            if (textQueue[len(textQueue)-1][0] == (offscreenCanvas.width - lenTop-8)):
-                if x != len(textData)-1:
-                    x+=1
+            if (textQueueTop[len(textQueueTop)-1][0] == (offscreenCanvas.width - lenTop-8)):
+                if IndexTop != len(textData)-1:
+                    IndexTop+=1
                 else:
-                    x = 0
-                textQueue.append([offscreenCanvas.width,x])
+                    IndexTop = 0
+                textQueueTop.append([offscreenCanvas.width,IndexTop])
 
 
-            lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(x))
-            lenBottom2 = graphics.DrawText(offscreenCanvas, fontBig, 50, 22,blue, str(len(textData)))
-
+           
             time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

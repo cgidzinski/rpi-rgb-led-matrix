@@ -27,9 +27,9 @@ class RunText(SampleBase):
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
         posTop = offscreenCanvas.width
-        posBottom = offscreenCanvas.width
+        posBottom = 0
         IndexTop=0
-        IndexBottom=0
+        IndexBottom=len(textData)-1
        
 
         while True:
@@ -53,7 +53,7 @@ class RunText(SampleBase):
 
             for i in xrange(0,len(textQueueBottom)):
                 lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 22, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
-                textQueueBottom[i][0] -=1
+                textQueueBottom[i][0] +=1
 
 
 
@@ -64,11 +64,11 @@ class RunText(SampleBase):
                     IndexTop = 0
                 textQueueTop.append([offscreenCanvas.width,IndexTop])
 
-            if (textQueueBottom[len(textQueueBottom)-1][0] == (offscreenCanvas.width - lenBottom-8)):
-                if IndexBottom != len(textData)-1:
-                    IndexBottom+=1
+            if (textQueueBottom[len(textQueueBottom)-1][0] == (lenBottom-8)):
+                if IndexBottom != 0:
+                    IndexBottom-=1
                 else:
-                    IndexBottom = 0
+                    IndexBottom = len(textData)-1
                 textQueueBottom.append([offscreenCanvas.width,IndexBottom])
            
             time.sleep(0.03)

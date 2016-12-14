@@ -54,7 +54,7 @@ class RunText(SampleBase):
 
 
             lenBottom1 = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, str(totalLength))
-            lenBottom2 = graphics.DrawText(offscreenCanvas, fontBig, 50, 22,blue, str(posA))
+            lenBottom2 = graphics.DrawText(offscreenCanvas, fontBig, 50, 22,blue, str(posA-totalLength))
 
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

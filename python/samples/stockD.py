@@ -22,10 +22,9 @@ class RunText(SampleBase):
         blue = graphics.Color(0, 0, 255)
         white = graphics.Color(255, 255, 255)
 
-        posA = 0 #offscreenCanvas.width
 
         textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
-   
+        
 
         while True:
             offscreenCanvas.Clear()
@@ -36,16 +35,10 @@ class RunText(SampleBase):
 
 
 
-
-            totalOffsetTop = 0
-            for x in xrange(0,len(textData)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-                totalOffsetTop += (lenTop+8)
-            posA -= 1
-
-
-            if (posA + totalOffsetTop < 0):
-                posA = offscreenCanvas.width
+            posA = 0
+            x=0
+            lenName = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textData[x][4], textData[x][0])
+            lenValue = graphics.DrawText(offscreenCanvas, fontBig, posA+(lenName), 11, textData[x][4], textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
 
 
 

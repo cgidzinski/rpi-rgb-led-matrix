@@ -16,7 +16,7 @@ class RunText(SampleBase):
         fontBig = graphics.Font()
         fontBig.LoadFont("../../fonts/8x13B.bdf")
         fontSmall = graphics.Font()
-        fontSmall.LoadFont("../../fonts/6x10.bdf")
+        fontSmall.LoadFont("../../fonts/6x10B.bdf")
         green = graphics.Color(0, 255, 0)
         red = graphics.Color( 255, 0, 0)
         blue = graphics.Color(0, 0, 255)

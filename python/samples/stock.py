@@ -25,7 +25,7 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = ["COST +3.14 (+2.68%)","COST +3.14 (+2.68%)","COST +3.14 (+2.68%)"]
+        textTop = [["COST +3.14 (+2.68%)",red],["COST +3.14 (+2.68%)",blue],["COST +3.14 (+2.68%)",green]]
 
    
         # textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
@@ -36,8 +36,8 @@ class RunText(SampleBase):
             offscreenCanvas.Clear()
 
             # lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, red, textA)
-
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, red, textTop[0])
+            i = 0
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textTop[i,1], textTop[i,0])
 
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
@@ -50,9 +50,7 @@ class RunText(SampleBase):
 
             if (posB + lenB < 0):
                 posB = offscreenCanvas.width
-            # scrollTextA = textA[0+posA:32+posA]
             time.sleep(0.035)
-            # posA += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 

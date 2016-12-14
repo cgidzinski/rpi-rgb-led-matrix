@@ -25,7 +25,13 @@ class RunText(SampleBase):
 
         # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
         textData = [["C","O", "S","T",green],["G","I","L","D",blue]]
+        textQueue = [] #pos #index
         posA = offscreenCanvas.width
+        x=0
+        totalLength = 0
+
+        textQueue.append([posA+totalLength,x])
+
         while True:
             offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
@@ -33,15 +39,23 @@ class RunText(SampleBase):
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)
 
-            x=0
-            totalLength = 0
+            
 
-            lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-            totalLength += (lenTop+8)
+            
 
-            if (posA == (offscreenCanvas.width - lenTop+8)):
-                lenTop = graphics.DrawText(offscreenCanvas, fontBig, totalLength + posA, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-            posA-=1
+
+            for i in xrange(0,len(textQueue)):
+                lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueue[i][0], 11, textData[textQueue[i][1]][4], textData[textQueue[i][1]][0])
+                # totalLength += (lenTop+8)
+                textQueue[i][0] -=1
+
+
+
+
+
+            # if (posA == (offscreenCanvas.width - lenTop+8)):
+            #     lenTop = graphics.DrawText(offscreenCanvas, fontBig, totalLength + posA, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
+            # posA-=1
 
 
 

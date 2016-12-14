@@ -36,9 +36,9 @@ class RunText(SampleBase):
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
             # posA += 1
-            posB -= 1
-            if (posA > offscreenCanvas.width):
-                posA = -lenA
+            # posB -= 1
+            # if (posA > offscreenCanvas.width):
+            #     posA = -lenA
 
             # if (posB + lenB < 0):
             #     posB = offscreenCanvas.width

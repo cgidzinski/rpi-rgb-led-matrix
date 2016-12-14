@@ -12,8 +12,10 @@ class RunText(SampleBase):
     def Run(self):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
-        font = graphics.Font()
-        font.LoadFont("../../fonts/8x13.bdf")
+        fontBig = graphics.Font()
+        fontBig.LoadFont("../../fonts/8x13.bdf")
+        fontSmall = graphics.Font()
+        fontSmall.LoadFont("../../fonts/6x10.bdf")
         green = graphics.Color(0, 255, 0)
         red = graphics.Color( 255, 0, 0)
         blue = graphics.Color(0, 0, 255)
@@ -29,9 +31,9 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
 
-            lenA = graphics.DrawText(offscreenCanvas, font, posA, 10, blue, textA)
-            lenB = graphics.DrawText(offscreenCanvas, font, posB, 20, green, textB)
-            lenC = graphics.DrawText(offscreenCanvas, font, 0, 32, green, textC)
+            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 10, blue, textA)
+            lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 21, green, textB)
+            lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 32, white, textC)
            
             posA += 1
             posB -= 1

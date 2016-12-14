@@ -25,8 +25,8 @@ class RunText(SampleBase):
         posA = 0 #offscreenCanvas.width
         posB = 0
 
-        textTop = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
-        textBottom = [["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green],["COST",red],["GILD",blue],["OTX",green]]
+        textTop = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
+        textBottom = [["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green],["COST +0.53 (+0.22%)",red],["GILD +0.53 (+0.22%)",blue],["OTX +0.53 (+0.22%)",green]]
    
 
         while True:

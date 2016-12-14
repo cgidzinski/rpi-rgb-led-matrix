@@ -10,7 +10,6 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 
     def Run(self):
-        self.matrix = RGBMatrix(1, 8, 1)
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
@@ -21,7 +20,7 @@ class RunText(SampleBase):
 
         while True:
             offscreenCanvas.Clear()
-            len = graphics.DrawText(offscreenCanvas, font, pos, 8, textColor, myText)
+            len = graphics.DrawText(offscreenCanvas, font, pos, 12, textColor, myText)
             pos -= 1
             if (pos + len < 0):
                 pos = offscreenCanvas.width

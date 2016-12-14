@@ -52,7 +52,7 @@ class RunText(SampleBase):
 
 
             if (textQueue[x][0] == (offscreenCanvas.width - lenTop-8)):
-                if x <= len(textData):
+                if x <= len(textData)-1:
                     x+=1
                     textQueue.append([offscreenCanvas.width,x])
                 else:

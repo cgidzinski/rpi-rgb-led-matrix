@@ -27,7 +27,7 @@ class RunText(SampleBase):
         textData = [["C","O", "S","T",green],["G","I","L","D",blue],["O","T","E","X",red]]
         posA = 0
         while True:
-            # offscreenCanvas.Clear()
+            offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
             textTime = strftime("%H:%M:%S", localtime())
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
@@ -40,15 +40,18 @@ class RunText(SampleBase):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+totalLength, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
                 totalLength += (lenTop+8)
 
+            posA -=1
+
+            if (posA + totalOffsetTop < 0):
+                posA = offscreenCanvas.width
+
+
+
 
 
 
 
             lenBottom = graphics.DrawText(offscreenCanvas, fontBig, 0, 22,blue, "COST 163.24 GILD 72.54 OTX 88.46")
-           
-
-            posA -=1
-
             time.sleep(0.035)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

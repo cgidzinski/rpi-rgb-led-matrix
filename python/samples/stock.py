@@ -15,16 +15,16 @@ class RunText(SampleBase):
         font = graphics.Font()
         font.LoadFont("../../fonts/7x14.bdf")
         textColor = graphics.Color(255, 255, 255)
-        pos = offscreenCanvas.width
+        pos = 0
         myText = "Costco +5.00%"
 
         while True:
             offscreenCanvas.Clear()
-            len = graphics.DrawText(offscreenCanvas, font, pos, 10, textColor, myText)
-            pos -= 1
-            if (pos + len < 0):
-                pos = offscreenCanvas.width
-
+            len = graphics.DrawText(offscreenCanvas, font, pos, 1, textColor, myText)
+            pos += 1
+            if (pos + len < offscreenCanvas.width):
+                pos = 0
+            time.sleep(5)
             time.sleep(0.025)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

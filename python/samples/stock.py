@@ -22,9 +22,9 @@ class RunText(SampleBase):
         posA = 0
         posB = offscreenCanvas.width
 
-        textA = "QWERTYUIOP"
-        textB = "QWERTYUIOP"
-        textC = "QWERTYUIOP"
+        textA = "StockA -0.14"
+        textB = "StockB 4.14"
+        textC = "StockA -0.14 StockB +4.14 StockC +5.34"
 
         while True:
             offscreenCanvas.Clear()

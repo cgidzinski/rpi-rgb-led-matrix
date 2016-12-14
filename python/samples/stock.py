@@ -38,9 +38,9 @@ class RunText(SampleBase):
             i = 0
             lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+0, 11, textTop[i][1], textTop[i][0])
             i = 1
-            lenAB = graphics.DrawText(offscreenCanvas, fontBig, posA+(12*8), 11, textTop[i][1], textTop[i][0])
-            i = 2
-            lenAC = graphics.DrawText(offscreenCanvas, fontBig, posA+(24*8), 11, textTop[i][1], textTop[i][0])
+            lenAB = graphics.DrawText(offscreenCanvas, fontBig, posA+(lenAA), 11, textTop[i][1], textTop[i][0])
+            # i = 2
+            # lenAC = graphics.DrawText(offscreenCanvas, fontBig, posA+(24*8), 11, textTop[i][1], textTop[i][0])
 
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)

@@ -23,8 +23,7 @@ class RunText(SampleBase):
         white = graphics.Color(255, 255, 255)
 
 
-        # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
-        textData = [["C","O", "S","T",green],["G","I","L","D",blue]]
+        textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
         textQueue = [] #pos #index
         posA = offscreenCanvas.width
         x=0

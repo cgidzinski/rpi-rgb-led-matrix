@@ -28,7 +28,6 @@ class RunText(SampleBase):
         textTop = [["COST +3.14 (+2.68%)",red],["COST +3.14 (+2.68%)",blue],["COST +3.14 (+2.68%)",green]]
 
    
-        # textA = "COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%) COST +3.14 (+2.68%)"
         textB = "GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%) GILD +6.54 (+3.23%)"
         textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
 
@@ -37,16 +36,20 @@ class RunText(SampleBase):
 
             # lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, red, textA)
             i = 0
-            lenA = graphics.DrawText(offscreenCanvas, fontBig, posA, 11, textTop[i][1], textTop[i][0])
+            lenAA = graphics.DrawText(offscreenCanvas, fontBig, posA+0, 11, textTop[i][1], textTop[i][0])
+            i = 1
+            lenAB = graphics.DrawText(offscreenCanvas, fontBig, posA+12, 11, textTop[i][1], textTop[i][0])
+            i = 2
+            lenAC = graphics.DrawText(offscreenCanvas, fontBig, posA+24, 11, textTop[i][1], textTop[i][0])
 
             lenB = graphics.DrawText(offscreenCanvas, fontBig, posB, 22, green, textB)
             lenC = graphics.DrawText(offscreenCanvas, fontSmall, 0, 30, white, textC)
            
             textC = strftime("%a, %d %b %Y %H:%M:%S", localtime())
-            posA += 1
+            # posA += 1
             posB -= 1
-            if (posA > offscreenCanvas.width):
-                posA = -lenA
+            # if (posA > offscreenCanvas.width):
+            #     posA = -lenA
 
             if (posB + lenB < 0):
                 posB = offscreenCanvas.width

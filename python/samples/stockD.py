@@ -38,17 +38,17 @@ def get_value(identifier):
 
 def getPrices():
     while True:
-        print "Getting Data"
+        print "Getting Update Data"
         for itm in xrange(0,len(symbols)):
             textData[itm] = get_value(symbols[itm])
-        print "Got Data"
+        print "Got Data\r\n"
         time.sleep(60)
         
 def getInitialPrices():
     print "Getting Initial Data"
     for itm in xrange(0,len(symbols)):
         textData.append(get_value(symbols[itm]))
-    print "Got Data"
+    print "Got Data\r\n"
     return
 
 class RunText(SampleBase):

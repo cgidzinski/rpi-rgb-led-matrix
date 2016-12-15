@@ -30,11 +30,11 @@ def get_value():
     j = json.loads(value[4:len(value)-1])
     for i in xrange(0,len(j)):
         returnString = [str(j[i]['t']),str(j[i]['l']),str(j[i]['c']),str(j[i]['cp'])]
-        if float(j['c']) == 0.00:
+        if float(j[i]['c']) == 0.00:
             returnString.append(blue)
-        if float(j['c']) > 0.00:
+        if float(j[i]['c']) > 0.00:
             returnString.append(green)
-        if float(j['c']) < 0.00:
+        if float(j[i]['c']) < 0.00:
             returnString.append(red)  
         textData.append(returnString) 
     print textData

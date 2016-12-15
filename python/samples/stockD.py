@@ -36,23 +36,20 @@ def get_value(identifier):
         returnString.append(red)    
     return returnString
 
-def getPrices(initialRun):
-    while initialRun == False:
-        os.system("clear")
+def getPrices():
+    while True:
         print "Getting Data"
         for itm in xrange(0,len(symbols)):
-            print "getting " + str(symbols[itm])
-            if initialRun == True:
-                print "initital Run"
-                textData.append(get_value(symbols[itm]))
-            else:
-                print "ypdate run"
-                textData[itm] = get_value(symbols[itm])
+            textData[itm] = get_value(symbols[itm])
         print "Got Data"
-        if initialRun == False:
-            time.sleep(60)
+        time.sleep(60)
         
-
+def getInitialPrices():
+    print "Getting Initial Data"
+    for itm in xrange(0,len(symbols)):
+        textData.append(get_value(symbols[itm]))
+    print "Got Data"
+    return
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -62,7 +59,7 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
-        getPrices(True)
+        getInitialPrices()
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
@@ -73,7 +70,7 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=getPrices,args=(False))
+        t = Thread(target=getPrices)
         t.daemon = True
         t.start()
 

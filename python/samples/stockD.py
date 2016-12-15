@@ -6,6 +6,9 @@ from rgbmatrix import RGBMatrix
 import time
 from time import localtime, strftime
 
+textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
+
+
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
         super(RunText, self).__init__(*args, **kwargs)
@@ -22,8 +25,6 @@ class RunText(SampleBase):
         blue = graphics.Color(0, 0, 255)
         white = graphics.Color(255, 255, 255)
 
-
-        textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
 
@@ -33,22 +34,16 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-       
-
         while True:
             offscreenCanvas.Clear()
-            textDate = strftime("%B %d, %Y", localtime())
-            textTime = strftime("%I:%M:%S %p", localtime())
-            graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
-            graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, textTime)
+            graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, strftime("%B %d, %Y", localtime()))
+            graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, strftime("%I:%M:%S %p", localtime()))
 
             if len(textQueueTop) == 0:
                 textQueueTop.append([posTop,IndexTop])
 
             if len(textQueueBottom) == 0:
                 textQueueBottom.append([posBottom,IndexBottom])
-
-
 
             for i in xrange(0,len(textQueueTop)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueueTop[i][0], 11, textData[textQueueTop[i][1]][4], textData[textQueueTop[i][1]][0] +" "+ textData[textQueueTop[i][1]][1] +" "+ textData[textQueueTop[i][1]][2] +" ("+ textData[textQueueTop[i][1]][3]+")")
@@ -57,8 +52,6 @@ class RunText(SampleBase):
             for i in xrange(0,len(textQueueBottom)):
                 lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 23, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
                 textQueueBottom[i][0] +=1
-
-
 
             if (textQueueTop[len(textQueueTop)-1][0] == (offscreenCanvas.width - lenTop-8)):
                 if IndexTop != len(textData)-1:
@@ -75,10 +68,8 @@ class RunText(SampleBase):
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
            
-            time.sleep(0.02)
+            time.sleep(0.025)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-
-
 # Main function
 if __name__ == "__main__":
     parser = RunText()

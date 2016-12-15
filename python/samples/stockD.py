@@ -45,6 +45,7 @@ class RunText(SampleBase):
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
         t = Thread(target=getPrices)
+        t.daemon = True
         t.start()
 
         while True:

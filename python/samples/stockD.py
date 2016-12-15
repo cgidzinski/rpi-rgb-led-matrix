@@ -50,12 +50,17 @@ def getPrices():
     global initData
     while True:
         os.system("clear")
-        print "--- Stock Catcher ---"
+        print "------------------------------------------"
+        print "--- Stock Catcher ------------------------"
+        print "------------------------------------------"
         print "--- Stock List: " + ','.join(symbols)
-        print "---------------------"
+        print "--- Update Interval: " + str(interval)
+        print "--- Scroll Speed: " + str(speed)
+        print "------------------------------------------"
         print "Getting Update Data"
         textData = get_value()
         print "Got Data at " +strftime("%I:%M:%S %p", localtime()) + "\r\n"
+        print "------------------------------------------"
         initData = True
         time.sleep(interval)
 #

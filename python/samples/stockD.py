@@ -59,7 +59,7 @@ def getPrices():
         print "------------------------------------------"
         print "Getting Update Data"
         textData = get_value()
-        print "Got Data at " +strftime("%I:%M:%S %p", localtime()) + "\r\n"
+        print "Got Data at " + strftime("%I:%M:%S %p", localtime())
         print "------------------------------------------"
         initData = True
         time.sleep(interval)

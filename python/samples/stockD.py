@@ -21,9 +21,10 @@ textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","
 def getPrices():
     while True:
         print "thread sleeps"
-        time.sleep(1)
+        time.sleep(5)
         print "thread woke up"
-        time.sleep(1)
+        time.sleep(5)
+        textData[0][0] = "WOW"
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):

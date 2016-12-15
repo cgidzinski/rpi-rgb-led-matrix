@@ -21,8 +21,8 @@ blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
 symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
-textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
-
+# textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
+textData = []
 def get_value(identifier):
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
@@ -36,14 +36,15 @@ def get_value(identifier):
         returnString.append(red)    
     return returnString
 
-def getPrices():
+def getPrices(wait):
     while True:
         os.system("clear")
         print "Getting Data"
         for itm in xrange(0,len(symbols)):
             textData[itm] = get_value(symbols[itm])
         print "Got Data"
-        time.sleep(5)
+        if wait == True:
+            time.sleep(60)
         
 
 
@@ -55,6 +56,8 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
+        getPrices(False)
+
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
 
@@ -64,7 +67,7 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=getPrices)
+        t = Thread(target=getPrices,args=(True))
         t.daemon = True
         t.start()
 

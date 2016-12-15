@@ -24,7 +24,7 @@ symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
 # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 textData = []
 def get_value():
-    identifier = symbols.join(",")
+    identifier = ','.join(symbols)
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
     print(value)

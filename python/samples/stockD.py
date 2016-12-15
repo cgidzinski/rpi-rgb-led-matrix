@@ -19,10 +19,9 @@ white = graphics.Color(255, 255, 255)
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 
 def getPrices():
-    print "thread %d sleeps for 5 seconds" % i
+    print "thread sleeps for 5 seconds"
     time.sleep(1)
-    print "thread %d woke up" % i
-    time.sleep(1)
+    print "thread woke up"
 
 
 class RunText(SampleBase):

@@ -39,13 +39,13 @@ def get_value():
     quit() 
     return returnString
 
-def getPrices():
-    while True:
-        print "Getting Update Data"
-        for itm in xrange(0,len(symbols)):
-            # textData[itm] = get_value(symbols[itm])
-        print "Got Data\r\n"
-        time.sleep(60)
+# def getPrices():
+#     while True:
+#         print "Getting Update Data"
+#         for itm in xrange(0,len(symbols)):
+#             # textData[itm] = get_value(symbols[itm])
+#         print "Got Data\r\n"
+#         time.sleep(60)
         
 def getInitialPrices():
     print "Getting Initial Data"
@@ -72,9 +72,9 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=getPrices)
-        t.daemon = True
-        t.start()
+        # t = Thread(target=getPrices)
+        # t.daemon = True
+        # t.start()
 
         while True:
             offscreenCanvas.Clear()

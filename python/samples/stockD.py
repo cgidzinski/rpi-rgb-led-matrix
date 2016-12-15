@@ -26,15 +26,21 @@ def get_value(identifier):
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
     j = json.loads(value[5:len(value)-2])
-    return [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
+    returnString = [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
+    if int(j['c']) == 0:
+        returnString.append("blue")
+    if int(j['c']) > 0:
+        returnString.append("green")
+    if int(j['c']) < 0:
+        returnString.append("red")    
+    return returnString
 
 def getPrices():
     while True:
         print "Getting Data"
-        textData[0][0] = "WOW"
+        textData[0] = get_value("NASDAQ:AAPL")
         print "Got Data"
-        print(get_value("NASDAQ:AAPL"))
-        time.sleep(1)
+        time.sleep(5)
         
 
 

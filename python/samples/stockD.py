@@ -20,7 +20,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
-symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
+symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA"]
 initData = False
 textData = []
 textQueueTop = [] #pos #index

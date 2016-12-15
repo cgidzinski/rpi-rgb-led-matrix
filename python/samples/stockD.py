@@ -75,7 +75,7 @@ class RunText(SampleBase):
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
            
-            time.sleep(0.03)
+            time.sleep(0.02)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
 
@@ -84,31 +84,3 @@ if __name__ == "__main__":
     parser = RunText()
     if (not parser.process()):
         parser.print_help()
-
-
-            # totalOffsetTop = 0
-            # for x in xrange(0,len(textData)):
-            #     lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+(totalOffsetTop), 11, textData[x][3], textData[x][1]+" "+textData[x][1] +" ("+ textData[x][2]+")")
-            #     totalOffsetTop += (lenTop+8)
-            # posA -= 1
-
-
-            # if (posA + totalOffsetTop < 0):
-            #     posA = offscreenCanvas.width
-
-
-
-
-
-
-            # totalLength = 0
-            # for x in xrange(0,len(textData)):
-            #     lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+totalLength, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-            #     totalLength += (lenTop+8)
-
-            # posA -=1
-
-            # if (posA  < 0+8):
-            #     posA = offscreenCanvas.width
-            #     # lenTop = graphics.DrawText(offscreenCanvas, fontBig, posA+totalLength, 11, textData[x][4], textData[x][0]+" "+textData[x][1]+" "+textData[x][2] +" ("+ textData[x][3]+")")
-            #     # totalLength += (lenTop+8)

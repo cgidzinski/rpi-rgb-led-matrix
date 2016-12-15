@@ -23,31 +23,33 @@ white = graphics.Color(255, 255, 255)
 symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
 # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 textData = []
-def get_value(identifier):
+def get_value():
+    identifier = symbols.join(",")
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
-    j = json.loads(value[5:len(value)-2])
-    returnString = [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
-    if float(j['c']) == 0.00:
-        returnString.append(blue)
-    if float(j['c']) > 0.00:
-        returnString.append(green)
-    if float(j['c']) < 0.00:
-        returnString.append(red)    
+    print(value)
+    # j = json.loads(value[5:len(value)-2])
+    # returnString = [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
+    # if float(j['c']) == 0.00:
+    #     returnString.append(blue)
+    # if float(j['c']) > 0.00:
+    #     returnString.append(green)
+    # if float(j['c']) < 0.00:
+    #     returnString.append(red)   
+    quit() 
     return returnString
 
 def getPrices():
     while True:
         print "Getting Update Data"
         for itm in xrange(0,len(symbols)):
-            textData[itm] = get_value(symbols[itm])
+            # textData[itm] = get_value(symbols[itm])
         print "Got Data\r\n"
         time.sleep(60)
         
 def getInitialPrices():
     print "Getting Initial Data"
-    for itm in xrange(0,len(symbols)):
-        textData.append(get_value(symbols[itm]))
+    get_value()
     print "Got Data\r\n"
     return
 

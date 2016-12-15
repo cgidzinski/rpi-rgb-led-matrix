@@ -24,34 +24,32 @@ symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
 # textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 textData = []
 def get_value():
+    textDataArray = []
     identifier = ','.join(symbols)
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
     j = json.loads(value[4:len(value)-1])
     for i in xrange(0,len(j)):
-        returnString = [str(j[i]['t']),str(j[i]['l']),str(j[i]['c']),str(j[i]['cp'])]
+        dataItem = [str(j[i]['t']),str(j[i]['l']),str(j[i]['c']),str(j[i]['cp'])]
         if float(j[i]['c']) == 0.00:
-            returnString.append(blue)
+            dataItem.append(blue)
         if float(j[i]['c']) > 0.00:
-            returnString.append(green)
+            dataItem.append(green)
         if float(j[i]['c']) < 0.00:
-            returnString.append(red)  
-        textData.append(returnString) 
-    print textData
-    quit() 
-    return returnString
+            dataItem.append(red)   
+        textDataArray.append(dataItem)    
+    return textDataArray
 
-# def getPrices():
-#     while True:
-#         print "Getting Update Data"
-#         for itm in xrange(0,len(symbols)):
-#             # textData[itm] = get_value(symbols[itm])
-#         print "Got Data\r\n"
-#         time.sleep(60)
+def getPrices():
+    while True:
+        print "Getting Update Data"
+        textData = get_value()
+        print "Got Data\r\n"
+        time.sleep(60)
         
 def getInitialPrices():
     print "Getting Initial Data"
-    get_value()
+    textData = get_value()
     print "Got Data\r\n"
     return
 

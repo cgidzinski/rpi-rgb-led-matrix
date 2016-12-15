@@ -17,15 +17,24 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
+symbols = ["COST","GILD","OTEX"]
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
+
+def get_value(identifier):
+    get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
+    value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
+    j = json.loads(value[5:len(value)-2])
+    return float(j['l'])
 
 def getPrices():
     while True:
-        print "thread sleeps"
-        time.sleep(1)
-        print "thread woke up"
-        time.sleep(1)
+        print "Getting Data"
         textData[0][0] = "WOW"
+        print "Got Data"
+        print(get_value(NASDAQ:AAPL))
+        time.sleep(1)
+        
+
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):

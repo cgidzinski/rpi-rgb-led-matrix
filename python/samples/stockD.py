@@ -31,7 +31,7 @@ def getPrices():
         print "Getting Data"
         textData[0][0] = "WOW"
         print "Got Data"
-        print(get_value(NASDAQ:AAPL))
+        print(get_value("NASDAQ:AAPL"))
         time.sleep(1)
         
 

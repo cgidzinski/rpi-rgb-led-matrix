@@ -62,7 +62,8 @@ class RunText(SampleBase):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
         getInitialPrices()
-
+        print textData
+        quit()
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
 
@@ -72,9 +73,9 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        # t = Thread(target=getPrices)
-        # t.daemon = True
-        # t.start()
+        t = Thread(target=getPrices)
+        t.daemon = True
+        t.start()
 
         while True:
             offscreenCanvas.Clear()

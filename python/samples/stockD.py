@@ -8,6 +8,7 @@ from time import localtime, strftime
 from threading import Thread
 import subprocess
 import json
+import os
 #
 speed = 0.025
 fontBig = graphics.Font()
@@ -37,6 +38,7 @@ def get_value(identifier):
 
 def getPrices():
     while True:
+        os.system("clear")
         print "Getting Data"
         for itm in xrange(0,len(symbols)):
             textData[itm] = get_value(symbols[itm])

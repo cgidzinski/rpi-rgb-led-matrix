@@ -36,7 +36,7 @@ class RunText(SampleBase):
             offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
             textTime = strftime("%H:%M:%S", localtime())
-            # graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
+            graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 208, 31, white, textTime)
 
             if len(textQueueTop) == 0:
@@ -64,13 +64,12 @@ class RunText(SampleBase):
                     IndexTop = 0
                 textQueueTop.append([offscreenCanvas.width,IndexTop])
 
-            if (textQueueBottom[0][0] == 8):
-                # graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
+            if (textQueueBottom[len(textQueueBottom)-1][0] == 8):
                 if IndexBottom != 0:
                     IndexBottom-=1
                 else:
                     IndexBottom = len(textData)-1
-                textQueueBottom.append([0,IndexBottom])
+                textQueueBottom.append([-30,IndexBottom])
            
             time.sleep(0.03)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

@@ -38,7 +38,7 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
-            textTime = strftime("%I:%M:%S %p", localtime())
+            textTime = strftime("%I:%M:%S%p", localtime())
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, textTime)
 

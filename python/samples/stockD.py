@@ -41,9 +41,12 @@ def getPrices(initialRun):
         os.system("clear")
         print "Getting Data"
         for itm in xrange(0,len(symbols)):
+            print "getting " + str(symbols[itm])
             if initialRun == True:
+                print "initital Run"
                 textData.append(get_value(symbols[itm]))
             else:
+                print "ypdate run"
                 textData[itm] = get_value(symbols[itm])
         print "Got Data"
         if initialRun == False:

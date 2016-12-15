@@ -28,14 +28,16 @@ def get_value():
     get_value_url = 'http://finance.google.com/finance/info?client=ig&q=' + identifier 
     value = subprocess.Popen(['curl', '-s', get_value_url], stdout=subprocess.PIPE).communicate()[0]
     j = json.loads(value[4:len(value)-1])
-    print(str(j[0]))
-    # returnString = [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
-    # if float(j['c']) == 0.00:
-    #     returnString.append(blue)
-    # if float(j['c']) > 0.00:
-    #     returnString.append(green)
-    # if float(j['c']) < 0.00:
-    #     returnString.append(red)   
+    for i in xrange(0,len(j)):
+        returnString = [str(j[i]['t']),str(j[i]['l']),str(j[i]['c']),str(j[i]['cp'])]
+        if float(j['c']) == 0.00:
+            returnString.append(blue)
+        if float(j['c']) > 0.00:
+            returnString.append(green)
+        if float(j['c']) < 0.00:
+            returnString.append(red)  
+        textData.append(returnString) 
+    print textData
     quit() 
     return returnString
 

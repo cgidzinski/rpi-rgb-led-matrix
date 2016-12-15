@@ -19,7 +19,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
-symbols = ["COST","GILD","OTEX"]
+symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 
 def get_value(identifier):
@@ -38,7 +38,8 @@ def get_value(identifier):
 def getPrices():
     while True:
         print "Getting Data"
-        textData[0] = get_value("NASDAQ:AAPL")
+        for itm in xrange(0,len(symbols)):
+            textData[itm] = get_value(symbols[itm])
         print "Got Data"
         time.sleep(5)
         

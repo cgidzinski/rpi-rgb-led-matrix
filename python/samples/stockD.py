@@ -5,6 +5,7 @@ from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
 import time
 from time import localtime, strftime
+from threading import Thread
 #
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
@@ -17,6 +18,11 @@ white = graphics.Color(255, 255, 255)
 #
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 
+def sleeper(i):
+    print "thread %d sleeps for 5 seconds" % i
+    time.sleep(5)
+    print "thread %d woke up" % i
+
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -26,7 +32,6 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
-
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
 
@@ -35,6 +40,9 @@ class RunText(SampleBase):
 
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
+
+        t = Thread(target=sleeper, args=(0,))
+        t.start()
 
         while True:
             offscreenCanvas.Clear()

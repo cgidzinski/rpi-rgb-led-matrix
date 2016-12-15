@@ -28,11 +28,11 @@ def get_value(identifier):
     j = json.loads(value[5:len(value)-2])
     returnString = [str(j['t']),str(j['l']),str(j['c']),str(j['cp'])]
     if float(j['c']) == 0.00:
-        returnString.append("blue")
+        returnString.append(blue)
     if float(j['c']) > 0.00:
-        returnString.append("green")
+        returnString.append(green)
     if float(j['c']) < 0.00:
-        returnString.append("red")    
+        returnString.append(red)    
     return returnString
 
 def getPrices():

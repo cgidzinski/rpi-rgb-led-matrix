@@ -23,6 +23,9 @@ white = graphics.Color(255, 255, 255)
 symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
 initData = False
 textData = []
+textQueueTop = [] #pos #index
+textQueueBottom = [] #pos #index
+#
 def get_value():
     textDataArray = []
     identifier = ','.join(symbols)
@@ -49,41 +52,27 @@ def getPrices():
         print "Got Data\r\n"
         initData = True
         time.sleep(10)
-        
-def getInitialPrices():
-    global textData
-    print "Getting Initial Data"
-    textData = get_value()
-    print "Got Data\r\n"
-    return
 
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
         super(RunText, self).__init__(*args, **kwargs)
 
     def Run(self):
-        self.matrix.brightness = 60
+        self.matrix.brightness = 40
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
-        # getInitialPrices()
         t = Thread(target=getPrices)
         t.daemon = True
         t.start()
 
         while initData == False:
-            time.sleep(1)
-
-        textQueueTop = [] #pos #index
-        textQueueBottom = [] #pos #index
+            time.sleep(.1)
 
         IndexTop=0
         IndexBottom=len(textData)-1
-
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
-
-
-
+        
         while True:
             offscreenCanvas.Clear()
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, strftime("%B %d, %Y", localtime()))

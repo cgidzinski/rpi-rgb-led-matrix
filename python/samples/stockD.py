@@ -69,7 +69,7 @@ class RunText(SampleBase):
                     IndexBottom-=1
                 else:
                     IndexBottom = len(textData)-1
-                lenTest = 64
+                lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3]))
                 textQueueBottom.append([0-lenTest,IndexBottom])
            
             time.sleep(0.03)

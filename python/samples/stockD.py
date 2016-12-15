@@ -69,7 +69,7 @@ class RunText(SampleBase):
                     IndexBottom-=1
                 else:
                     IndexBottom = len(textData)-1
-                lenTest = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[IndexBottom][0], 50, textData[textQueueBottom[IndexBottom][1]][4], textData[textQueueBottom[IndexBottom][1]][0] +" "+ textData[textQueueBottom[IndexBottom][1]][1] +" "+ textData[textQueueBottom[IndexBottom][1]][2] +" ("+ textData[textQueueBottom[IndexBottom][1]][3]+")")
+                lenTest = 64
                 textQueueBottom.append([0-lenTest,IndexBottom])
            
             time.sleep(0.03)

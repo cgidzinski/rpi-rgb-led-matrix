@@ -42,6 +42,7 @@ def get_value():
 
 def getPrices():
     global textData
+    global initData
     while True:
         print "Getting Update Data"
         textData = get_value()

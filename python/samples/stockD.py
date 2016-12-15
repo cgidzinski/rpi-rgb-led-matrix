@@ -37,7 +37,7 @@ def get_value(identifier):
     return returnString
 
 def getPrices(initialRun):
-    while True:
+    while initialRun == False:
         os.system("clear")
         print "Getting Data"
         for itm in xrange(0,len(symbols)):

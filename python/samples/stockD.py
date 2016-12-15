@@ -6,6 +6,8 @@ from rgbmatrix import RGBMatrix
 import time
 from time import localtime, strftime
 from threading import Thread
+import subprocess
+import json
 #
 speed = 0.025
 fontBig = graphics.Font()

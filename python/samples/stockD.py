@@ -47,7 +47,7 @@ def getPrices():
         print "Getting Update Data"
         textData = get_value()
         print "Got Data\r\n"
-        initData == True
+        initData = True
         time.sleep(10)
         
 def getInitialPrices():

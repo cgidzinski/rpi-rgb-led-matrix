@@ -63,7 +63,10 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
-        getInitialPrices()
+        # getInitialPrices()
+        t = Thread(target=getPrices)
+        t.daemon = True
+        t.start()
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
@@ -74,9 +77,7 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=getPrices)
-        t.daemon = True
-        t.start()
+
 
         while True:
             offscreenCanvas.Clear()

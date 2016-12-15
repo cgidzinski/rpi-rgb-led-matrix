@@ -36,14 +36,17 @@ def get_value(identifier):
         returnString.append(red)    
     return returnString
 
-def getPrices(wait):
+def getPrices(initialRun):
     while True:
         os.system("clear")
         print "Getting Data"
         for itm in xrange(0,len(symbols)):
-            textData[itm] = get_value(symbols[itm])
+            if initialRun == True:
+                textData.append(get_value(symbols[itm]))
+            else:
+                textData[itm] = get_value(symbols[itm])
         print "Got Data"
-        if wait == True:
+        if initialRun == False:
             time.sleep(60)
         
 
@@ -56,7 +59,7 @@ class RunText(SampleBase):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
-        getPrices(False)
+        getPrices(True)
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
@@ -67,7 +70,7 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=getPrices,args=(True))
+        t = Thread(target=getPrices,args=(False))
         t.daemon = True
         t.start()
 

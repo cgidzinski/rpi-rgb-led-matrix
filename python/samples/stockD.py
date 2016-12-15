@@ -38,7 +38,7 @@ class RunText(SampleBase):
         while True:
             offscreenCanvas.Clear()
             textDate = strftime("%B %d, %Y", localtime())
-            textTime = strftime("%I:%M:%S%p", localtime())
+            textTime = strftime("%I:%M:%S %p", localtime())
             graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, textDate)
             graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, textTime)
 
@@ -55,7 +55,7 @@ class RunText(SampleBase):
                 textQueueTop[i][0] -=1
 
             for i in xrange(0,len(textQueueBottom)):
-                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 22, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
+                lenBottom = graphics.DrawText(offscreenCanvas, fontBig, textQueueBottom[i][0], 23, textData[textQueueBottom[i][1]][4], textData[textQueueBottom[i][1]][0] +" "+ textData[textQueueBottom[i][1]][1] +" "+ textData[textQueueBottom[i][1]][2] +" ("+ textData[textQueueBottom[i][1]][3]+")")
                 textQueueBottom[i][0] +=1
 
 

@@ -7,6 +7,7 @@ import time
 from time import localtime, strftime
 from threading import Thread
 #
+speed = 0.025
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
 fontSmall = graphics.Font()
@@ -21,9 +22,9 @@ textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","
 def getPrices():
     while True:
         print "thread sleeps"
-        time.sleep(5)
+        time.sleep(1)
         print "thread woke up"
-        time.sleep(5)
+        time.sleep(1)
         textData[0][0] = "WOW"
 
 class RunText(SampleBase):
@@ -80,7 +81,7 @@ class RunText(SampleBase):
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
            
-            time.sleep(0.025)
+            time.sleep(speed)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 # Main function
 if __name__ == "__main__":

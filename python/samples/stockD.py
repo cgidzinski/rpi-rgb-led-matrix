@@ -18,10 +18,11 @@ white = graphics.Color(255, 255, 255)
 #
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 
-def sleeper(i):
+def getPrices():
     print "thread %d sleeps for 5 seconds" % i
-    time.sleep(5)
+    time.sleep(1)
     print "thread %d woke up" % i
+    time.sleep(1)
 
 
 class RunText(SampleBase):
@@ -41,7 +42,7 @@ class RunText(SampleBase):
         posTop = offscreenCanvas.width
         posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
 
-        t = Thread(target=sleeper, args=(0,))
+        t = Thread(target=getPrices)
         t.start()
 
         while True:

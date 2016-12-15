@@ -11,6 +11,8 @@ import json
 import os
 #
 speed = 0.03
+interval = 60
+#
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
 fontSmall = graphics.Font()
@@ -48,11 +50,14 @@ def getPrices():
     global initData
     while True:
         os.system("clear")
+        print "--- Stock Catcher ---"
+        print "--- Stock List: " + ','.join(symbols)
+        print "---------------------"
         print "Getting Update Data"
         textData = get_value()
         print "Got Data at " +strftime("%I:%M:%S %p", localtime()) + "\r\n"
         initData = True
-        time.sleep(5)
+        time.sleep(interval)
 #
 class RunText(SampleBase):
     def __init__(self, *args, **kwargs):

@@ -46,7 +46,7 @@ def getPrices():
         print "Getting Update Data"
         textData = get_value()
         print "Got Data\r\n"
-        time.sleep(60)
+        time.sleep(10)
         
 def getInitialPrices():
     global textData
@@ -67,6 +67,7 @@ class RunText(SampleBase):
         t = Thread(target=getPrices)
         t.daemon = True
         t.start()
+        t.join()
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index

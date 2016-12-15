@@ -26,10 +26,13 @@ class RunText(SampleBase):
         textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
-        posTop = offscreenCanvas.width
-        posBottom = 0
+
         IndexTop=0
         IndexBottom=len(textData)-1
+        
+        posTop = offscreenCanvas.width
+        posBottom = 0-8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
+
        
 
         while True:

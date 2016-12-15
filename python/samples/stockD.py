@@ -21,7 +21,7 @@ blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
 symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC"]
-# textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
+initData = False
 textData = []
 def get_value():
     textDataArray = []
@@ -46,6 +46,7 @@ def getPrices():
         print "Getting Update Data"
         textData = get_value()
         print "Got Data\r\n"
+        initData == True
         time.sleep(10)
         
 def getInitialPrices():
@@ -67,7 +68,9 @@ class RunText(SampleBase):
         t = Thread(target=getPrices)
         t.daemon = True
         t.start()
-        t.join()
+
+        while initData == False:
+            time.sleep(1)
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index

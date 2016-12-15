@@ -49,7 +49,8 @@ def getPrices():
         
 def getInitialPrices():
     print "Getting Initial Data"
-    textData = get_value()
+    print get_value()
+    # textData = get_value()
     print "Got Data\r\n"
     return
 

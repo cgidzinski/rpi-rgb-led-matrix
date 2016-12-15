@@ -64,8 +64,7 @@ class RunText(SampleBase):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 
         getInitialPrices()
-        print textData
-        quit()
+
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index
 

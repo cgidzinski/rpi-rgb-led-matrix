@@ -10,7 +10,7 @@ import subprocess
 import json
 import os
 #
-speed = 0.02
+speed = 0.025
 interval = 60
 #
 fontBig = graphics.Font()
@@ -69,7 +69,7 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 #
     def Run(self):
-        self.matrix.brightness = 40
+        # self.matrix.brightness = 40
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 #
         t = Thread(target=getPrices)

@@ -10,7 +10,7 @@ import subprocess
 import json
 import os
 #
-speed = 0.03
+speed = 0.02
 interval = 60
 #
 fontBig = graphics.Font()
@@ -22,7 +22,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
-symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA"]
+symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA","NYSE:DG","TSE:CXR","NASDAQ:CSIQ","INDEXNASDAQ:.IXIC","INDEXDJX:.DJI"]
 initData = False
 textData = []
 textQueueTop = [] #pos #index

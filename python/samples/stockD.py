@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # Display a runtext with double-buffering.
+#sudo ./stockD.py -c 8 -b 50
 from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
@@ -69,7 +70,6 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 #
     def Run(self):
-        # self.matrix.brightness = 40
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 #
         t = Thread(target=getPrices)

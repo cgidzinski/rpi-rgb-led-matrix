@@ -41,6 +41,7 @@ def get_value():
     return textDataArray
 
 def getPrices():
+    global textData
     while True:
         print "Getting Update Data"
         textData = get_value()
@@ -48,9 +49,9 @@ def getPrices():
         time.sleep(60)
         
 def getInitialPrices():
+    global textData
     print "Getting Initial Data"
-    print get_value()
-    # textData = get_value()
+    textData = get_value()
     print "Got Data\r\n"
     return
 

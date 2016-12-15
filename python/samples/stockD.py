@@ -5,7 +5,16 @@ from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
 import time
 from time import localtime, strftime
-
+#
+fontBig = graphics.Font()
+fontBig.LoadFont("../../fonts/8x13B.bdf")
+fontSmall = graphics.Font()
+fontSmall.LoadFont("../../fonts/6x10.bdf")
+green = graphics.Color(0, 255, 0)
+red = graphics.Color( 255, 0, 0)
+blue = graphics.Color(0, 0, 255)
+white = graphics.Color(255, 255, 255)
+#
 textData = [["COST","161.34", "+0.53","+0.22%",green],["GILD","89.34", "+0.00","+0.00%",blue],["OTX","74.75", "+0.53","+0.22%",red]]
 
 
@@ -16,14 +25,7 @@ class RunText(SampleBase):
     def Run(self):
         self.matrix.brightness = 60
         offscreenCanvas = self.matrix.CreateFrameCanvas()
-        fontBig = graphics.Font()
-        fontBig.LoadFont("../../fonts/8x13B.bdf")
-        fontSmall = graphics.Font()
-        fontSmall.LoadFont("../../fonts/6x10.bdf")
-        green = graphics.Color(0, 255, 0)
-        red = graphics.Color( 255, 0, 0)
-        blue = graphics.Color(0, 0, 255)
-        white = graphics.Color(255, 255, 255)
+
 
         textQueueTop = [] #pos #index
         textQueueBottom = [] #pos #index

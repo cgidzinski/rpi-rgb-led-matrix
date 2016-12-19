@@ -72,7 +72,7 @@ class RunText(SampleBase):
     def Run(self):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
 #
-        t = Thread(target=getPrices)
+        t = Thread(target=getPrices, name="DataGet")
         t.daemon = True
         t.start()
 #

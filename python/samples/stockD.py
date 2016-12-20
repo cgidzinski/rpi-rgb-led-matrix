@@ -18,6 +18,8 @@ fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
 fontSmall = graphics.Font()
 fontSmall.LoadFont("../../fonts/6x10.bdf")
+fontSuper = graphics.Font()
+fontSuper.LoadFont("../../fonts/10x20.bdf")
 green = graphics.Color(0, 255, 0)
 red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
@@ -70,7 +72,7 @@ def getPrices():
 #
 def showAlert(self,offscreenCanvas,text):
 	offscreenCanvas.Clear()
-	graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, text)
+	graphics.DrawText(offscreenCanvas, fontSuper, 1, 31, white, text)
 	offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 	time.sleep(15)
 	offscreenCanvas.Clear()

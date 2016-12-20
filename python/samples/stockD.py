@@ -71,6 +71,7 @@ def getPrices():
 def showAlert(offscreenCanvas,text):
 	offscreenCanvas.Clear()
 	graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, text)
+	offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 	time.sleep(interval)
 	offscreenCanvas.Clear()
 	return
@@ -81,6 +82,8 @@ class RunText(SampleBase):
 #
 	def Run(self):
 		offscreenCanvas = self.matrix.CreateFrameCanvas()
+#		
+		showAlert(offscreenCanvas,"Hello!")
 #
 		t = Thread(target=getPrices, name="DataGet")
 		t.daemon = True
@@ -96,9 +99,6 @@ class RunText(SampleBase):
 #
 		while True:
 			offscreenCanvas.Clear()
-#
-			showAlert(offscreenCanvas,"Hello!")
-#
 			graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, strftime("%B %d, %Y", localtime()))
 			graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, strftime("%I:%M:%S %p", localtime()))
 #

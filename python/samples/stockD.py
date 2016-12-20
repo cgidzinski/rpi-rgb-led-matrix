@@ -125,7 +125,7 @@ class RunText(SampleBase):
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
 
-            if textQueueTop[0][0] < 400:
+            if textQueueTop[0][0] < -400:
                 textQueueTop.pop(0)
 
             if textQueueBottom[0][0] > 400:

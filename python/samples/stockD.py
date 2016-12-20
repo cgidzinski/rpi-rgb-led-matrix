@@ -43,7 +43,8 @@ def get_value():
             dataItem.append(green)
         if float(j[i]['c']) < 0.00:
             dataItem.append(red)   
-        textDataArray.append(dataItem)    
+        textDataArray.append(dataItem)  
+    print "--- 4: " + str(len(textDataArray))  
     return textDataArray
 #
 def getPrices():
@@ -57,6 +58,10 @@ def getPrices():
         print "--- Stock List: " + ','.join(symbols)
         print "--- Update Interval: " + str(interval)
         print "--- Scroll Speed: " + str(speed)
+        print "--- 1: " + str(len(textData))
+        print "--- 2: " + str(len(textQueueTop))
+        print "--- 3: " + str(len(textQueueBottom))
+        print "--- 5: " + str(self.matrix)
         print "------------------------------------------"
         print "Getting Update Data"
         textData = get_value()

@@ -12,7 +12,7 @@ import json
 import os
 #
 speed = 0.025
-interval = 60
+interval = 10
 #
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
@@ -78,7 +78,7 @@ class RunText(SampleBase):
 #		
         print "--- 5: " + str(self.matrix)
 
-		
+
         t = Thread(target=getPrices, name="DataGet")
         t.daemon = True
         t.start()
@@ -98,9 +98,11 @@ class RunText(SampleBase):
 #
             if len(textQueueTop) == 0:
                 textQueueTop.append([posTop,IndexTop])
+                textQueueTop.remove(0)
 #
             if len(textQueueBottom) == 0:
                 textQueueBottom.append([posBottom,IndexBottom])
+                textQueueBottom.remove(-1)
 #
             for i in xrange(0,len(textQueueTop)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueueTop[i][0], 11, textData[textQueueTop[i][1]][4], textData[textQueueTop[i][1]][0] +" "+ textData[textQueueTop[i][1]][1] +" "+ textData[textQueueTop[i][1]][2] +" ("+ textData[textQueueTop[i][1]][3]+")")

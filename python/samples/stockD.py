@@ -75,7 +75,7 @@ def showAlert(self,offscreenCanvas,text,time):
 	offscreenCanvas.Clear()
 	graphics.DrawText(offscreenCanvas, fontSuper, 1, 31, white, text)
 	offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-	time.sleep(time)
+	time.sleep(int(time))
 	offscreenCanvas.Clear()
 	return
 

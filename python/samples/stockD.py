@@ -61,7 +61,6 @@ def getPrices():
         print "--- 1: " + str(len(textData))
         print "--- 2: " + str(len(textQueueTop))
         print "--- 3: " + str(len(textQueueBottom))
-        print "--- 5: " + str(self.matrix)
         print "------------------------------------------"
         print "Getting Update Data"
         textData = get_value()
@@ -76,7 +75,10 @@ class RunText(SampleBase):
 #
     def Run(self):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
-#
+#		
+        print "--- 5: " + str(self.matrix)
+
+		
         t = Thread(target=getPrices, name="DataGet")
         t.daemon = True
         t.start()

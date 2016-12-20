@@ -95,11 +95,12 @@ class RunText(SampleBase):
 #
             if len(textQueueTop) == 0:
                 textQueueTop.append([posTop,IndexTop])
-                textQueueTop.pop(0)
+                # textQueueTop.pop(0)
+                print("add 1 top")
 #
             if len(textQueueBottom) == 0:
                 textQueueBottom.append([posBottom,IndexBottom])
-                textQueueBottom.pop(0)
+                # textQueueBottom.pop(0)
 #
             for i in xrange(0,len(textQueueTop)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueueTop[i][0], 11, textData[textQueueTop[i][1]][4], textData[textQueueTop[i][1]][0] +" "+ textData[textQueueTop[i][1]][1] +" "+ textData[textQueueTop[i][1]][2] +" ("+ textData[textQueueTop[i][1]][3]+")")

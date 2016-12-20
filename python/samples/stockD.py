@@ -28,6 +28,7 @@ white = graphics.Color(255, 255, 255)
 #symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA","NYSE:DG","TSE:CXR","NASDAQ:CSIQ","INDEXNASDAQ:.IXIC","INDEXDJX:.DJI"]
 symbols = ["TSX:OTC","TSX:BNS","TSX:ACQ","TSX:SNC","TSX:BB","TSX:BAD","TSX:CPG","TSX:KEY","TSX:FRU","NASDAQ:COST","NASDAQ:GILD","NASDAQ:CISQ","NASDAQ:AAPL","NASDAQ:GOOG","NASDAQ:DLTR","NASDAQ:INTC","NYSE:BIG","NYSE:TNH","NYSE:DG"]
 
+alertQueue=""
 initData = False
 textData = []
 textQueueTop = [] #pos #index
@@ -70,11 +71,11 @@ def getPrices():
 		initData = True
 		time.sleep(interval)
 #
-def showAlert(self,offscreenCanvas,text):
+def showAlert(self,offscreenCanvas,text,time):
 	offscreenCanvas.Clear()
 	graphics.DrawText(offscreenCanvas, fontSuper, 1, 31, white, text)
 	offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-	time.sleep(15)
+	time.sleep(time)
 	offscreenCanvas.Clear()
 	return
 
@@ -85,7 +86,7 @@ class RunText(SampleBase):
 	def Run(self):
 		offscreenCanvas = self.matrix.CreateFrameCanvas()
 #		
-		showAlert(self,offscreenCanvas,"Hello!")
+		showAlert(self,offscreenCanvas,"Starting!",5)
 #
 		t = Thread(target=getPrices, name="DataGet")
 		t.daemon = True
@@ -101,6 +102,8 @@ class RunText(SampleBase):
 #
 		while True:
 			offscreenCanvas.Clear()
+			if alertQueue != "":
+				showAlert(self,offscreenCanvas,alertQueue,10)
 			graphics.DrawText(offscreenCanvas, fontSmall, 1, 31, white, strftime("%B %d, %Y", localtime()))
 			graphics.DrawText(offscreenCanvas, fontSmall, 190, 31, white, strftime("%I:%M:%S %p", localtime()))
 #

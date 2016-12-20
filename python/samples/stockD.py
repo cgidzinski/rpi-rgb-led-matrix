@@ -63,6 +63,12 @@ def getPrices():
         textData = get_value()
         print "Got Data at " + strftime("%I:%M:%S %p", localtime())
         print "------------------------------------------"
+        print "--- 1: " + str(len(textData))
+        print "--- 1: " + str((textData))
+        print "--- 2: " + str(len(textQueueTop))
+        print "--- 2: " + str((textQueueTop))
+        print "--- 3: " + str(len(textQueueBottom))
+        print "--- 3: " + str((textQueueBottom))
         initData = True
         time.sleep(interval)
 #
@@ -124,12 +130,7 @@ class RunText(SampleBase):
             time.sleep(speed)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             #
-            print "--- 1: " + str(len(textData))
-            print "--- 1: " + str((textData))
-	        print "--- 2: " + str(len(textQueueTop))
-	        print "--- 2: " + str((textQueueTop))
-	        print "--- 3: " + str(len(textQueueBottom))
-	        print "--- 3: " + str((textQueueBottom))
+
 
 # Main function
 if __name__ == "__main__":

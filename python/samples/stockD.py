@@ -12,7 +12,7 @@ import json
 import os
 #
 speed = 0.025
-interval = 10
+interval = 30
 #
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
@@ -23,7 +23,9 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 #
-symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA","NYSE:DG","TSE:CXR","NASDAQ:CSIQ","INDEXNASDAQ:.IXIC","INDEXDJX:.DJI"]
+#symbols = ["NASDAQ:COST","NASDAQ:GILD","TSE:OTC","NASDAQ:GOOG","NASDAQ:MSFT","NASDAQ:AAPL","NASDAQ:TSLA","NYSE:DG","TSE:CXR","NASDAQ:CSIQ","INDEXNASDAQ:.IXIC","INDEXDJX:.DJI"]
+symbols = ["TSX:OTC","TSX:BNS","TSX:ACQ","TSX:SNC","TSX:BB","TSX:BAD","TSX:CPG","TSX:KEY","TSX:FRU","NASDAQ:COST","NASDAQ:GILD","NASDAQ:CISQ","NASDAQ:AAPL","NASDAQ:GOOG","NASDAQ:DLTR","NASDAQ:INTC","NYSE:BIG","NYSE:TNH","NYSE:DG"]
+
 initData = False
 textData = []
 textQueueTop = [] #pos #index
@@ -63,12 +65,6 @@ def getPrices():
         textData = get_value()
         print "Got Data at " + strftime("%I:%M:%S %p", localtime())
         print "------------------------------------------"
-        print "--- 1: " + str(len(textData))
-        print "--- 1: " + str((textData))
-        print "--- 2: " + str(len(textQueueTop))
-        print "--- 2: " + str((textQueueTop))
-        print "--- 3: " + str(len(textQueueBottom))
-        print "--- 3: " + str((textQueueBottom))
         initData = True
         time.sleep(interval)
 #
@@ -124,16 +120,16 @@ class RunText(SampleBase):
                     IndexBottom = len(textData)-1
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
-
+#
             if textQueueTop[0][0] < -400:
                 textQueueTop.pop(0)
-
+#
             if textQueueBottom[0][0] > 400:
                 textQueueBottom.pop(0)
-
+#
             time.sleep(speed)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            #
+#
 
 
 # Main function

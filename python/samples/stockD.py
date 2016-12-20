@@ -58,9 +58,6 @@ def getPrices():
         print "--- Stock List: " + ','.join(symbols)
         print "--- Update Interval: " + str(interval)
         print "--- Scroll Speed: " + str(speed)
-        print "--- 1: " + str(len(textData))
-        print "--- 2: " + str(len(textQueueTop))
-        print "--- 3: " + str(len(textQueueBottom))
         print "------------------------------------------"
         print "Getting Update Data"
         textData = get_value()
@@ -96,7 +93,6 @@ class RunText(SampleBase):
             if len(textQueueTop) == 0:
                 textQueueTop.append([posTop,IndexTop])
                 # textQueueTop.pop(0)
-                print("add 1 top")
 #
             if len(textQueueBottom) == 0:
                 textQueueBottom.append([posBottom,IndexBottom])
@@ -127,6 +123,14 @@ class RunText(SampleBase):
 #
             time.sleep(speed)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            #
+            print "--- 1: " + str(len(textData))
+            print "--- 1: " + str((textData))
+	        print "--- 2: " + str(len(textQueueTop))
+	        print "--- 2: " + str((textQueueTop))
+	        print "--- 3: " + str(len(textQueueBottom))
+	        print "--- 3: " + str((textQueueBottom))
+
 # Main function
 if __name__ == "__main__":
     parser = RunText()

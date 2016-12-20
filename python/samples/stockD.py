@@ -98,11 +98,9 @@ class RunText(SampleBase):
 #
             if len(textQueueTop) == 0:
                 textQueueTop.append([posTop,IndexTop])
-                # textQueueTop.pop(0)
 #
             if len(textQueueBottom) == 0:
                 textQueueBottom.append([posBottom,IndexBottom])
-                # textQueueBottom.pop(0)
 #
             for i in xrange(0,len(textQueueTop)):
                 lenTop = graphics.DrawText(offscreenCanvas, fontBig, textQueueTop[i][0], 11, textData[textQueueTop[i][1]][4], textData[textQueueTop[i][1]][0] +" "+ textData[textQueueTop[i][1]][1] +" "+ textData[textQueueTop[i][1]][2] +" ("+ textData[textQueueTop[i][1]][3]+")")
@@ -127,6 +125,12 @@ class RunText(SampleBase):
                 lenTest = 8*(len(textData[IndexBottom][0])+len(textData[IndexBottom][1])+len(textData[IndexBottom][2])+len(textData[IndexBottom][3])+5)
                 textQueueBottom.append([0-lenTest,IndexBottom])
 #
+			if (textQueueTop[0][0] < 400:
+				textQueueTop.pop(0)
+
+			if (textQueueBottom[0][0] > 400:
+				textQueueBottom.pop(0)
+
             time.sleep(speed)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             #

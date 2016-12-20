@@ -71,11 +71,11 @@ def getPrices():
 		initData = True
 		time.sleep(interval)
 #
-def showAlert(self,offscreenCanvas,text,time):
+def showAlert(self,offscreenCanvas,text,delay):
 	offscreenCanvas.Clear()
 	graphics.DrawText(offscreenCanvas, fontSuper, 1, 31, white, text)
 	offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-	time.sleep(int(time))
+	time.sleep(int(delay))
 	offscreenCanvas.Clear()
 	return
 

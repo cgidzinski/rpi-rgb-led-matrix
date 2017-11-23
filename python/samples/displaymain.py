@@ -25,7 +25,7 @@ height =31
 bugLow = 5
 bugHigh = 10
 #
-slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code","Flaunching Data To Space"]
+slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code","Flaunching Data Into Space"]
 #
 class main(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -65,12 +65,22 @@ class main(SampleBase):
             for bug in xrange(0,len(newErrors),1):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,newErrors[bug]['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 64, 9, white,newErrors[bug]['error_class'] )
+
+
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 8, white,"abcdefghijklmnopqrstuvwxyz")
                 graphics.DrawLine(offscreenCanvas, 0, 10, width, 10, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,newErrors[bug]['message'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,"abcdefghijklmnopqrstuvwxyz")
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 28, white,newErrors[bug]['context'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 28, white,"abcdefghijklmnopqrstuvwxyz")
+
+
+
+                #graphics.DrawText(offscreenCanvas, fontSmall, 2, 8, white,newErrors[bug]['severity'] )
+                #graphics.DrawText(offscreenCanvas, fontSmall, 64, 8, white,newErrors[bug]['error_class'] )
+                #graphics.DrawLine(offscreenCanvas, 0, 10, width, 10, white)
+                #graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,newErrors[bug]['message'] )
+                #graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
+                #graphics.DrawText(offscreenCanvas, fontSmall, 2, 28, white,newErrors[bug]['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(500);
 

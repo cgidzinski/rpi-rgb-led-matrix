@@ -55,16 +55,6 @@ class main(SampleBase):
             drawSquare(offscreenCanvas, white)
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
 
-            
-            graphics.DrawLine(offscreenCanvas, 0, 0, 28, 28, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 28, 28, 0, purple)
-            
-            graphics.DrawLine(offscreenCanvas, 0, 0, 28, 0, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 28, 28, 28, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 0, 0, 28, purple)
-            graphics.DrawLine(offscreenCanvas, 28, 0, 28, 28, purple)
-            
-
             image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')

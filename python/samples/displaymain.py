@@ -58,7 +58,7 @@ class main(SampleBase):
             else:
                 graphics.DrawText(offscreenCanvas, fontBig, 29, 12, red, str(len(newErrors)))
 
-            graphics.DrawText(offscreenCanvas, fontBig, 2, 29, white, "INP")
+            graphics.DrawText(offscreenCanvas, fontBig, 2, 30, white, "INP")
             if len(ipErrors) < bugLow:
                 graphics.DrawText(offscreenCanvas, fontBig, 29, 30, green, str(len(ipErrors)))
             elif len(ipErrors) > bugHigh:
@@ -71,9 +71,8 @@ class main(SampleBase):
             for bug in ipErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 8*len(bug['severity']), 9, white,bug['error_class'] )
-                graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
+                graphics.DrawText(offscreenCanvas, fontSmall, width-8*len(bug['severity'], 9, red ,bug['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )
@@ -85,7 +84,6 @@ class main(SampleBase):
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 8*len(bug['severity']), 9, white,bug['error_class'] )
-                graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )

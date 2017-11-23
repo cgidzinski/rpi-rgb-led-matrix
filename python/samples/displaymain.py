@@ -48,21 +48,21 @@ class main(SampleBase):
 
             graphics.DrawLine(offscreenCanvas, 24, 0, 24, height, orange)
             
-            graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW")
+            graphics.DrawText(offscreenCanvas, fontBig, 2, 12, white, "NEW")
             if len(newErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, green, str(len(newErrors)))
             elif len(newErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 11, orange, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, orange, str(len(newErrors)))
             else:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 11, red, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, red, str(len(newErrors)))
 
-            graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP ")
+            graphics.DrawText(offscreenCanvas, fontBig, 2, 28, white, "IP ")
             if len(ipErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, green, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, green, str(len(ipErrors)))
             elif len(ipErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, orange, str(len(ipErrors)))
             else:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, red, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, red, str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(100)

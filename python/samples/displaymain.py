@@ -67,7 +67,19 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 30, red, str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(100)
+            time.sleep(10)
+            for bug in xrange(0,len(ipErrors),1):
+                offscreenCanvas.Clear()
+                drawSquare(offscreenCanvas,green)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,newErrors[bug]['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 8*len(newErrors[bug]['severity']), 9, white,newErrors[bug]['error_class'] )
+                graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,newErrors[bug]['message'] )
+                graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,newErrors[bug]['context'] )
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                time.sleep(5);
+            
             for bug in xrange(0,len(newErrors),1):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)

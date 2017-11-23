@@ -32,7 +32,7 @@ class main(SampleBase):
         super(main, self).__init__(*args, **kwargs)
 
     def Run(self):
-        def drawSquare(color, offscreenCanvas):
+        def drawSquare(offscreenCanvas, color):
             for y in xrange(0,height,1):
                 offscreenCanvas.SetPixel(0, y, 255, 255, 255)
                 offscreenCanvas.SetPixel(width, y, 255, 255, 255)

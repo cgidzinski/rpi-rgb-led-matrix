@@ -46,7 +46,7 @@ class main(SampleBase):
             else:
                 return orange
 
-        def bugsnag(proj, offscreenCanvas):
+        def bugsnag(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
@@ -109,7 +109,7 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         while True:
-            bugsnag(proj, offscreenCanvas)
+            bugsnag(offscreenCanvas)
         
 
 

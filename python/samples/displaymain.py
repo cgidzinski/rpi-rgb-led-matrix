@@ -52,6 +52,7 @@ class main(SampleBase):
             offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas, white)
+            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
 
             
             graphics.DrawLine(offscreenCanvas, 0, 0, 32, 32, purple)
@@ -62,13 +63,14 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, 32, purple)
             graphics.DrawLine(offscreenCanvas, 32, 0, 32, 32, purple)
             
+
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 32, 12, severityColors(newErrors), str(len(newErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)), 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)), 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 30, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)), 30, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20)

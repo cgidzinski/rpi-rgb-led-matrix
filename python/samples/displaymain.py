@@ -68,8 +68,7 @@ class main(SampleBase):
             image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')
-            print image.getpixel(0,0)
-
+            print list(image.getdata())
 
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))
@@ -114,7 +113,7 @@ class main(SampleBase):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
-        for pos in xrange(width,1,-88888888):
+        for pos in xrange(width,1,-8):
             offscreenCanvas.Clear()
             graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))

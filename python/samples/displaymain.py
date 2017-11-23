@@ -64,10 +64,10 @@ class main(SampleBase):
             
 
             graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, "NEW")
-            graphics.DrawText(offscreenCanvas, fontBig, 52, 12, severityColors(newErrors), str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 64, 12, severityColors(newErrors), str(len(newErrors)))
 
             graphics.DrawText(offscreenCanvas, fontBig, 34, 30, white, "INP")
-            graphics.DrawText(offscreenCanvas, fontBig, 52, 12, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 64, 12, severityColors(ipErrors), str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(10)

@@ -31,7 +31,7 @@ class main(SampleBase):
     def Run(self):
             offscreenCanvas = self.matrix.CreateFrameCanvas()
             offscreenCanvas.Clear()
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 10, green "Bear Cave")
+            graphics.DrawText(offscreenCanvas, fontBig, 0, 10, green, "Bear Cave")
             graphics.DrawText(offscreenCanvas, fontBig, 0, 21, blue, commands.getoutput('hostname -I'))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5)

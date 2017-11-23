@@ -70,12 +70,16 @@ def findErrors(projID, errorType):
     headers = {'Authorization': 'token 215cca6a-9557-4031-b245-fb5b1ff6de27', 'X-Version':'2'}
     r = requests.get(url, headers=headers)
     json_data = json.loads(r.text)
-    for error in json_data:
-        print error['error_class']
-        print error['message']
-        print error['last_seen']
+    if len(json_data) != 0:
+        return json_data
+    else:
+        return -1
+    #for error in json_data:
+       #print error['error_class']
+        #print error['message']
+        #print error['last_seen']
         #print error 
-        print "" 
+        #print "" 
 
 
 if __name__ == "__main__":

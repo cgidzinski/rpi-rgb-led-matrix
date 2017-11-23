@@ -21,7 +21,7 @@ white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
 #
 width = 255
-height = 63
+height =31 
 bugLow = 5
 bugHigh = 10
 #
@@ -34,7 +34,7 @@ class main(SampleBase):
     def Run(self):
         def drawSquare(offscreenCanvas, color):
             graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, orange)
-            graphics.DrawLine(offscreenCanvas, 0, 20, width, 20, orange)
+            graphics.DrawLine(offscreenCanvas, 0, height, width, height, orange)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, orange)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, orange)
             

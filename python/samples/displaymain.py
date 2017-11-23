@@ -71,7 +71,6 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(0.001)
         #
         bugsnagCall.setup()
         org = bugsnagCall.findOrg()

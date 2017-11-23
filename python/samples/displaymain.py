@@ -49,6 +49,9 @@ class main(SampleBase):
         def bugsnagOverview(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
+            print (len(newErrors))
+            print (len(ipErrors))
+            
             offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas, white)

@@ -51,8 +51,6 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas, white)
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
@@ -76,11 +74,10 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
-            timeDelay = 300/(width-1)
-            for c in xrange(1,width):
+            for c in xrange(1,50):
                 graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, red)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(timeDelay) 
+            time.sleep(30) 
             
 
         def bugsnagList(offscreenCanvas):

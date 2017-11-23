@@ -70,7 +70,7 @@ class main(SampleBase):
             
             label = "In Progress"
             graphics.DrawText(offscreenCanvas, fontBig, 36, 28, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(tr(len(newErrors)))), 28, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(str(len(newErrors)))), 28, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20)

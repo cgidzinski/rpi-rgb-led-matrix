@@ -68,7 +68,7 @@ class main(SampleBase):
         for pos in xrange(width,0,-2):
             offscreenCanvas.Clear()
             graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, +commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(0.001)
         #

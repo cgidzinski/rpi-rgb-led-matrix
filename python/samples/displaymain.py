@@ -49,9 +49,6 @@ class main(SampleBase):
         def bugsnagOverview(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
-            print (len(newErrors))
-            print (len(ipErrors))
-            
             offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas, white)
@@ -116,6 +113,8 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,orange)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        #
+        bugsnagCall.setup()
         #
         while True:
             bugsnagOverview(offscreenCanvas)

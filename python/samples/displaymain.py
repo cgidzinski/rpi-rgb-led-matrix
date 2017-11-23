@@ -34,23 +34,25 @@ class main(SampleBase):
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, "Loading Bear Cave Hivemind")
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 25, blue, commands.getoutput('hostname -I'))
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 10, green, "Loading Bear Cave Hivemind")
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1
-                time.sleep(0.02)
+                time.sleep(0.005)
             time.sleep(100)
             #
             offscreenCanvas.Clear()
             bugsnagCall.setup()
             org = bugsnagCall.findOrg()
             proj = bugsnagCall.findProject(org)
-            newErrors = bugsnagCall.findErrors(proj,"New")
-            ipErrors = bugsnagCall.findErrors(proj,"in_progress")
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 13, green, "New Bugs: "+ str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 32, red, "IP Bugs: "+ str(len(ipErrors)))
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(10000)
+
+            while true:
+                newErrors = bugsnagCall.findErrors(proj,"New")
+                ipErrors = bugsnagCall.findErrors(proj,"in_progress")
+                graphics.DrawText(offscreenCanvas, fontBig, 0, 13, green, "New Bugs: "+ str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 0, 32, red, "IP Bugs: "+ str(len(ipErrors)))
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                time.sleep(60)
 
 # Main function
 if __name__ == "__main__":

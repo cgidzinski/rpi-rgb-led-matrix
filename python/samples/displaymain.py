@@ -32,6 +32,14 @@ class main(SampleBase):
         super(main, self).__init__(*args, **kwargs)
 
     def Run(self):
+        def drawSquare(color, offscreenCanvas):
+            for y in xrange(0,height,1):
+                offset_canvas.SetPixel(0, y, 255, 255, 255)
+                offset_canvas.SetPixel(width, y, 255, 255, 255)
+            for x in xrange(0,width,1):
+                offset_canvas.SetPixel(x, 0, 255, 255, 255)
+                offset_canvas.SetPixel(x, height, 255, 255, 255)
+
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
@@ -60,6 +68,7 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 8, white,newErrors[bug]['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 16, white,newErrors[bug]['message'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 24, white,newErrors[bug]['context'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 1, 32, white,newErrors[bug]['severity'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(500);
 

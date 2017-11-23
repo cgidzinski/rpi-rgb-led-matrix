@@ -34,7 +34,7 @@ class main(SampleBase):
     def Run(self):
         def drawSquare(offscreenCanvas, color):
             graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, orange)
-            graphics.DrawLine(offscreenCanvas, 0, height, width, height, orange)
+            graphics.DrawLine(offscreenCanvas, 0, height-1, width, height-1, orange)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, orange)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, orange)
             

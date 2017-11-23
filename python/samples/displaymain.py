@@ -75,7 +75,11 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(30)
+            timeCount = 0
+            for c in xrange(1,width):
+                graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, white)
+                time.sleep(1) 
+
 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

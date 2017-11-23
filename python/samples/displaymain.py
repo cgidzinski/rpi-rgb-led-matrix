@@ -34,11 +34,11 @@ class main(SampleBase):
     def Run(self):
         def drawSquare(color, offscreenCanvas):
             for y in xrange(0,height,1):
-                offset_canvas.SetPixel(0, y, 255, 255, 255)
-                offset_canvas.SetPixel(width, y, 255, 255, 255)
+                offscreen_Canvas.SetPixel(0, y, 255, 255, 255)
+                offscreen_Canvas.SetPixel(width, y, 255, 255, 255)
             for x in xrange(0,width,1):
-                offset_canvas.SetPixel(x, 0, 255, 255, 255)
-                offset_canvas.SetPixel(x, height, 255, 255, 255)
+                offscreen_Canvas.SetPixel(x, 0, 255, 255, 255)
+                offscreen_Canvas.SetPixel(x, height, 255, 255, 255)
 
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")
@@ -74,6 +74,7 @@ class main(SampleBase):
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
+        drawSquare(offscreenCanvas,orange)
         slogansText = slogans[random.randint(0,len(slogans)-1)]
         for pos in xrange(width,0,-2):
             offscreenCanvas.Clear()

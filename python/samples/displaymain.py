@@ -36,10 +36,10 @@ class main(SampleBase):
             while pos > 0:
                 offscreenCanvas.Clear()
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 10, green, "Loading Bear Cave Hivemind")
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 32, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1
-                time.sleep(0.0001)
+                #time.sleep(0.0001)
             time.sleep(5)
             #
             offscreenCanvas.Clear()
@@ -47,7 +47,7 @@ class main(SampleBase):
             org = bugsnagCall.findOrg()
             proj = bugsnagCall.findProject(org)
 
-            while true:
+            while True:
                 newErrors = bugsnagCall.findErrors(proj,"New")
                 ipErrors = bugsnagCall.findErrors(proj,"in_progress")
                 graphics.DrawText(offscreenCanvas, fontBig, 48, 13, white, "NEW Bugs: "+ str(len(newErrors)))

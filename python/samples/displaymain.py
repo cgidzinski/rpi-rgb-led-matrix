@@ -35,8 +35,8 @@ class main(SampleBase):
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 10, green, "Loading Bear Cave Hivemind")
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 32, blue, commands.getoutput('hostname -I'))
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, "Loading Bear Cave Hivemind")
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=2
                 time.sleep(0.001)
@@ -51,9 +51,9 @@ class main(SampleBase):
                 newErrors = bugsnagCall.findErrors(proj,"New")
                 ipErrors = bugsnagCall.findErrors(proj,"in_progress")
                 graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
-                graphics.DrawText(offscreenCanvas, fontBig, 60, 11, green, str(len(newErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 1, 31, white, "IP Bugs: ")
-                graphics.DrawText(offscreenCanvas, fontBig, 54, 28, orange, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(60)
 

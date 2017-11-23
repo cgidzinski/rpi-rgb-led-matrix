@@ -33,10 +33,10 @@ class main(SampleBase):
 
     def Run(self):
         def drawSquare(offscreenCanvas, color):
-            graphics.DrawLine(offscreenCanvas, 0, width, 0, 0, orange)
-            graphics.DrawLine(offscreenCanvas, 0, width, height, height, orange)
+            graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, orange)
+            graphics.DrawLine(offscreenCanvas, 0, height, width, height, orange)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, orange)
-            graphics.DrawLine(offscreenCanvas, width, width, 0, height, orange)
+            graphics.DrawLine(offscreenCanvas, width, 0, width, height, orange)
             
 
         def bugsnag(proj, offscreenCanvas):

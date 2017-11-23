@@ -52,7 +52,7 @@ class main(SampleBase):
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
 
-            drawSquare(offscreenCanvas, white)
+            drawSquare(offscreenCanvas,purple)
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
 
             image = Image.open('./bugsnag.jpg')
@@ -75,7 +75,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
             graphics.DrawLine(offscreenCanvas, 1, height-2, 51, height-2, red)
-            graphics.DrawLine(offscreenCanvas, 1, height-1, 91, height-1, red)
+            graphics.DrawLine(offscreenCanvas, 1, height-1, 91, height-1, green)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(30) 
             

@@ -5,6 +5,7 @@ from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
 import json
 import os
+import time
 import commands
 #
 import bugsnagCall

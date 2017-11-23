@@ -20,6 +20,7 @@ green = graphics.Color(0, 255, 0)
 red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
+orange = graphics.Color(255, 165, 0)
 width = 256
 height = 64
 
@@ -38,8 +39,8 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1
-                time.sleep(0.005)
-            time.sleep(100)
+                time.sleep(0.0001)
+            time.sleep(5)
             #
             offscreenCanvas.Clear()
             bugsnagCall.setup()
@@ -49,8 +50,10 @@ class main(SampleBase):
             while true:
                 newErrors = bugsnagCall.findErrors(proj,"New")
                 ipErrors = bugsnagCall.findErrors(proj,"in_progress")
-                graphics.DrawText(offscreenCanvas, fontBig, 0, 13, green, "New Bugs: "+ str(len(newErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 0, 32, red, "IP Bugs: "+ str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 48, 13, white, "NEW Bugs: "+ str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 0, 13, green, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 42, 34, white, "IP Bugs: "+ str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 0, 34, orange, str(len(ipErrors)))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(60)
 

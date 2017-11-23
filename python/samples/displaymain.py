@@ -51,6 +51,8 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas, white)
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)

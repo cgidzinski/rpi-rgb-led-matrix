@@ -57,7 +57,8 @@ class main(SampleBase):
             time.sleep(10)
             for bug in xrange(0,len(newErrors),1):
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontSmall, 1, 11, white,newErrors[bug]['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 1, 8, white,newErrors[bug]['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 1, 16, white,newErrors[bug]['message'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 29, white,newErrors[bug]['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(500);

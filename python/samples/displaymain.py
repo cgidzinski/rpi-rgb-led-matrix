@@ -74,9 +74,9 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
-            for c in xrange(1,50):
-                graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, red)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            graphics.DrawLine(offscreenCanvas, 1, height-2, 51, height-2, red)
+            graphics.DrawLine(offscreenCanvas, 1, height-1, 91, height-1, red)
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(30) 
             
 

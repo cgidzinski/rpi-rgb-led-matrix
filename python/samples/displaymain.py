@@ -48,7 +48,7 @@ class main(SampleBase):
 
             graphics.DrawLine(offscreenCanvas, 26, 0, 26, height, white)
             graphics.DrawLine(offscreenCanvas, 0, 13, width, 13, white)
-            graphics.DrawLine(offscreenCanvas, 0, 19, width, 19, white)
+            graphics.DrawLine(offscreenCanvas, 0, 18, width, 18, white)
 
             graphics.DrawText(offscreenCanvas, fontBig, 2, 12, white, "NEW")
             if len(newErrors) < bugLow:
@@ -71,9 +71,8 @@ class main(SampleBase):
             for bug in ipErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, width-(8*len(bug['severity'])), 9, red ,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,  bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, width-(8*len(bug['severity'])+1), 9, red ,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )
@@ -83,8 +82,8 @@ class main(SampleBase):
             for bug in newErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 8*len(bug['severity']), 9, white,bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,  bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, width-(8*len(bug['severity'])+1), 9, red ,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )

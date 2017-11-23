@@ -39,7 +39,7 @@ class main(SampleBase):
             for x in xrange(0,width,1):
                 offscreenCanvas.SetPixel(x, 0, 255, 255, 255)
                 offscreenCanvas.SetPixel(x, height, 255, 255, 255)
-
+            
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
@@ -74,12 +74,12 @@ class main(SampleBase):
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
-        drawSquare(offscreenCanvas,orange)
         slogansText = slogans[random.randint(0,len(slogans)-1)]
         for pos in xrange(width,0,-2):
             offscreenCanvas.Clear()
             graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
+            drawSquare(offscreenCanvas,orange)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         bugsnagCall.setup()

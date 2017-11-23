@@ -38,7 +38,13 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
-            
+        def severityColors(val):
+            if len(val) < bugLow:
+                return green
+            elif len(val) > bugHigh:
+                return red
+            else:
+                return orange
 
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")
@@ -58,20 +64,10 @@ class main(SampleBase):
             
 
             graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, "NEW")
-            if len(newErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 12, green, str(len(newErrors)))
-            elif len(newErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 12, orange, str(len(newErrors)))
-            else:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 12, red, str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 52, 12, severityColors(newErrors), str(len(newErrors)))
 
             graphics.DrawText(offscreenCanvas, fontBig, 34, 30, white, "INP")
-            if len(ipErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 30, green, str(len(ipErrors)))
-            elif len(ipErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 30, orange, str(len(ipErrors)))
-            else:
-                graphics.DrawText(offscreenCanvas, fontBig, 52, 30, red, str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 52, 12, severityColors(ipErrors), str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(10)

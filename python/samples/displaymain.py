@@ -3,7 +3,6 @@
 from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
-from rgbmatrix import RGBMatrixOptions
 import json, os, time, commands, random
 #
 import bugsnagCall

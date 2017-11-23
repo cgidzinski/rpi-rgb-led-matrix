@@ -15,30 +15,8 @@ def setup():
         orgName = cfg['bugsnag']['organization']
         token = cfg['bugsnag']['token']
 
-def test():
-    print "Searching for organization: " + orgName
-    org = findOrg()
-    if org == -1:
-        print("No Organization Found")
-        sys.exit()
-    print("Found " + orgName + ' @ ' + org)
-
-    print "Searching for project: " + projectName
-    proj = findProject(org)
-    if proj == -1:
-        print("No Project Found")
-        sys.exit()
-    print("Found " + projectName + ' @ ' + proj)
-    print "" 
-    print "New Errors"
-    print "-------------------------------"
-    findErrors(proj,"new")
-
-    print "Open Errors"
-    print "-------------------------------"
-    findErrors(proj,"open")
-
 def findOrg():
+    print "Finding Organization"
     url = 'https://api.bugsnag.com/user/organizations?per_page=10'
     headers = {'Authorization': 'token '+token, 'X-Version':'2'}
     r = requests.get(url, headers=headers)
@@ -49,6 +27,7 @@ def findOrg():
     return -1
 
 def findProject(orgID):
+    print "Finding Project"
     offset = ""
     while True: 
         url = 'https://api.bugsnag.com/organizations/'+orgID+'/projects?direction=asc&per_page=100&sort=created_at'
@@ -66,6 +45,7 @@ def findProject(orgID):
     return -1
 
 def findErrors(projID, errorType):
+    print "Finding "+errorType+" Errors"
     url = 'https://api.bugsnag.com/projects/'+projID+'/errors?sort=last_seen&direction=desc&filters[error.status][][value]='+errorType+'&filters[error.status][][type]=eq'
     headers = {'Authorization': 'token 215cca6a-9557-4031-b245-fb5b1ff6de27', 'X-Version':'2'}
     r = requests.get(url, headers=headers)
@@ -74,13 +54,6 @@ def findErrors(projID, errorType):
         return json_data
     else:
         return -1
-    #for error in json_data:
-       #print error['error_class']
-        #print error['message']
-        #print error['last_seen']
-        #print error 
-        #print "" 
-
 
 if __name__ == "__main__":
     test()

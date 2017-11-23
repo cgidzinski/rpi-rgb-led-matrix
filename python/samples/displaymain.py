@@ -67,8 +67,8 @@ class main(SampleBase):
 
             image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
-            self.matrix.SetImage(image.convert('RGB'))
-
+            image.convert('RGB')
+            print image.getdata()
 
 
             label = "New"

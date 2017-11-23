@@ -10,6 +10,7 @@ from threading import Thread
 import subprocess
 import json
 import os
+import commands
 #
 fontBig = graphics.Font()
 fontBig.LoadFont("../../fonts/8x13B.bdf")
@@ -31,7 +32,7 @@ class main(SampleBase):
 	def Run(self):
 		offscreenCanvas = self.matrix.CreateFrameCanvas()
 		offscreenCanvas.Clear()
-		graphics.DrawText(offscreenCanvas, fontSuper, 1, 20, white, "hi")
+		graphics.DrawText(offscreenCanvas, fontSuper, 1, 20, white, commands.getoutput('hostname -I'))
 		offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 		time.sleep(30)
 

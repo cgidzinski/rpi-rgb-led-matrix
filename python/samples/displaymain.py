@@ -1,6 +1,5 @@
-#!/usr/bin/env python
-# Display a runtext with double-buffering.
-#sudo ./stockD.py -c 8 -b 50
+# /etc/rc.local
+#sudo python displaymain.py -c 8 -b 50
 from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix

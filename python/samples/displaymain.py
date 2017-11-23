@@ -71,9 +71,9 @@ class main(SampleBase):
             for bug in ipErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
+                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 2, white, "INP" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 18, white,  bug['error_class'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 9, red ,bug['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 20, 2, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )
@@ -83,9 +83,9 @@ class main(SampleBase):
             for bug in newErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
+                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 2, white, "NEW" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 18, white,  bug['error_class'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 9, red ,bug['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 20, 2, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white,bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )

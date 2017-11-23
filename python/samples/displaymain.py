@@ -77,7 +77,8 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             timeCount = 0
             for c in xrange(1,width):
-                graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, white)
+                graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, red)
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(1) 
 

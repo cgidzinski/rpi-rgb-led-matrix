@@ -40,7 +40,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
             if len(newErrors) < bugLow:
                 graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
-            else if len(newErrors) > bugHigh:
+            elif len(newErrors) > bugHigh:
                 graphics.DrawText(offscreenCanvas, fontBig, 72, 11, orange, str(len(newErrors)))
             else:
                 graphics.DrawText(offscreenCanvas, fontBig, 72, 11, red, str(len(newErrors)))
@@ -48,7 +48,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
             if len(ipErrors) < bugLow:
                 graphics.DrawText(offscreenCanvas, fontBig, 64, 29, green, str(len(ipErrors)))
-            else if len(ipErrors) > bugHigh:
+            elif len(ipErrors) > bugHigh:
                 graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
             else:
                 graphics.DrawText(offscreenCanvas, fontBig, 64, 29, red, str(len(ipErrors)))

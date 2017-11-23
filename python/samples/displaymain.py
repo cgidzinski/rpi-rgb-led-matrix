@@ -44,6 +44,7 @@ class main(SampleBase):
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
             offscreenCanvas.Clear()
 
+            drawSquare(offscreenCanvas,white)
             graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
             if len(newErrors) < bugLow:
                 graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
@@ -65,8 +66,8 @@ class main(SampleBase):
             for bug in xrange(0,len(newErrors),1):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 8, white,newErrors[bug]['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 30, 8, white,newErrors[bug]['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontBig, 2, 8, white,newErrors[bug]['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 8*len(newErrors[bug]['severity']), 8, white,newErrors[bug]['error_class'] )
                 graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,newErrors[bug]['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)

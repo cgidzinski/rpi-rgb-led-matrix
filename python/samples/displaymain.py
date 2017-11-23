@@ -79,8 +79,7 @@ class main(SampleBase):
             for c in xrange(1,width):
                 graphics.DrawLine(offscreenCanvas, c, height-2, c, height-1, red)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(1) 
+                time.sleep(0.01) 
 
 
         def bugsnagList(offscreenCanvas):
@@ -121,6 +120,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,orange)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            offscreenCanvas.Clear()
         #
         bugsnagCall.setup()
         #

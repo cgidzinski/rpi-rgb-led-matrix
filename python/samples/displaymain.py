@@ -55,13 +55,13 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
 
             
-            graphics.DrawLine(offscreenCanvas, 0, 0, 32, 32, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 32, 32, 0, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 0, 28, 28, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 28, 28, 0, purple)
             
-            graphics.DrawLine(offscreenCanvas, 0, 0, 32, 0, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 32, 32, 32, purple)
-            graphics.DrawLine(offscreenCanvas, 0, 0, 0, 32, purple)
-            graphics.DrawLine(offscreenCanvas, 32, 0, 32, 32, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 0, 28, 0, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 28, 28, 28, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 0, 0, 28, purple)
+            graphics.DrawLine(offscreenCanvas, 28, 0, 28, 28, purple)
             
 
             label = "New"
@@ -69,8 +69,8 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(str(len(newErrors)))+1), 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 28, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(str(len(ipErrors)))+1), 28, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 26, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(str(len(ipErrors)))+1), 26, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(100)

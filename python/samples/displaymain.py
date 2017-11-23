@@ -31,10 +31,10 @@ class main(SampleBase):
     def Run(self):
             offscreenCanvas = self.matrix.CreateFrameCanvas()
             offscreenCanvas.Clear()
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 10, green, "Bear Cave")
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 21, blue, commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, 0, 12, green, "Loading Bear Cave Hivemind")
+            graphics.DrawText(offscreenCanvas, fontBig, 0, 25, blue, commands.getoutput('hostname -I'))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(5)
+            time.sleep(10)
             #
             offscreenCanvas.Clear()
             bugsnagCall.setup()
@@ -42,8 +42,8 @@ class main(SampleBase):
             proj = bugsnagCall.findProject(org)
             newErrors = bugsnagCall.findErrors(proj,"New")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 10, white, "New Bugs: "+ str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 0, 21, white, "IP Bugs: "+ str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontSuper, 0, 10, green, "New Bugs: "+ str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontSuper, 0, 31, red, "IP Bugs: "+ str(len(ipErrors)))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(10000)
 

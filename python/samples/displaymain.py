@@ -19,7 +19,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
-pruple = graphics.Color(155, 48, 255)
+purple = graphics.Color(155, 48, 255)
 #
 width = 255
 height =31 

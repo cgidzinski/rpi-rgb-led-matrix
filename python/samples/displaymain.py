@@ -34,11 +34,11 @@ class main(SampleBase):
     def Run(self):
         def drawSquare(color, offscreenCanvas):
             for y in xrange(0,height,1):
-                offscreen_Canvas.SetPixel(0, y, 255, 255, 255)
-                offscreen_Canvas.SetPixel(width, y, 255, 255, 255)
+                offscreenCanvas.SetPixel(0, y, 255, 255, 255)
+                offscreenCanvas.SetPixel(width, y, 255, 255, 255)
             for x in xrange(0,width,1):
-                offscreen_Canvas.SetPixel(x, 0, 255, 255, 255)
-                offscreen_Canvas.SetPixel(x, height, 255, 255, 255)
+                offscreenCanvas.SetPixel(x, 0, 255, 255, 255)
+                offscreenCanvas.SetPixel(x, height, 255, 255, 255)
 
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")

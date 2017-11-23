@@ -73,12 +73,8 @@ class main(SampleBase):
             index = 0
             for x in xrange(0,28):
                 for y in xrange(0,28):
-                    offscreenCanvas.SetPixel(x+1,y+1,255,0,0)
-                
-
-
-
-
+                    offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                    index += 1
 
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))

@@ -25,7 +25,7 @@ height = 64
 bugLow = 5
 bugHigh = 10
 #
-slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code"]
+slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code","Flaunching Data To Space"]
 #
 class main(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -33,7 +33,7 @@ class main(SampleBase):
 
     def Run(self):
         def bugsnag(proj, offscreenCanvas):
-            newErrors = bugsnagCall.findErrors(proj,"New")
+            newErrors = bugsnagCall.findErrors(proj,"new")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
             offscreenCanvas.Clear()
 

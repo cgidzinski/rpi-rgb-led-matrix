@@ -60,7 +60,7 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 11, white,newErrors[bug]['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 1, 29, white,newErrors[bug]['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(5);
+                time.sleep(500);
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()

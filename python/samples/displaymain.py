@@ -64,20 +64,23 @@ class main(SampleBase):
             time.sleep(10)
             for bug in xrange(0,len(newErrors),1):
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontSmall, 1, 8, white,newErrors[bug]['error_class'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 1, 16, white,newErrors[bug]['message'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 1, 24, white,newErrors[bug]['context'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 1, 32, white,newErrors[bug]['severity'] )
+                drawSquare(offscreenCanvas,green)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,newErrors[bug]['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 64, 9, white,newErrors[bug]['error_class'] )
+                graphics.DrawLine(offscreenCanvas, 0, 10, width, 10, white)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,newErrors[bug]['message'] )
+                graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 28, white,newErrors[bug]['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(500);
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
-        for pos in xrange(width,0,-2):
+        for pos in xrange(width,1,-2):
             offscreenCanvas.Clear()
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, slogansText)
+            graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,orange)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #

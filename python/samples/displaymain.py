@@ -68,7 +68,14 @@ class main(SampleBase):
             image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')
-            print list(image.getdata())
+            pixels =  list(image.getdata())
+            
+            index = 0
+            self.matrix.SetPixel(2,2,255,0,0)
+
+
+
+
 
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))

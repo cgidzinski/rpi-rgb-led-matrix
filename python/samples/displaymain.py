@@ -37,7 +37,7 @@ class main(SampleBase):
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogans[random.randint(0,len(slogans)-1])
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogans[random.randint(0,len(slogans)-1)])
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=2

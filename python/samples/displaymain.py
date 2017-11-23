@@ -37,7 +37,7 @@ class main(SampleBase):
             org = bugsnagCall.findOrg()
             proj = bugsnagCall.findProject(org)
 
-        def bugsnag():
+        def bugsnag(offscreenCanvas):
             offscreenCanvas.Clear()
             newErrors = bugsnagCall.findErrors(proj,"New")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")
@@ -54,18 +54,17 @@ class main(SampleBase):
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
         pos = width
-        while pos > 0:
+        for pos in xrange(width,0,2):
             offscreenCanvas.Clear()
             graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            pos -=2
             time.sleep(0.001)
         #
         setupBugsnag()
         #
         while True:
-            bugsnag()
+            bugsnag(offscreenCanvas)
         
 
 

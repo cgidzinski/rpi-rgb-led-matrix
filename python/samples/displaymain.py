@@ -88,6 +88,7 @@ class main(SampleBase):
             offscreenCanvas.Clear()
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas) 
             offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas) 
 
             for bug in ipErrors:
                 offscreenCanvas.Clear()

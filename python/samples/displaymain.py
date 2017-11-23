@@ -7,7 +7,7 @@ import json
 import os
 import time
 import commands
-from random import randint
+import random
 #
 import bugsnagCall
 #
@@ -24,9 +24,9 @@ white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
 width = 256
 height = 64
-
+#
 slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code"]
-
+#
 class main(SampleBase):
     def __init__(self, *args, **kwargs):
             super(main, self).__init__(*args, **kwargs)

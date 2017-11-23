@@ -7,6 +7,7 @@ import json
 import os
 import time
 import commands
+from random import randint
 #
 import bugsnagCall
 #
@@ -24,6 +25,7 @@ orange = graphics.Color(255, 165, 0)
 width = 256
 height = 64
 
+slogans = ["Loading Bear Cave","Loading Skynet","Loading Broken Code"]
 
 class main(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -35,8 +37,8 @@ class main(SampleBase):
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, "Loading Bear Cave Hivemind")
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, commands.getoutput('hostname -I'))
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogans[random.randint(0,len(slogans)-1])
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=2
                 time.sleep(0.001)

@@ -62,12 +62,12 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, 32, purple)
             graphics.DrawLine(offscreenCanvas, 32, 0, 32, 32, purple)
             
-
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, "NEW")
-            graphics.DrawText(offscreenCanvas, fontBig, 62, 12, severityColors(newErrors), str(len(newErrors)))
-
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 30, white, "INP")
-            graphics.DrawText(offscreenCanvas, fontBig, 62, 30, severityColors(ipErrors), str(len(ipErrors)))
+            label = "New"
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(6*len(label)), 12, severityColors(newErrors), str(len(newErrors)))
+            label = "In Progress"
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 30, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(6*len(label)), 30, severityColors(ipErrors), str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20)

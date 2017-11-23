@@ -47,24 +47,24 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,white)
 
             graphics.DrawLine(offscreenCanvas, 26, 0, 26, height, orange)
-            graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
-            graphics.DrawLine(offscreenCanvas, 0, 22, width, 22, white)
+            graphics.DrawLine(offscreenCanvas, 0, 13, width, 13, white)
+            graphics.DrawLine(offscreenCanvas, 0, 19, width, 19, white)
 
             graphics.DrawText(offscreenCanvas, fontBig, 2, 12, white, "NEW")
             if len(newErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, green, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 12, green, str(len(newErrors)))
             elif len(newErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, orange, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 12, orange, str(len(newErrors)))
             else:
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 21, red, str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 72, 12, red, str(len(newErrors)))
 
-            graphics.DrawText(offscreenCanvas, fontBig, 2, 28, white, "IP ")
+            graphics.DrawText(offscreenCanvas, fontBig, 2, 29, white, "NEW")
             if len(ipErrors) < bugLow:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, green, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, green, str(len(ipErrors)))
             elif len(ipErrors) > bugHigh:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, orange, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
             else:
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 28, red, str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, red, str(len(ipErrors)))
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(100)

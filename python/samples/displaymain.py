@@ -20,8 +20,8 @@ blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
 #
-width = 256
-height = 64
+width = 255
+height = 63
 bugLow = 5
 bugHigh = 10
 #
@@ -33,13 +33,12 @@ class main(SampleBase):
 
     def Run(self):
         def drawSquare(offscreenCanvas, color):
-            for y in xrange(0,height-1,1):
-                offscreenCanvas.SetPixel(0, y, color.r, color.g, color.b)
-                offscreenCanvas.SetPixel(width, y, color.r, color.g, color.b)
-            for x in xrange(0,width-1,1):
-                offscreenCanvas.SetPixel(x, 0, color.r, color.g, color.b)
-                offscreenCanvas.SetPixel(x, height, color.r, color.g, color.b)
+            graphics.DrawLine(offscreenCanvas, 0, width, 0, 0, orange)
+            graphics.DrawLine(offscreenCanvas, 0, width, height, height, orange)
+            graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, orange)
+            graphics.DrawLine(offscreenCanvas, width, width, 0, height, orange)
             
+
         def bugsnag(proj, offscreenCanvas):
             newErrors = bugsnagCall.findErrors(proj,"new")
             ipErrors = bugsnagCall.findErrors(proj,"in_progress")

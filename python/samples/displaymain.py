@@ -3,6 +3,7 @@
 from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
+from rgbmatrix import RGBMatrixOptions
 import json, os, time, commands, random
 #
 import bugsnagCall
@@ -64,6 +65,12 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 28, 0, 28, 28, purple)
             
 
+            image = Image.open(bugsnag.jpg)
+            image.thumbnail((28, 28), Image.ANTIALIAS)
+            self.matrix.SetImage(image.convert('RGB'))
+
+
+
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(newErrors)))+3), 12, white, label)
@@ -73,7 +80,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(5)
+            time.sleep(30)
 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

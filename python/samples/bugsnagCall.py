@@ -21,7 +21,6 @@ def findErrors(errorType):
     json_data = json.loads(r.text)
     if len(json_data) != 0:
         print "Found Errors"
-        print json_data
         return json_data
     else:
         return -1

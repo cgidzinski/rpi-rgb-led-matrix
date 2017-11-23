@@ -72,11 +72,11 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 2, white, "INP" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 20, 2, white,  bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 12, white, "INP" )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 12, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(5);
             
@@ -84,11 +84,11 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 2, white, "NEW" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 20, 2, white,  bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 12, white, "NEW" )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 12, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white,bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(5);
 

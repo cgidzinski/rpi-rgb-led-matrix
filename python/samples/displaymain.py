@@ -65,7 +65,7 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 28, 0, 28, 28, purple)
             
 
-            image = Image.open(bugsnag.jpg)
+            image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             self.matrix.SetImage(image.convert('RGB'))
 

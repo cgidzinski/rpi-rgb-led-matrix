@@ -19,6 +19,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
+pruple = graphics.Color(155, 48, 255)
 #
 width = 255
 height =31 
@@ -46,9 +47,15 @@ class main(SampleBase):
 
             drawSquare(offscreenCanvas, white)
 
-            graphics.DrawLine(offscreenCanvas, 26, 0, 26, height, white)
-            graphics.DrawLine(offscreenCanvas, 0, 13, width, 13, white)
-            graphics.DrawLine(offscreenCanvas, 0, 18, width, 18, white)
+            
+            graphics.DrawLine(offscreenCanvas, 0, 0, 32, 32, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 32, 32, 0, purple)
+            
+            graphics.DrawLine(offscreenCanvas, 0, 0, 32, 0, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 32, 32, 32, purple)
+            graphics.DrawLine(offscreenCanvas, 0, 0, 0, 32, purple)
+            graphics.DrawLine(offscreenCanvas, 32, 0, 32, 32, purple)
+            
 
             graphics.DrawText(offscreenCanvas, fontBig, 2, 12, white, "NEW")
             if len(newErrors) < bugLow:
@@ -72,7 +79,7 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white, "INP" )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, blue, "INP" )
                 graphics.DrawText(offscreenCanvas, fontSmall, 24, 9, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
@@ -84,7 +91,7 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white, "NEW" )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, blue, "NEW" )
                 graphics.DrawText(offscreenCanvas, fontSmall, 24, 9, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white,bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)

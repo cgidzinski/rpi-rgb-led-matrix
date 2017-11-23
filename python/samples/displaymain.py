@@ -71,8 +71,9 @@ class main(SampleBase):
             for bug in ipErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, width-8*len(bug['severity'], 9, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['error_class'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, width-(8*len(bug['severity'])), 9, red ,bug['severity'] )
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,  bug['error_class'] )
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white, bug['message'] )
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,bug['context'] )

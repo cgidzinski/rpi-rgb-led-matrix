@@ -32,24 +32,6 @@ class main(SampleBase):
         super(main, self).__init__(*args, **kwargs)
 
     def Run(self):
-        offscreenCanvas = self.matrix.CreateFrameCanvas()
-        offscreenCanvas.Clear()
-        slogansText = slogans[random.randint(0,len(slogans)-1)]
-        pos = width
-        while pos > 0:
-            offscreenCanvas.Clear()
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            pos -=2
-            time.sleep(0.001)
-        #
-        setupBugsnag()
-        #
-        while True:
-            bugsnag()
-        
-
         def setupBugsnag():
             bugsnagCall.setup()
             org = bugsnagCall.findOrg()
@@ -67,6 +49,24 @@ class main(SampleBase):
             time.sleep(60)
 
 
+
+        offscreenCanvas = self.matrix.CreateFrameCanvas()
+        offscreenCanvas.Clear()
+        slogansText = slogans[random.randint(0,len(slogans)-1)]
+        pos = width
+        while pos > 0:
+            offscreenCanvas.Clear()
+            graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
+            graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            pos -=2
+            time.sleep(0.001)
+        #
+        setupBugsnag()
+        #
+        while True:
+            bugsnag()
+        
 
 
 # Main function

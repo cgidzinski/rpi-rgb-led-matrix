@@ -71,8 +71,8 @@ class main(SampleBase):
             pixels =  list(image.getdata())
             
             index = 0
-            for x in xrange(0,28):
-                for y in xrange(0,28):
+            for y in xrange(0,28):
+                for x in xrange(0,28):
                     offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
 

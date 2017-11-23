@@ -80,7 +80,7 @@ class main(SampleBase):
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(5);
             
-            for bug in newErrors):
+            for bug in newErrors:
                 offscreenCanvas.Clear()
                 drawSquare(offscreenCanvas,green)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, white,bug['severity'] )

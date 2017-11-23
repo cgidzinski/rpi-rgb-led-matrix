@@ -65,12 +65,12 @@ class main(SampleBase):
             
 
             label = "New"
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, severityColors(newErrors), str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)), 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, severityColors(newErrors), str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(str(len(newErrors)))), 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 30, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)), 30, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 28, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(tr(len(newErrors)))), 28, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20)

@@ -35,17 +35,11 @@ class main(SampleBase):
             while pos > 0:
                 offscreenCanvas.Clear()
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, "Loading Bear Cave Hivemind")
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 25, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1
-                time.sleep(0.05)
-            pos = width
-            while pos > 0:
-                offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, 0, 25, blue, commands.getoutput('hostname -I'))
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                pos -=1
-                time.sleep(0.05)
-            time.sleep(10)
+                time.sleep(0.02)
+            time.sleep(100)
             #
             offscreenCanvas.Clear()
             bugsnagCall.setup()

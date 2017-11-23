@@ -49,21 +49,21 @@ class main(SampleBase):
             while True:
                 bugsnag()
 
-    def setupBugsnag():
-        bugsnagCall.setup()
-        org = bugsnagCall.findOrg()
-        proj = bugsnagCall.findProject(org)
+def setupBugsnag():
+    bugsnagCall.setup()
+    org = bugsnagCall.findOrg()
+    proj = bugsnagCall.findProject(org)
 
-    def bugsnag():
-        offscreenCanvas.Clear()
-        newErrors = bugsnagCall.findErrors(proj,"New")
-        ipErrors = bugsnagCall.findErrors(proj,"in_progress")
-        graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
-        graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
-        graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
-        graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        time.sleep(60)
+def bugsnag():
+    offscreenCanvas.Clear()
+    newErrors = bugsnagCall.findErrors(proj,"New")
+    ipErrors = bugsnagCall.findErrors(proj,"in_progress")
+    graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
+    graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
+    graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
+    graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
+    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+    time.sleep(60)
 
 
 

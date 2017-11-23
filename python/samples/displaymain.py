@@ -26,7 +26,7 @@ white = graphics.Color(255, 255, 255)
 
 class main(SampleBase):
 	def __init__(self, *args, **kwargs):
-		super(RunText, self).__init__(*args, **kwargs)
+		super(main, self).__init__(*args, **kwargs)
 #
 	def Run(self):
 		offscreenCanvas = self.matrix.CreateFrameCanvas()

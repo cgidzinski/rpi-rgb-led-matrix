@@ -71,7 +71,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 0, 10, width, 10, white)
                 graphics.DrawText(offscreenCanvas, fontSmall, 2, 19, white,"abcdefghijklmnopqrstuvwxyz")
                 graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 28, white,"abcdefghijklmnopqrstuvwxyz")
+                graphics.DrawText(offscreenCanvas, fontSmall, 2, 29, white,"abcdefghijklmnopqrstuvwxyz")
 
 
 

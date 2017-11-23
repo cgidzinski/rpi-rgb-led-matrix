@@ -34,30 +34,38 @@ class main(SampleBase):
     def Run(self):
             offscreenCanvas = self.matrix.CreateFrameCanvas()
             offscreenCanvas.Clear()
+            sloganText = slogans[random.randint(0,len(slogans)-1)]
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogans[random.randint(0,len(slogans)-1)])
+                graphics.DrawText(offscreenCanvas, fontBig, pos, 11, green, slogansText)
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 31, blue, "IP: "+commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=2
                 time.sleep(0.001)
-            time.sleep(5)
             #
-            bugsnagCall.setup()
-            org = bugsnagCall.findOrg()
-            proj = bugsnagCall.findProject(org)
-
+            setupBugsnag()
+            #
             while True:
-                offscreenCanvas.Clear()
-                newErrors = bugsnagCall.findErrors(proj,"New")
-                ipErrors = bugsnagCall.findErrors(proj,"in_progress")
-                graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
-                graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
-                graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(60)
+                bugsnag()
+
+    def setupBugsnag():
+        bugsnagCall.setup()
+        org = bugsnagCall.findOrg()
+        proj = bugsnagCall.findProject(org)
+
+    def bugsnag():
+        offscreenCanvas.Clear()
+        newErrors = bugsnagCall.findErrors(proj,"New")
+        ipErrors = bugsnagCall.findErrors(proj,"in_progress")
+        graphics.DrawText(offscreenCanvas, fontBig, 1, 11, white, "NEW Bugs: ")
+        graphics.DrawText(offscreenCanvas, fontBig, 72, 11, green, str(len(newErrors)))
+        graphics.DrawText(offscreenCanvas, fontBig, 1, 29, white, "IP Bugs: ")
+        graphics.DrawText(offscreenCanvas, fontBig, 64, 29, orange, str(len(ipErrors)))
+        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        time.sleep(60)
+
+
 
 # Main function
 if __name__ == "__main__":

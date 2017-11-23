@@ -33,12 +33,14 @@ class main(SampleBase):
             offscreenCanvas.Clear()
             pos = width
             while pos > 0:
+                offscreenCanvas.Clear()
                 graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, "Loading Bear Cave Hivemind")
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1
                 time.sleep(0.05)
             pos = width
             while pos > 0:
+                offscreenCanvas.Clear()
                 graphics.DrawText(offscreenCanvas, fontBig, 0, 25, blue, commands.getoutput('hostname -I'))
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 pos -=1

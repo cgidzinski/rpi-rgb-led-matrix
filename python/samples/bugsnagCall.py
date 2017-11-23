@@ -51,6 +51,7 @@ def findErrors(projID, errorType):
     r = requests.get(url, headers=headers)
     json_data = json.loads(r.text)
     if len(json_data) != 0:
+        print "Found Errors"
         return json_data
     else:
         return -1

@@ -68,7 +68,7 @@ class main(SampleBase):
             image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')
-            print image.getdata()
+            print image.getpixel(0,0)
 
 
             label = "New"

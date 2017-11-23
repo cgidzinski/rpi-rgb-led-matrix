@@ -34,7 +34,7 @@ class main(SampleBase):
     def Run(self):
             offscreenCanvas = self.matrix.CreateFrameCanvas()
             offscreenCanvas.Clear()
-            sloganText = slogans[random.randint(0,len(slogans)-1)]
+            slogansText = slogans[random.randint(0,len(slogans)-1)]
             pos = width
             while pos > 0:
                 offscreenCanvas.Clear()

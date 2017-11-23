@@ -46,8 +46,10 @@ class main(SampleBase):
 
             drawSquare(offscreenCanvas,white)
 
-            graphics.DrawLine(offscreenCanvas, 24, 0, 24, height, orange)
-            
+            graphics.DrawLine(offscreenCanvas, 26, 0, 26, height, orange)
+            graphics.DrawLine(offscreenCanvas, 0, 11, width, 11, white)
+            graphics.DrawLine(offscreenCanvas, 0, 22, width, 22, white)
+
             graphics.DrawText(offscreenCanvas, fontBig, 2, 12, white, "NEW")
             if len(newErrors) < bugLow:
                 graphics.DrawText(offscreenCanvas, fontBig, 72, 21, green, str(len(newErrors)))

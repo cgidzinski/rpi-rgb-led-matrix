@@ -23,6 +23,7 @@ def findOrg():
     json_data = json.loads(r.text)
     for item in json_data:
         if item["name"] == orgName:
+            print item['id']
             return item['id']
     return -1
 
@@ -41,6 +42,7 @@ def findProject(orgID):
         for item in json_data:
             offset = item['id']
             if item['name'] == projectName:
+                print item['id']
                 return item['id']
     return -1
 

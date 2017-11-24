@@ -143,7 +143,7 @@ class main(SampleBase):
         print len(pixels)
         index = 0
         for y in xrange(0,29):
-            for x in xrange(0,30):
+            for x in xrange(0,28):
                 offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                 index += 1
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

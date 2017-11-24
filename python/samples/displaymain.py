@@ -82,6 +82,14 @@ class main(SampleBase):
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(speed)
 
+        def severityColorsInt(val):
+            if val < bugLow:
+                return green
+            elif val > bugHigh:
+                return red
+            else:
+                return orange
+        
         def severityColors(val):
             if len(val) < bugLow:
                 return green
@@ -125,15 +133,15 @@ class main(SampleBase):
 
 
                 label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs), str(len(prs)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 label = "Need Review"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(str(needReview)), str(needReview))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColorsInt(needReview), str(needReview))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
                 label = "Need Tophat"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat)))), 12, severityColors(str(needTophat)), str(needTophat))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat)))), 12, severityColorsInt(needTophat), str(needTophat))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 #label = "Ignored"

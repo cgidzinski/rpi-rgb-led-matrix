@@ -133,7 +133,7 @@ class main(SampleBase):
         #    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
-        image = Image.open('./bearrungif')
+        image = Image.open('./bearrun.gif')
         image.convert('RGB')
 
         palette= image.im.getpalette()

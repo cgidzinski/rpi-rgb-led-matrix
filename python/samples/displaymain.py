@@ -142,14 +142,18 @@ class main(SampleBase):
         pixels =  list(image.getdata())
         print len(pixels)
         index = 0
-        for z in xrange(0,1):
+        frame = 0
+        while True:
             for y in xrange(0,29):
                 for x in xrange(0,29):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                     index += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            image.seek(image.tell()+1)
-        time.sleep(10)
+            try:
+                image.seek(image.tell()+1)
+            except:
+                frame = 0
+        time.sleep(2)
         #
         bugsnagCall.setup()
         #

@@ -149,6 +149,7 @@ class main(SampleBase):
                     index += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(2)
+            print image.tell()
             image.seek(image.tell()+1)
         #
         bugsnagCall.setup()

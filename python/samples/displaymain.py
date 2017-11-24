@@ -144,6 +144,7 @@ class main(SampleBase):
         index = 0
         frame = 0
         while True:
+            time.sleep(1)
             for y in xrange(0,29):
                 for x in xrange(0,29):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
@@ -151,9 +152,10 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             try:
                 image.seek(image.tell()+1)
+                frame +=1
             except:
+                pass
                 frame = 0
-        time.sleep(2)
         #
         bugsnagCall.setup()
         #

@@ -137,7 +137,7 @@ class main(SampleBase):
                     offscreenCanvas.Clear()
                     
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white,bug['error_class'])
-                    label = "In Progress - "+bug['severity']
+                    label = "IP "+bug['severity']
                     graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(label)), 7, red ,label )
 
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )

@@ -134,28 +134,20 @@ class main(SampleBase):
 
         
         image = Image.open('./bear.gif')
-        image.thumbnail((32, 32), Image.ANTIALIAS)
-        image.convert('RGB')
 
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
         pixels =  list(image.getdata())
         print len(pixels)
         index = 0
-        frame = 0
-        while True:
-            time.sleep(1)
+        for z in xrange(0,2):
             for y in xrange(0,29):
                 for x in xrange(0,29):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                     index += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            try:
-                image.seek(image.tell()+1)
-                frame +=1
-            except:
-                pass
-                frame = 0
+            image.seek(image.tell()+1)
+            time.sleep(2)
         #
         bugsnagCall.setup()
         #

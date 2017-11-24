@@ -90,7 +90,7 @@ class main(SampleBase):
             else:
                 return orange
 
-        def bugsnagOverview(offscreenCanvas):
+        def githubOverview(offscreenCanvas):
             prs = githubCall.findPR()
             for val in prs:
                 print val

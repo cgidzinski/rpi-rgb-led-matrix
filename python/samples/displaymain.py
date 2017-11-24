@@ -8,6 +8,8 @@ import json, os, time, commands, random
 #
 import bugsnagCall
 #
+fontTiny = graphics.Font()
+fontSmall.LoadFont("../../fonts/5x8.bdf")
 fontSmall = graphics.Font()
 fontSmall.LoadFont("../../fonts/6x10.bdf")
 fontBig = graphics.Font()
@@ -139,8 +141,8 @@ class main(SampleBase):
 
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
-                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 19, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 19, green ,bug['context'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 27, red ,bug['severity'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,"In Progress: " + bug['severity'] )
 
 

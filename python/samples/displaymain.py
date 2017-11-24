@@ -71,11 +71,11 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
                 label = "New"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(newErrors)))+3), 12, severityColors(newErrors), str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 label = "In Progress"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
                 label = "Open"

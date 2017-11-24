@@ -78,7 +78,7 @@ class main(SampleBase):
                 maxX = 254
                  
                 graphics.DrawLine(offscreenCanvas, minX, height-2, minX+(cycle*10), height-2, orange)
-                graphics.DrawLine(offscreenCanvas, minX, height-1, delta, height-1, orange)
+                graphics.DrawLine(offscreenCanvas, minX, height-1, minX+(cycle*10), height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
                 time.sleep(1) 

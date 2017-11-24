@@ -101,6 +101,9 @@ class main(SampleBase):
             palette= image.im.getpalette()
             colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
             for z in xrange(0,frames):
+                print z
+                print "of"
+                print frames
                 index = 0
                 pixels =  list(image.getdata())
                 for y in xrange(0,32):

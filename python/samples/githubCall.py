@@ -21,6 +21,11 @@ def findPR():
     json_data = json.loads(r.text)
     return json_data
 
+def findComments(url):
+    r = requests.get(url, auth=(username,token))
+    json_data = json.loads(r.text)
+    return json_data
+
 
 if __name__ == "__main__":
     test()

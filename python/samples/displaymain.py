@@ -96,7 +96,7 @@ class main(SampleBase):
             print prs[2]['title']
             print prs[2]['user']['login']
             print prs[2]['review_comments_url']
-
+            print githubCall.findComments(prs[2]['review_comments_url'])
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")

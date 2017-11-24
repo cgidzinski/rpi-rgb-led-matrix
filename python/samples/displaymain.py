@@ -94,6 +94,7 @@ class main(SampleBase):
             prs = githubCall.findPR()
             for val in prs:
                 print val
+
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")

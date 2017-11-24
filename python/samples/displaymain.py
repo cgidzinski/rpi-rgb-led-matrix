@@ -136,6 +136,14 @@ class main(SampleBase):
         image = Image.open('./bearrun.gif')
         image.convert('RGB')
 
+        frames = 1
+        try:
+            while True:
+                image.seek(image.tell()+1)
+                frames+=1
+        except:
+            pass
+        print frames
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
         for z in xrange(0,15):

@@ -134,7 +134,7 @@ class main(SampleBase):
 
         
         image = Image.open('./bear.gif')
-        #image.thumbnail((32, 32), Image.ANTIALIAS)
+        image.thumbnail((32, 32), Image.ANTIALIAS)
         image.convert('RGB')
 
         palette= image.im.getpalette()

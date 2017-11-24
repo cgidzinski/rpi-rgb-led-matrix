@@ -52,8 +52,6 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
-            print newErrors
-            print ipErrors
             for cycle in xrange(1,255):
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)

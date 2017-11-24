@@ -142,7 +142,7 @@ class main(SampleBase):
         pixels =  list(image.getdata())
         print len(pixels)
         index = 0
-        for z in xrange(0,0):    
+        for z in xrange(0,1):    
             for y in xrange(0,32):
                 for x in xrange(0,32):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])

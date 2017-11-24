@@ -94,8 +94,7 @@ class main(SampleBase):
             prs = githubCall.findPR()
             print prs[1]['number']
             print prs[1]['title']
-            for itm in prs[0]:
-                print itm
+            print prs[1]['user']
 
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):

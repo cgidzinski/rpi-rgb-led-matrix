@@ -144,6 +144,9 @@ class main(SampleBase):
         for z in xrange(0,10):    
             for y in xrange(0,32):
                 for x in xrange(0,32):
+                    print x
+                    print y
+                    print ""
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                     index += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

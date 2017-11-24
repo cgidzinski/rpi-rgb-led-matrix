@@ -94,8 +94,9 @@ class main(SampleBase):
             prs = githubCall.findPR()
             print prs[1]['number']
             print prs[1]['title']
-            print prs[1]['repo']
-            
+            for itm in prs[0]:
+                print itm
+
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")
@@ -187,7 +188,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
         
-        for count in xrange(0,4):
+        for count in xrange(0,1):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         githubCall.setup()

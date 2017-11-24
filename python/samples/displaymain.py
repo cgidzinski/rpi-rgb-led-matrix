@@ -142,13 +142,12 @@ class main(SampleBase):
         print len(pixels)
         index = 0
         for z in xrange(0,10):    
-            for y in xrange(0,30):
-                for x in xrange(0,30):
+            for y in xrange(0,32):
+                for x in xrange(0,32):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                     index += 1
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(2)
-            image.seek(1)
+            time.sleep(0.5)
         #
         bugsnagCall.setup()
         #

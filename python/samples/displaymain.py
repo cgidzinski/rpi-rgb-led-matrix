@@ -101,7 +101,7 @@ class main(SampleBase):
             palette= image.im.getpalette()
             colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
             image.seek(0);
-            for z in xrange(1,frames-2):
+            for z in xrange(1,frames):
                 print z
                 print "of"
                 print frames

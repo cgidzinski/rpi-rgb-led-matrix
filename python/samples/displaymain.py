@@ -156,8 +156,7 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,white)
         lastTime = int(time.time())
         
-        #while (int(time.time())-lastTime < 10):
-        while True:
+        while (int(time.time())-lastTime < 10):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         bugsnagCall.setup()

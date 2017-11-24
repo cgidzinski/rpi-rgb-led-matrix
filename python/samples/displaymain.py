@@ -92,9 +92,10 @@ class main(SampleBase):
 
         def githubOverview(offscreenCanvas):
             prs = githubCall.findPR()
-            print prs[1]['number']
-            print prs[1]['title']
-            print prs[1]['user']
+            print prs[2]['number']
+            print prs[2]['title']
+            print prs[2]['user']['login']
+            print prs[2]['review_comments_url']
 
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):

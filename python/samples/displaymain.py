@@ -143,8 +143,8 @@ class main(SampleBase):
 
         index = 0
         for z in xrange(0,256):    
-            for y in xrange(0,16):
-                for x in xrange(0,16):
+            for y in xrange(0,6):
+                for x in xrange(0,6):
                     offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
             time.sleep(0.5)

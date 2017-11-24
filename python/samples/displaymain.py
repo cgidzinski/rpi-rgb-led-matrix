@@ -134,6 +134,7 @@ class main(SampleBase):
 
         
         image = Image.open('./bear.gif')
+        image.convert('RGB')
 
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]

@@ -134,13 +134,13 @@ class main(SampleBase):
 
         
         image = Image.open('./bear.gif')
-        image.thumbnail((32, 32), Image.ANTIALIAS)
-        image.convert('RGB')
 
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
         for z in xrange(0,15):
             index = 0
+            image.thumbnail((32, 32), Image.ANTIALIAS)
+            image.convert('RGB')
             pixels =  list(image.getdata())
             for y in xrange(0,32):
                 for x in xrange(0,32):

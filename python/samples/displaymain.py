@@ -156,6 +156,7 @@ class main(SampleBase):
         #    drawSquare(offscreenCanvas,orange)
         #    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:
+            time.sleep(0.05)
             showGif(offscreenCanvas, "./bearrun.gif",0.05)
         #
         bugsnagCall.setup()

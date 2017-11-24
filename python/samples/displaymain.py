@@ -51,37 +51,37 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
+            for cycle in xrange(0,30):
+                drawSquare(offscreenCanvas,purple)
+                graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
-            drawSquare(offscreenCanvas,purple)
-            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
+                image = Image.open('./bugsnag.jpg')
+                image.thumbnail((28, 28), Image.ANTIALIAS)
+                image.convert('RGB')
+                pixels =  list(image.getdata())
+                
+                index = 0
+                for y in xrange(0,28):
+                    for x in xrange(0,28):
+                        offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                        index += 1
 
-            image = Image.open('./bugsnag.jpg')
-            image.thumbnail((28, 28), Image.ANTIALIAS)
-            image.convert('RGB')
-            pixels =  list(image.getdata())
-            
-            index = 0
-            for y in xrange(0,28):
-                for x in xrange(0,28):
-                    offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
-                    index += 1
-
-            label = "New"
-            graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(newErrors)))+3), 12, white, label)
-            
-            label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
-            
-            min =1 
-            max = 254
-            delta = 222
-            graphics.DrawLine(offscreenCanvas, min, height-2, delta, height-2, orange)
-            graphics.DrawLine(offscreenCanvas, min, height-1, delta, height-1, orange)
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(30) 
-            
+                label = "New"
+                graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(newErrors)))+3), 12, white, label)
+                
+                label = "In Progress"
+                graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
+                
+                min =1 
+                max = 254
+                delta = 222
+                graphics.DrawLine(offscreenCanvas, min, height-2, delta, height-2, orange)
+                graphics.DrawLine(offscreenCanvas, min, height-1, delta, height-1, orange)
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                time.sleep(1) 
+                
 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

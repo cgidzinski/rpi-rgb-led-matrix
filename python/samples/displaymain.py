@@ -138,7 +138,7 @@ class main(SampleBase):
                     
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white,bug['error_class'])
                     
-                    graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(label)), 8, red ,bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['sevarity'])), 8, red ,bug['severity'] )
 
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )

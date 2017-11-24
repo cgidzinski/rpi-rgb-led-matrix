@@ -101,10 +101,18 @@ class main(SampleBase):
                print pr['user']['login']
 
                reviews = githubCall.findReviews(pr['number'])
+               tempRv = 0
                for review in reviews:
+                   if review['state'] == "APPROVED":
+                       tempRv +=1
                    print review['user']['login']
                    print review['state']
-               print "-------------------" 
+               print "-------------------"
+               if tempRv < 2:
+                   needReview +=1
+               else:
+                   needTophat +=1
+
             
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
@@ -121,13 +129,13 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs), str(len(prs)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
-                #label = "In Progress"
-                #graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-                #graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
+                label = "Need Review"
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(needReview), str(len(needReview)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
-                #label = "Open"
-                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors))))), 12, severityColors(openErrors), str(len(openErrors)))
-                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
+                label = "Need Tophat"
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(needTophat))))), 12, severityColors(needTophat), str(len(needTophat)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 #label = "Ignored"
                 #graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))

@@ -137,10 +137,10 @@ class main(SampleBase):
                     offscreenCanvas.Clear()
                     
 
-                    graphics.DrawText(offscreenCanvas, fontBig, 30, 12, orange,bug['error_class'])
+                    graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
-                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 20, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 28, red ,bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 19, green ,bug['context'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,bug['severity'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,"In Progress: " + bug['severity'] )
 
 
@@ -157,7 +157,7 @@ class main(SampleBase):
         for cnum in xrange(0,2):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 27, blue, commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
         
         for count in xrange(0,4):

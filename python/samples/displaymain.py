@@ -139,13 +139,12 @@ class main(SampleBase):
 
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
-        pixels =  list(colors)
-        print len(pixels)
-
+        pixels =  list(image.getdata())
+        print pixels
         index = 0
         for y in xrange(0,32):
             for x in xrange(0,32):
-                offscreenCanvas.SetPixel(x,y,pixels[index][0],pixels[index][1],pixels[index][2])
+                offscreenCanvas.SetPixel(x,y,colors[pixels[index][0]],colors[pixels[index][1]],colors[pixels[index][2]])
                 index += 1
         time.sleep(100)
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

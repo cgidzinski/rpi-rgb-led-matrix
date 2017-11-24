@@ -142,7 +142,7 @@ class main(SampleBase):
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
 
-                    time.sleep(0.05) 
+                    time.sleep(0.01) 
 
 
 

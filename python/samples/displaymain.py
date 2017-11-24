@@ -9,7 +9,7 @@ import json, os, time, commands, random
 import bugsnagCall
 #
 fontTiny = graphics.Font()
-fontSmall.LoadFont("../../fonts/5x8.bdf")
+fontTiny.LoadFont("../../fonts/5x8.bdf")
 fontSmall = graphics.Font()
 fontSmall.LoadFont("../../fonts/6x10.bdf")
 fontBig = graphics.Font()

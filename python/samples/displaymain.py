@@ -143,11 +143,11 @@ class main(SampleBase):
 
         index = 0
         for z in xrange(0,256):    
-            for y in xrange(0,6):
-                for x in xrange(0,6):
+            for y in xrange(0,15):
+                for x in xrange(0,15):
                     offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
-            time.sleep(0.5)
+            time.sleep(1)
             image.seek(image.tell()+1)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #

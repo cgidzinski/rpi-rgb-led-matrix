@@ -92,13 +92,21 @@ class main(SampleBase):
 
         def githubOverview(offscreenCanvas):
             prs = githubCall.findPR()
-            print prs[0]
-
+            print prs[1]['title']
+            print prs[1]['requested_reviewers']
+            print prs[1]['assignee']['login']
+            print prs[1]['number']
             
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
+
+
+
+
+
+
 
                 label = "Open"
                 graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs), str(len(prs)))

@@ -39,6 +39,7 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
+
         def severityColors(val):
             if len(val) < bugLow:
                 return green
@@ -51,7 +52,7 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
-            for cycle in xrange(1,253):
+            for cycle in xrange(1,255):
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
@@ -81,7 +82,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, minX, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0.1) 
+                time.sleep(0.05) 
                 
 
         def bugsnagList(offscreenCanvas):
@@ -113,6 +114,11 @@ class main(SampleBase):
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(5);
 
+
+
+
+
+
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
@@ -122,6 +128,22 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,orange)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+
+        
+            image = Image.open('./bear.gif')
+            image.thumbnail((32, 32), Image.ANTIALIAS)
+            image.convert('RGB')
+            pixels =  list(image.getdata())
+            
+            index = 0
+            for z in xrange(0,256):    
+                for y in xrange(0,32):
+                    for x in xrange(0,32):
+                        offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                        index += 1
+                time.sleep(0.5)
+                image.seek(im.tell()+1)
+
         #
         bugsnagCall.setup()
         #

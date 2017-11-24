@@ -55,8 +55,6 @@ class main(SampleBase):
             ignoredErrors = bugsnagCall.findErrors("ignored")
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
-                drawSquare(offscreenCanvas,purple)
-                graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
                 image = Image.open('./bugsnag.jpg')
                 image.thumbnail((28, 28), Image.ANTIALIAS)
@@ -68,6 +66,9 @@ class main(SampleBase):
                     for x in xrange(0,28):
                         offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                         index += 1
+
+                drawSquare(offscreenCanvas,purple)
+                graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
                 label = "New"
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, severityColors(newErrors), str(len(newErrors)))

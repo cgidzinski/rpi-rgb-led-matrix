@@ -139,9 +139,9 @@ class main(SampleBase):
 
         palette= image.im.getpalette()
         colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
-        pixels =  list(image.getdata())
         for z in xrange(0,15):
             index = 0
+            pixels =  list(image.getdata())
             for y in xrange(0,32):
                 for x in xrange(0,32):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])

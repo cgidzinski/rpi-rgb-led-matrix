@@ -113,7 +113,6 @@ class main(SampleBase):
                         index += 1
                 image.seek(z);
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
                 time.sleep(speed)
             
         def bugsnagList(offscreenCanvas):

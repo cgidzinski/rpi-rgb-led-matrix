@@ -119,13 +119,10 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0) 
+                time.sleep(0.05) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
-            openErrors = bugsnagCall.findErrors("open")
-            ipErrors = bugsnagCall.findErrors("in_progress")
-            ignoredErrors = bugsnagCall.findErrors("ignored")
             offscreenCanvas.Clear()
             for bug in newErrors:
                 for cycle in xrange(1,255):
@@ -137,7 +134,7 @@ class main(SampleBase):
                     offscreenCanvas.Clear()
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
                     graphics.DrawText(offscreenCanvas, fontTiny, 30, 18, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ," [NEW] "+bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ,"[NEW] "+bug['severity'] )
                     time.sleep(0) 
 
 #############################################################################################################################

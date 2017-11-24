@@ -82,8 +82,8 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 label = "Ignored"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 12, severityColors(ignoredErrors), str(len(ignoredErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 26, white, label)
 
                 minX =1 
                 maxX = 254

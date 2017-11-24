@@ -101,8 +101,8 @@ class main(SampleBase):
                 drawSquare(offscreenCanvas,purple)
 
                 label = "Open"
-                #graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs['']), str(len(prs[''])))
-                #graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs), str(len(prs)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 #label = "In Progress"
                 #graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))

@@ -149,7 +149,7 @@ class main(SampleBase):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
-        for cnum in xrange(0,1):
+        for cnum in xrange(0,2):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))

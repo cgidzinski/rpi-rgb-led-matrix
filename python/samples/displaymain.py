@@ -53,9 +53,9 @@ class main(SampleBase):
             offscreenCanvas.Clear()
 
             drawSquare(offscreenCanvas,purple)
-            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
+            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
-            image = Image.open('./bugsnag2.jpg')
+            image = Image.open('./bugsnag.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')
             pixels =  list(image.getdata())
@@ -74,7 +74,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
 
-            graphics.DrawLine(offscreenCanvas, 1, height-2, 51, height-2, green)
+            graphics.DrawLine(offscreenCanvas, 1, height-2, 251, height-2, green)
             graphics.DrawLine(offscreenCanvas, 1, height-1, 91, height-1, red)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(30) 

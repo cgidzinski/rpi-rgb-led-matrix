@@ -137,7 +137,7 @@ class main(SampleBase):
                     offscreenCanvas.Clear()
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
                     graphics.DrawText(offscreenCanvas, fontTiny, 30, 18, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ," [NEW] "bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ," [NEW] "+bug['severity'] )
                     time.sleep(0) 
 
 #############################################################################################################################

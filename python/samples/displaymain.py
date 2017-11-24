@@ -141,8 +141,8 @@ class main(SampleBase):
 
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
-                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 17, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 30, red ,bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 18, green ,bug['context'] )
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 28, red ,bug['severity'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,"In Progress: " + bug['severity'] )
 
 

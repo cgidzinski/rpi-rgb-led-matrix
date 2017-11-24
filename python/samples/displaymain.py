@@ -130,11 +130,11 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 label = "Need Review"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(needReview), str(len(needReview)))
+                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(str(needReview)), str(needReview))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
                 label = "Need Tophat"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(needTophat))))), 12, severityColors(needTophat), str(len(needTophat)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat)))), 12, severityColors(str(needTophat)), str(needTophat))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 #label = "Ignored"

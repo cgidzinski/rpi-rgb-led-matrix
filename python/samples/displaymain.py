@@ -50,6 +50,7 @@ class main(SampleBase):
 
         def bugsnagOverview(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
+            openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
@@ -75,6 +76,10 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
                 
+                label = "Open"
+                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(str(len(openErrors)))+6), 12, severityColors(openErrors), str(len(openErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(str(len(label)))+3), 12, white, label)
+
                 minX =1 
                 maxX = 254
                  
@@ -156,7 +161,7 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,white)
         lastTime = int(time.time())
         
-        while (int(time.time())-lastTime < 10000):
+        while (int(time.time())-lastTime < 5 ):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         bugsnagCall.setup()

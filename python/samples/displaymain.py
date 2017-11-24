@@ -134,7 +134,7 @@ class main(SampleBase):
             image.thumbnail((32, 32), Image.ANTIALIAS)
             image.convert('RGB')
             pixels =  list(image.getdata())
-            
+            print pixels 
             index = 0
             for z in xrange(0,256):    
                 for y in xrange(0,32):

@@ -102,9 +102,6 @@ class main(SampleBase):
             colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
             image.seek(0);
             for z in xrange(0,frames):
-                print z
-                print "of"
-                print frames
                 index = 0
                 pixels =  list(image.getdata())
                 for y in xrange(0,32):
@@ -152,15 +149,11 @@ class main(SampleBase):
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
-
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))
-        drawSquare(offscreenCanvas,white)
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))
-        drawSquare(offscreenCanvas,white)
+        for cnum in xrange(0,1):
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))
+            drawSquare(offscreenCanvas,white)
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #

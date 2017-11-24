@@ -89,29 +89,29 @@ class main(SampleBase):
             return [seq[i:i+size] for i in range(0, len(seq), size)]
 
         def showGif(image,speed):
-        image = Image.open(image)
-        image.convert('RGB')
-        frames = 1
-        try:
-            while True:
-                image.seek(image.tell()+1)
-                frames+=1
-        except:
-            pass
-        palette= image.im.getpalette()
-        colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
-        for z in xrange(0,frames):
-            index = 0
-            pixels =  list(image.getdata())
-            for y in xrange(0,32):
-                for x in xrange(0,32):
-                    offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
-                    index += 1
-            image.seek(z);
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            offscreenCanvas.Clear()
-            time.sleep(speed)
-        
+            image = Image.open(image)
+            image.convert('RGB')
+            frames = 1
+            try:
+                while True:
+                    image.seek(image.tell()+1)
+                    frames+=1
+            except:
+                pass
+            palette= image.im.getpalette()
+            colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
+            for z in xrange(0,frames):
+                index = 0
+                pixels =  list(image.getdata())
+                for y in xrange(0,32):
+                    for x in xrange(0,32):
+                        offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
+                        index += 1
+                image.seek(z);
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                offscreenCanvas.Clear()
+                time.sleep(speed)
+            
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")

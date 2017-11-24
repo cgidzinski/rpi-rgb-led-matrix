@@ -96,18 +96,17 @@ class main(SampleBase):
             needTophat = 0
            
             for pr in prs:
-               print pr['number']
-               print pr['title']
-               print pr['user']['login']
+               #print pr['number']
+               #print pr['title']
+               #print pr['user']['login']
 
                reviews = githubCall.findReviews(pr['number'])
                tempRv = 0
                for review in reviews:
                    if review['state'] == "APPROVED":
                        tempRv +=1
-                   print review['user']['login']
-                   print review['state']
-               print "-------------------"
+                   #print review['user']['login']
+                   #print review['state']
                if tempRv < 2:
                    needReview +=1
                else:
@@ -145,7 +144,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0.05)
+                time.sleep(0.1)
         
         def bugsnagOverview(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
@@ -177,7 +176,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0.05) 
+                time.sleep(0.1) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

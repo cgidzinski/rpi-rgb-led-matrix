@@ -141,8 +141,8 @@ class main(SampleBase):
 
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 30, red ,"In Progress: " + bug['severity'] )
 
-                    time.sleep(0.01) 
 
 
 

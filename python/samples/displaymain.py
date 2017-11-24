@@ -85,6 +85,9 @@ class main(SampleBase):
                 time.sleep(0.05) 
                 
 
+        def chunk(seq, size):
+            return [seq[i:i+size] for i in range(0, len(seq), size)]
+
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
@@ -133,8 +136,10 @@ class main(SampleBase):
             image = Image.open('./bear.gif')
             image.thumbnail((32, 32), Image.ANTIALIAS)
             image.convert('RGB')
-            pixels =  list(image.getdata())
-            print image.tile 
+            palette= image.im.getpalette()
+            colours= [map(ord, bytes) for bytes in chunk(palette, 3)]
+            pixels =  list(colors)
+
             index = 0
             for z in xrange(0,256):    
                 for y in xrange(0,32):

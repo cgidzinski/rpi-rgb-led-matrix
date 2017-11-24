@@ -6,6 +6,7 @@ from rgbmatrix import RGBMatrix
 from PIL import Image
 import json, os, time, commands, random
 #
+import githubCall
 import bugsnagCall
 #
 fontTiny = graphics.Font()
@@ -90,6 +91,37 @@ class main(SampleBase):
                 return orange
 
         def bugsnagOverview(offscreenCanvas):
+            prs = githubCall.findPR()
+            for val in prs:
+                print val
+            offscreenCanvas.Clear()
+            for cycle in xrange(1,255):
+                drawImage(offscreenCanvas,"./github.jpg")
+                drawSquare(offscreenCanvas,purple)
+
+                label = "Open"
+                #graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(prs['']), str(len(prs[''])))
+                #graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
+                
+                #label = "In Progress"
+                #graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+                #graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
+                
+                #label = "Open"
+                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors))))), 12, severityColors(openErrors), str(len(openErrors)))
+                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
+
+                #label = "Ignored"
+                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
+                #graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 26, white, label)
+
+                graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
+                graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                offscreenCanvas.Clear()
+                time.sleep(0.05)
+        
+        def bugsnagOverview(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
@@ -150,9 +182,11 @@ class main(SampleBase):
         for count in xrange(0,4):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
+        githubCall.setup()
         bugsnagCall.setup()
         #
         while True:
+            githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)
             bugsnagList(offscreenCanvas)
         

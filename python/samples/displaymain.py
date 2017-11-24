@@ -55,7 +55,7 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,purple)
             graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, white)
 
-            image = Image.open('./bugsnag.jpg')
+            image = Image.open('./bugsnag2.jpg')
             image.thumbnail((28, 28), Image.ANTIALIAS)
             image.convert('RGB')
             pixels =  list(image.getdata())

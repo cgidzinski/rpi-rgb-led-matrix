@@ -221,7 +221,7 @@ class main(SampleBase):
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)
-            bugsnagList(offscreenCanvas)
+            #bugsnagList(offscreenCanvas)
         
 
 

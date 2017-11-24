@@ -151,11 +151,11 @@ class main(SampleBase):
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
+        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         slogansText = slogans[random.randint(0,len(slogans)-1)]
         graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
         graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))
         drawSquare(offscreenCanvas,white)
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #

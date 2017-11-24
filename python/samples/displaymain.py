@@ -147,8 +147,8 @@ class main(SampleBase):
                     offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                     index += 1
             image.seek(z);
-            offscreenCanvas.Clear()
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            offscreenCanvas.Clear()
             time.sleep(0.1)
         #
         bugsnagCall.setup()

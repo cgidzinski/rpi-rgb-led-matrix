@@ -88,7 +88,7 @@ class main(SampleBase):
         def chunk(seq, size):
             return [seq[i:i+size] for i in range(0, len(seq), size)]
 
-        def showGif(image,speed):
+        def showGif(offscreenCanvas, image,speed):
             image = Image.open(image)
             image.convert('RGB')
             frames = 1
@@ -156,12 +156,14 @@ class main(SampleBase):
         #    drawSquare(offscreenCanvas,orange)
         #    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
-        showGif("./bearrun.gif",0.05)
-        showGif("./bearrun.gif",0.05)
-        showGif("./bearrun.gif",0.05)
-        showGif("./bearrun.gif",0.05)
-        showGif("./bearrun.gif",0.05)
-        showGif("./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        showGif(offscreenCanvas, "./bearrun.gif",0.05)
         #
         bugsnagCall.setup()
         #

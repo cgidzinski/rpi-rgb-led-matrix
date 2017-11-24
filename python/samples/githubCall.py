@@ -19,7 +19,6 @@ def findPR():
     url = 'https://api.github.com/repos/'+repo+'/pulls'
     r = requests.get(url, auth=(username,token))
     json_data = json.loads(r.text)
-    print json_data
     return json_data
 
 

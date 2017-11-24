@@ -142,8 +142,8 @@ class main(SampleBase):
         pixels =  list(image.getdata())
         print len(pixels)
         index = 0
-        for y in xrange(0,28):
-            for x in xrange(0,28):
+        for y in xrange(0,32):
+            for x in xrange(0,32):
                 offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                 index += 1
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

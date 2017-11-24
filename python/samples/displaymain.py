@@ -136,8 +136,9 @@ class main(SampleBase):
             image = Image.open('./bear.gif')
             image.thumbnail((32, 32), Image.ANTIALIAS)
             image.convert('RGB')
+
             palette= image.im.getpalette()
-            colours= [map(ord, bytes) for bytes in chunk(palette, 3)]
+            colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
             pixels =  list(colors)
 
             index = 0

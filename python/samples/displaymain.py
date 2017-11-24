@@ -78,7 +78,7 @@ class main(SampleBase):
                 
                 label = "Open"
                 #graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(str(len(openErrors)))+6), 12, severityColors(openErrors), str(len(openErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(str(len(label)))+3), 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)-3), 12, white, label)
 
                 minX =1 
                 maxX = 254

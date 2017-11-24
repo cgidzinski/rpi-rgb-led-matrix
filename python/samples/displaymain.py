@@ -119,7 +119,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0.05) 
+                time.sleep(0) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
@@ -127,30 +127,18 @@ class main(SampleBase):
             ipErrors = bugsnagCall.findErrors("in_progress")
             ignoredErrors = bugsnagCall.findErrors("ignored")
             offscreenCanvas.Clear()
-           
-            for bug in ipErrors:
+            for bug in newErrors:
                 for cycle in xrange(1,255):
                     drawImage(offscreenCanvas,"./bugsnag.jpg")
                     drawSquare(offscreenCanvas,purple)
-
                     graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
                     graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                     offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                     offscreenCanvas.Clear()
-                    
-
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
-                    #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                     graphics.DrawText(offscreenCanvas, fontTiny, 30, 18, green ,bug['context'] )
-                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ,"In Progress "bug['severity'] )
-                    #graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,"In Progress: " + bug['severity'] )
-
-
-
-
-
-
-
+                    graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ," [NEW] "bug['severity'] )
+                    time.sleep(0) 
 
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()

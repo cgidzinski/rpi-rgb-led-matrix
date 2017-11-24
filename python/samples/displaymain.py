@@ -120,7 +120,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, minX, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(0.05) 
+                time.sleep(0.1) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

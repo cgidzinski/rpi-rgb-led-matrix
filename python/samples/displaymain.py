@@ -80,6 +80,7 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, min, height-2, delta, height-2, orange)
                 graphics.DrawLine(offscreenCanvas, min, height-1, delta, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                offscreenCanvas.Clear()
                 time.sleep(1) 
                 
 

@@ -152,13 +152,15 @@ class main(SampleBase):
         for cnum in xrange(0,2):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 30, blue, commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         bugsnagCall.setup()
         #
+        currentTime = time.time()
+        print currentTime
         while True:
             bugsnagOverview(offscreenCanvas)
         

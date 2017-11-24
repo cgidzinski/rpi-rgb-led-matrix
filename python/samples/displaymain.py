@@ -100,11 +100,11 @@ class main(SampleBase):
                print pr['title']
                print pr['user']['login']
 
-                reviews = githubCall.findReviews(pr['number'])
-                for review in reviews:
-                    print review['user']['login']
-                    print review['state']
-                print "-------------------" 
+               reviews = githubCall.findReviews(pr['number'])
+               for review in reviews:
+                   print review['user']['login']
+                   print review['state']
+               print "-------------------" 
             
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):

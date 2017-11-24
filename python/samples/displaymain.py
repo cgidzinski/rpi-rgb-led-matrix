@@ -155,9 +155,9 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
         print "Time: "
-        currentTime = time.time()
-        print currentTime
-        while True:
+        lastTime = time.time()
+        
+        while lastTime +10 < time.time():
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         bugsnagCall.setup()

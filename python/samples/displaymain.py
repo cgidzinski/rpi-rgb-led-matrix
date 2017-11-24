@@ -136,11 +136,11 @@ class main(SampleBase):
                     offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                     offscreenCanvas.Clear()
                     
-                    graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 8, red ,bug['severity'] )
 
                     graphics.DrawText(offscreenCanvas, fontBig, 30, 12, orange,bug['error_class'])
                     #graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
                     graphics.DrawText(offscreenCanvas, fontSmall, 30, 20, green ,bug['context'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 30, 28, red ,bug['severity'] )
                     #graphics.DrawText(offscreenCanvas, fontSmall, 30, 27, red ,"In Progress: " + bug['severity'] )
 
 

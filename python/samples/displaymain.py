@@ -40,6 +40,44 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
 
+        def drawImage(offscreenCanvas,image):
+            image = Image.open(image)
+            image.thumbnail((28, 28), Image.ANTIALIAS)
+            image.convert('RGB')
+            pixels =  list(image.getdata())
+            index = 0
+            for y in xrange(0,28):
+                for x in xrange(0,28):
+                    offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                    index += 1
+
+        def chunk(seq, size):
+            return [seq[i:i+size] for i in range(0, len(seq), size)]
+
+        def showGif(offscreenCanvas, image,speed):
+            image = Image.open(image)
+            image.convert('RGB')
+            frames = 0 
+            try:
+                while True:
+                    image.seek(image.tell()+1)
+                    frames+=1
+            except:
+                pass
+            palette= image.im.getpalette()
+            colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
+            image.seek(0);
+            for z in xrange(0,frames):
+                index = 0
+                pixels =  list(image.getdata())
+                for y in xrange(0,32):
+                    for x in xrange(0,32):
+                        offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
+                        index += 1
+                image.seek(z);
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                time.sleep(speed)
+
         def severityColors(val):
             if len(val) < bugLow:
                 return green
@@ -55,18 +93,7 @@ class main(SampleBase):
             ignoredErrors = bugsnagCall.findErrors("ignored")
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
-
-                image = Image.open('./bugsnag.jpg')
-                image.thumbnail((28, 28), Image.ANTIALIAS)
-                image.convert('RGB')
-                pixels =  list(image.getdata())
-                
-                index = 0
-                for y in xrange(0,28):
-                    for x in xrange(0,28):
-                        offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
-                        index += 1
-
+                drawImage(offscreenCanvas,"./bugsnag.jpg")
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
@@ -95,34 +122,6 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 time.sleep(0.05) 
                 
-
-        def chunk(seq, size):
-            return [seq[i:i+size] for i in range(0, len(seq), size)]
-
-        def showGif(offscreenCanvas, image,speed):
-            image = Image.open(image)
-            image.convert('RGB')
-            frames = 0 
-            try:
-                while True:
-                    image.seek(image.tell()+1)
-                    frames+=1
-            except:
-                pass
-            palette= image.im.getpalette()
-            colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
-            image.seek(0);
-            for z in xrange(0,frames):
-                index = 0
-                pixels =  list(image.getdata())
-                for y in xrange(0,32):
-                    for x in xrange(0,32):
-                        offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
-                        index += 1
-                image.seek(z);
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(speed)
-            
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
@@ -156,7 +155,7 @@ class main(SampleBase):
 
 
 
-
+#############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
@@ -165,9 +164,8 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 30, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
-        lastTime = int(time.time())
         
-        while (int(time.time())-lastTime < 4 ):
+        for count in xrange(0,4):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         bugsnagCall.setup()

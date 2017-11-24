@@ -39,6 +39,7 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
+            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, color)
 
         def drawImage(offscreenCanvas,image):
             image = Image.open(image)
@@ -95,7 +96,6 @@ class main(SampleBase):
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./bugsnag.jpg")
                 drawSquare(offscreenCanvas,purple)
-                graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
                 label = "New"
                 graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
@@ -113,43 +113,42 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 26, white, label)
 
-                minX =1 
-                maxX = 254
-                 
-                graphics.DrawLine(offscreenCanvas, minX, height-2, cycle, height-2, orange)
-                graphics.DrawLine(offscreenCanvas, minX, height-1, cycle, height-1, orange)
+                graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
+                graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
                 time.sleep(0.1) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")
+            openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
+            ignoredErrors = bugsnagCall.findErrors("ignored")
             offscreenCanvas.Clear()
-
+           
             for bug in ipErrors:
-                offscreenCanvas.Clear()
-                drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, blue, "INP" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 24, 9, white,  bug['error_class'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
-                graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(5);
-            
-            for bug in newErrors:
-                offscreenCanvas.Clear()
-                drawSquare(offscreenCanvas,green)
-                graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, blue, "NEW" )
-                graphics.DrawText(offscreenCanvas, fontSmall, 24, 9, white,  bug['error_class'] )
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white,bug['message'] )
-                graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
-                graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(5);
+                for cycle in xrange(1,255):
+                    drawImage(offscreenCanvas,"./bugsnag.jpg")
+                    drawSquare(offscreenCanvas,purple)
+
+                    graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
+                    graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
+                    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                    offscreenCanvas.Clear()
+                    
+                    label = "One"
+                    graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
+
+                    graphics.DrawText(offscreenCanvas, fontSmall, width-(6*len(bug['severity'])), 7, red ,bug['severity'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 2, 9, blue, "INP" )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 24, 9, white,  bug['error_class'] )
+                    graphics.DrawText(offscreenCanvas, fontSmall, 2, 20, white, bug['message'] )
+                    graphics.DrawLine(offscreenCanvas, 0, 21, width, 21, white)
+                    graphics.DrawText(offscreenCanvas, fontSmall, 2, 30, white,bug['context'] )
+
+                    time.sleep(0.1) 
+
+
 
 
 
@@ -172,6 +171,7 @@ class main(SampleBase):
         #
         while True:
             bugsnagOverview(offscreenCanvas)
+            bugsnagList(offscreenCanvas)
         
 
 

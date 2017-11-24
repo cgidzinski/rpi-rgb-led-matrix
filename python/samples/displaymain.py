@@ -141,7 +141,7 @@ class main(SampleBase):
             colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
             pixels =  list(colors)
 
-            print colors
+            print list(colors)
 
             index = 0
             for z in xrange(0,256):    

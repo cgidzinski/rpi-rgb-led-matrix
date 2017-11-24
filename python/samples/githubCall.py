@@ -16,7 +16,7 @@ def setup():
         token = cfg['github']['token']
 
 def findPR():
-    url = 'https://api.github.com/repos/'+repo+'/commits'
+    url = 'https://api.github.com/repos/'+repo+'/pulls'
     r = requests.get(url, auth=(username,token))
     json_data = json.loads(r.text)
     print json_data

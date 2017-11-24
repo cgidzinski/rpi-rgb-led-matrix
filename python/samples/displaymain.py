@@ -161,7 +161,7 @@ class main(SampleBase):
         for cnum in xrange(0,2):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 30, blue, commands.getoutput('hostname -I'))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 27, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
         
         for count in xrange(0,4):

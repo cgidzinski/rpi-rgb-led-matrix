@@ -74,11 +74,11 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, severityColors(ipErrors), str(len(ipErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(str(len(ipErrors)))+3), 26, white, label)
                 
-                min =1 
-                max = 254
-                delta = 222
-                graphics.DrawLine(offscreenCanvas, min, height-2, delta, height-2, orange)
-                graphics.DrawLine(offscreenCanvas, min, height-1, delta, height-1, orange)
+                minX =1 
+                maxX = 254
+                 
+                graphics.DrawLine(offscreenCanvas, minX, height-2, minX+(cycle*10), height-2, orange)
+                graphics.DrawLine(offscreenCanvas, minX, height-1, delta, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
                 time.sleep(1) 

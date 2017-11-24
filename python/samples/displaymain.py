@@ -159,6 +159,7 @@ class main(SampleBase):
         #
         bugsnagCall.setup()
         #
+        print "Time: "
         currentTime = time.time()
         print currentTime
         while True:

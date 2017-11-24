@@ -92,14 +92,20 @@ class main(SampleBase):
 
         def githubOverview(offscreenCanvas):
             prs = githubCall.findPR()
-            reviews = githubCall.findReviews(prs[2]['number'])
-            print prs[3]['number']
-            print prs[3]['title']
-            print prs[3]['user']['login']
-            for review in reviews:
-                print review['user']['login']
-                print review['state']
-                print review['user']
+            needReview = 0
+            needTophat = 0
+           
+            for pr in prs:
+               print pr['number']
+               print pr['title']
+               print pr['user']['login']
+
+                reviews = githubCall.findReviews(pr['number'])
+                for review in reviews:
+                    print review['user']['login']
+                    print review['state']
+                print "-------------------" 
+            
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")

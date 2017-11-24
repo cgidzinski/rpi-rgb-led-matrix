@@ -12,7 +12,6 @@ def setup():
     with open("config.yml", 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
         repo = cfg['github']['repo']
-        organization = cfg['github']['organization']
         username = cfg['github']['username']
         token = cfg['github']['token']
 

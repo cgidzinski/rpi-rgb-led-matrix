@@ -22,7 +22,7 @@ def findPR():
     return json_data
 
 def findReviews(pull):
-    url = 'https://api.github.com/repos/'+repo+'/pulls/'+pull+'/reviews'
+    url = 'https://api.github.com/repos/'+repo+'/pulls/'+str(pull)+'/reviews'
     r = requests.get(url, auth=(username,token))
     json_data = json.loads(r.text)
     return json_data

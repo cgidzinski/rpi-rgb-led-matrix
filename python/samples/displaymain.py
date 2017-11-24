@@ -91,7 +91,7 @@ class main(SampleBase):
         def showGif(offscreenCanvas, image,speed):
             image = Image.open(image)
             image.convert('RGB')
-            frames = 1
+            frames = 0 
             try:
                 while True:
                     image.seek(image.tell()+1)
@@ -155,15 +155,8 @@ class main(SampleBase):
         #    graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
         #    drawSquare(offscreenCanvas,orange)
         #    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
-        showGif(offscreenCanvas, "./bearrun.gif",0.05)
+        while True:
+            showGif(offscreenCanvas, "./bearrun.gif",0.05)
         #
         bugsnagCall.setup()
         #

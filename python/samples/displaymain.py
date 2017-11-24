@@ -51,7 +51,7 @@ class main(SampleBase):
             newErrors = bugsnagCall.findErrors("new")
             ipErrors = bugsnagCall.findErrors("in_progress")
             offscreenCanvas.Clear()
-            for cycle in xrange(0,30):
+            for cycle in xrange(1,253):
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, purple)
 
@@ -77,11 +77,11 @@ class main(SampleBase):
                 minX =1 
                 maxX = 254
                  
-                graphics.DrawLine(offscreenCanvas, minX, height-2, minX+(cycle*10), height-2, orange)
-                graphics.DrawLine(offscreenCanvas, minX, height-1, minX+(cycle*10), height-1, orange)
+                graphics.DrawLine(offscreenCanvas, minX, height-2, cycle, height-2, orange)
+                graphics.DrawLine(offscreenCanvas, minX, height-1, cycle, height-1, orange)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(1) 
+                time.sleep(0.1) 
                 
 
         def bugsnagList(offscreenCanvas):

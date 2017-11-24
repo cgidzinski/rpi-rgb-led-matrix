@@ -124,34 +124,33 @@ class main(SampleBase):
 
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         offscreenCanvas.Clear()
-        slogansText = slogans[random.randint(0,len(slogans)-1)]
-        for pos in xrange(width,1,-8):
-            offscreenCanvas.Clear()
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, slogansText)
-            graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
-            drawSquare(offscreenCanvas,orange)
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        #slogansText = slogans[random.randint(0,len(slogans)-1)]
+        #for pos in xrange(width,1,-8):
+        #    offscreenCanvas.Clear()
+        #    graphics.DrawText(offscreenCanvas, fontBig, pos, 12, green, slogansText)
+        #    graphics.DrawText(offscreenCanvas, fontBig, pos, 30, blue, commands.getoutput('hostname -I'))
+        #    drawSquare(offscreenCanvas,orange)
+        #    offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
-            image = Image.open('./bear.gif')
-            image.thumbnail((32, 32), Image.ANTIALIAS)
-            image.convert('RGB')
+        image = Image.open('./bear.gif')
+        image.thumbnail((32, 32), Image.ANTIALIAS)
+        image.convert('RGB')
 
-            palette= image.im.getpalette()
-            colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
-            pixels =  list(colors)
+        palette= image.im.getpalette()
+        colors= [map(ord, bytes) for bytes in chunk(palette, 3)]
+        pixels =  list(colors)
+        print len(pixels)
 
-            print list(colors)
-
-            index = 0
-            for z in xrange(0,256):    
-                for y in xrange(0,32):
-                    for x in xrange(0,32):
-                        offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
-                        index += 1
-                time.sleep(0.5)
-                image.seek(im.tell()+1)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        index = 0
+        for z in xrange(0,256):    
+            for y in xrange(0,32):
+                for x in xrange(0,32):
+                    offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                    index += 1
+            time.sleep(0.5)
+            image.seek(im.tell()+1)
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         bugsnagCall.setup()
         #

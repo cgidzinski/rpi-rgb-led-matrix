@@ -87,7 +87,6 @@ class main(SampleBase):
                         index += 1
                 image.seek(z);
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(speed)
 
         def severityColorsInt(val):
@@ -210,7 +209,7 @@ class main(SampleBase):
         t.start()
 
         while True:
-            showGif(offscreenCanvas, "./bear.gif",0.1)
+            #showGif(offscreenCanvas, "./bear.gif",0.1)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         while True:
             githubOverview(offscreenCanvas)

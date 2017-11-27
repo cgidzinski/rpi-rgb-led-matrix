@@ -154,9 +154,9 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
-                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*8), 27, red ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*8), 27, orange ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*8), 27, green ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, red ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, orange ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, green ,"["+str(pr['approvals'])+"/2]" )
                 
 
 

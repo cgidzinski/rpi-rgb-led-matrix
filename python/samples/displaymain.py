@@ -205,6 +205,7 @@ class main(SampleBase):
         githubCall.setup()
         bugsnagCall.setup()
         t = Thread(target=getData, name="getData")
+        t.daemon = True
         t.start()
         #
 

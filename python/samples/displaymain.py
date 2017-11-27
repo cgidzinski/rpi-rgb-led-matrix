@@ -154,9 +154,11 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
-                for reviewCount in xrange(0,int(pr['approvals'])):
-                    graphics.DrawText(offscreenCanvas, fontBig, 255-(reviewCount*24), 27, green ,"[A]" )
-
+                if int(pr['approvals']) == 0: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, red ,"[A][A]" )
+                if int(pr['approvals']) == 1: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, orange ,"[A][A]" )
+                if int(pr['approvals']) == 2: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, green ,"[A][A]" )
+                if int(pr['approvals']) >  2: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*32), 27, green ,"[A][+]" )
+                
 
 
                 #graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )

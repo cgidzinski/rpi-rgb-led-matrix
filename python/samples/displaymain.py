@@ -143,7 +143,7 @@ class main(SampleBase):
             drawImage(offscreenCanvas,"./github.jpg")
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(10) 
+            time.sleep(15) 
         ##############
             for pr in prs:
                 offscreenCanvas.Clear()
@@ -161,7 +161,7 @@ class main(SampleBase):
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(3) 
+                time.sleep(2.5) 
 
         
         def bugsnagOverview(offscreenCanvas):
@@ -192,7 +192,7 @@ class main(SampleBase):
             drawImage(offscreenCanvas,"./bugsnag.jpg")
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(10) 
+            time.sleep(15) 
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
@@ -204,9 +204,9 @@ class main(SampleBase):
         #
         githubCall.setup()
         bugsnagCall.setup()
-        #
         t = Thread(target=getData, name="getData")
         t.start()
+        #
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)

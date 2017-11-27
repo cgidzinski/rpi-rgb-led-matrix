@@ -164,11 +164,11 @@ class main(SampleBase):
                 
                 label = "Open"
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+1)), 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 12, white, label)
 
                 label = "Ignored"
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+1)), 26, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 26, white, label)
 
                 graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)

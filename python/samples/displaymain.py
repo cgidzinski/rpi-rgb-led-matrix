@@ -101,7 +101,7 @@ class main(SampleBase):
                 return orange
 
         def githubOverview(offscreenCanvas):
-            prs = githubCall.findPR()
+            prs = githubCall.findPRS()
             needReview = 0
             needTophat = 0
            

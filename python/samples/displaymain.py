@@ -212,6 +212,8 @@ class main(SampleBase):
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
+            print len(bugsnagCall.getData())
+            print len(githubCall.getData())
             if len(githubCall.getData()) != 0 and len(bugsnagCall.getData()) != 0: break
         while True:
             githubOverview(offscreenCanvas)

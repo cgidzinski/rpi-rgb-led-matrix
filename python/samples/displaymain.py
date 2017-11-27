@@ -149,14 +149,14 @@ class main(SampleBase):
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, orange ,pr['title'] )
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 27, orange ,pr['title'] )
                 txtLen = "#"+str(pr['number'])
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
-                
-                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, red ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, orange ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 27, green ,"["+str(pr['approvals'])+"/2]" )
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green,txtLen)
+
+                graphics.DrawText(offscreenCanvas, fontBig, 257-(8*len(txtLen)+1),12 , blue ,pr['user'] )
+                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
                 
 
 

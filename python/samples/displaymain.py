@@ -153,7 +153,7 @@ class main(SampleBase):
                 txtLen = "#"+str(pr['number'])
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green,txtLen)
 
-                graphics.DrawText(offscreenCanvas, fontBig, 207-(8*len(txtLen)+1),12 , blue ,pr['user'] )
+                graphics.DrawText(offscreenCanvas, fontBig, 207-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )

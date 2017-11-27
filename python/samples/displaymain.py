@@ -147,8 +147,6 @@ class main(SampleBase):
             for pr in prs:
                 if pr['labels'].count("WIP") != 0:
                     continue
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
@@ -161,11 +159,15 @@ class main(SampleBase):
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
-                time.sleep(5) 
+                
 
-            offscreenCanvas.Clear()
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+
+                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+                offscreenCanvas.Clear()
+                time.sleep(5) 
+            #offscreenCanvas.Clear()
+            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
         def bugsnagOverview(offscreenCanvas):

@@ -154,11 +154,11 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
-                if pr['approvals'] = 0:
+                if int(pr['approvals']) = 0:
                     graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"A" )
                     graphics.DrawText(offscreenCanvas, fontBig, 255-16, 27, red ,"A" )
                 else:
-                    for apr in xrange(1,pr['approvals']):
+                    for apr in xrange(1,int(pr['approvals'])):
                     graphics.DrawText(offscreenCanvas, fontBig, 255-(8*apr), 27, green ,"A" )
 
                 #graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )

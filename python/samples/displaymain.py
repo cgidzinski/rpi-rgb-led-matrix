@@ -43,6 +43,7 @@ class main(SampleBase):
         def getData():
             githubLoaded = githubCall.hydrate()
             bugsnagLoaded = bugsnagCall.hydrate()
+            print "--Waiting--"
             time.sleep(30)
 
         def drawSquare(offscreenCanvas, color):
@@ -204,7 +205,6 @@ class main(SampleBase):
         bugsnagCall.setup()
         #
         t = Thread(target=getData, name="getData")
-        t.daemon = True
         t.start()
 
         while True:

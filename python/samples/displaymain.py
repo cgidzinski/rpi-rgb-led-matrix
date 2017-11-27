@@ -141,8 +141,8 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5)
         ##############
-            offscreenCanvas.Clear()
             for pr in prs:
+                offscreenCanvas.Clear()
                 if pr['labels'].count("WIP") != 0:
                     continue
                 drawImage(offscreenCanvas,"./github.jpg")
@@ -160,6 +160,7 @@ class main(SampleBase):
 
         
         def bugsnagOverview(offscreenCanvas):
+            offscreenCanvas.Clear()
             newErrors = bugsnagCall.findErrors("new")
             openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
@@ -183,7 +184,6 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 26, white, label)
 
-            offscreenCanvas.Clear()
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5) 
                 

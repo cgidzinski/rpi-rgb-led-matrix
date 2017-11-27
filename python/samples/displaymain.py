@@ -105,6 +105,7 @@ class main(SampleBase):
             needReview = 0
             needTophat = 0
             needWIP = 0 
+            openPR = len(prs)
             for pr in prs: 
                if pr['approvals'] < 2:
                    needReview +=1
@@ -112,7 +113,8 @@ class main(SampleBase):
                    needTophat +=1
                if pr['labels'].count('WIP'):
                    needWIP += 1
-            
+                
+            openPR -= needWIP
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./github.jpg")
@@ -121,7 +123,7 @@ class main(SampleBase):
 
 
                 label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
                 label = "Open WIP"

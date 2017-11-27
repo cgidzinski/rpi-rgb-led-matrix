@@ -42,6 +42,8 @@ def hydrate():
         for label in ISS_data['labels']:
             newPR['labels'].append(label['name'])
         data.append(newPR)
+        print newPR
+        print ""
     print "Got Github Data"
     ready = True
     return 

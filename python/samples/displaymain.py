@@ -196,16 +196,11 @@ class main(SampleBase):
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-        graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
-        drawSquare(offscreenCanvas,white)
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-
-        graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
-        graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
-        drawSquare(offscreenCanvas,white)
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        for x in xrange(0,2):
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
+            drawSquare(offscreenCanvas,white)
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         githubCall.setup()
         bugsnagCall.setup()

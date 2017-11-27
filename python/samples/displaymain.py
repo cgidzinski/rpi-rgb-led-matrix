@@ -203,6 +203,10 @@ class main(SampleBase):
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
+        #
+        githubCall.setup()
+        bugsnagCall.setup()
+        #
         for cnum in xrange(0,2):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
@@ -210,10 +214,6 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while githubCall.hydrate() != True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
-        #
-        githubCall.setup()
-        bugsnagCall.setup()
-        #
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

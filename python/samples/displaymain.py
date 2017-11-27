@@ -111,7 +111,7 @@ class main(SampleBase):
                else:
                    needTophat +=1
                if pr['labels'].count('WIP'):
-                   needWIP+=1
+                   needWIP += 1
             
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
@@ -125,7 +125,7 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
                 label = "Open WIP"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWip))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), 'needWip')
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
                 
                 label = "Need Review"

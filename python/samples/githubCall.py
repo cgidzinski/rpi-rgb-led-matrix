@@ -15,24 +15,29 @@ def setup():
         username = cfg['github']['username']
         token = cfg['github']['token']
 
-def findWip(pull):
-    url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pull)+''
-    r = requests.get(url, auth=(username,token))
-    json_data = json.loads(r.text)
-    return json_data
-
-def findPR():
+def findPRS():
     url = 'https://api.github.com/repos/'+repo+'/pulls'
     r = requests.get(url, auth=(username,token))
-    json_data = json.loads(r.text)
-    return json_data
-
-def findReviews(pull):
-    url = 'https://api.github.com/repos/'+repo+'/pulls/'+str(pull)+'/reviews'
-    r = requests.get(url, auth=(username,token))
-    json_data = json.loads(r.text)
-    return json_data
-
+    PR_data = json.loads(r.text)
+    data = []
+    for pr in PR_data:
+        newPR =  {'approvals':0,'labels':[], 'number':pr['number'], 'title':pr['title'], 'user':pr['user']['login']}
+        
+        url = 'https://api.github.com/repos/'+repo+'/pulls/'+str(pr['number'])+'/reviews'
+        r = requests.get(url, auth=(username,token))
+        REV_data = json.loads(r.text)
+        for review in REV_data:
+            if review['state'] == "APPROVED":
+                newPR['approvals'] += 1
+        
+        url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pr['number'])
+        r = requests.get(url, auth=(username,token))
+        ISS_data = json.loads(r.text)
+        for label in ISS_data['labels']:
+            newPR['labels'].append(label['name'])
+        
+        data.append(newPR)
+    return data
 
 if __name__ == "__main__":
-    test()
+    findPRS()

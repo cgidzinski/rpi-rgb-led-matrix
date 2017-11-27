@@ -105,22 +105,8 @@ class main(SampleBase):
             needReview = 0
             needTophat = 0
            
-            for pr in prs:
-               
-               print githubCall.findWip(pr['number'])
-               return
-               #print pr['number']
-               #print pr['title']
-               #print pr['user']['login']
-
-               reviews = githubCall.findReviews(pr['number'])
-               tempRv = 0
-               for review in reviews:
-                   if review['state'] == "APPROVED":
-                       tempRv +=1
-                   #print review['user']['login']
-                   #print review['state']
-               if tempRv < 2:
+            for pr in prs: 
+               if pr['approvals'] < 2:
                    needReview +=1
                else:
                    needTophat +=1

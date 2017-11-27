@@ -154,6 +154,10 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
+                graphics.DrawText(offscreenCanvas, fontBig, 255-16, 27, red ,"A" )
+                graphics.DrawText(offscreenCanvas, fontBig, 255-24, 27, red ,"A" )
+                graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )
+
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
                 time.sleep(200) 

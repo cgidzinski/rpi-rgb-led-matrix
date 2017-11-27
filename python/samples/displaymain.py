@@ -113,7 +113,7 @@ class main(SampleBase):
                    needTophat +=1
                if pr['labels'].count('WIP'):
                    needWIP += 1
-                
+            needReview -= needWIP   
             openPR -= needWIP
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):

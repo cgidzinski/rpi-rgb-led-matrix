@@ -126,16 +126,16 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, label)
             
             label = "WIP"
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 28, severityColorsInt(needWIP), str(needWIP))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 28, white, label)
             
             label = "Need Review"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needReview))+1)), 12, severityColorsInt(needReview), str(needReview))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 12, white, label)
             
             label = "Need Tophat"
-            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 26, severityColorsInt(needTophat), str(needTophat))
-            graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 26,  white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 28, severityColorsInt(needTophat), str(needTophat))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 28,  white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5)
@@ -174,16 +174,16 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 36, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 28, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 28, white, label)
             
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 12, white, label)
 
             label = "Ignored"
-            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 28, severityColors(ignoredErrors), str(len(ignoredErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 28, white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5) 

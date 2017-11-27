@@ -160,10 +160,10 @@ class main(SampleBase):
 
         
         def bugsnagOverview(offscreenCanvas):
-            newErrors = bugsnagCall.findErrors("new")
-            openErrors = bugsnagCall.findErrors("open")
-            ipErrors = bugsnagCall.findErrors("in_progress")
-            ignoredErrors = bugsnagCall.findErrors("ignored")
+            newErrors = bugsnagCall.hydrate("new")
+            openErrors = bugsnagCall.hydrate("open")
+            ipErrors = bugsnagCall.hydrate("in_progress")
+            ignoredErrors = bugsnagCall.hydrate("ignored")
             offscreenCanvas.Clear()
             drawImage(offscreenCanvas,"./bugsnag.jpg")
             drawSquare(offscreenCanvas,purple)
@@ -186,20 +186,6 @@ class main(SampleBase):
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5) 
-                
-        def bugsnagList(offscreenCanvas):
-            newErrors = bugsnagCall.findErrors("new")
-            offscreenCanvas.Clear()
-            for bug in newErrors:
-                drawImage(offscreenCanvas,"./bugsnag.jpg")
-                drawSquare(offscreenCanvas,purple)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
-                graphics.DrawText(offscreenCanvas, fontBig, 30, 11, orange,bug['error_class'])
-                graphics.DrawText(offscreenCanvas, fontTiny, 30, 18, green ,bug['context'] )
-                graphics.DrawText(offscreenCanvas, fontTiny, 30, 26, red ,"[NEW] "+bug['severity'] )
-                time.sleep(0) 
-
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
@@ -212,10 +198,12 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+
         githubLoaded = githubCall.hydrate()
+        bugsnagLoaded = bugsnagCall.hydrate()
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
-            if githubLoaded == True: break
+            if githubLoaded == True && bugsnagLoaded == True: break
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

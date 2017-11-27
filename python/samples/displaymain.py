@@ -101,7 +101,7 @@ class main(SampleBase):
                 return orange
 
         def githubOverview(offscreenCanvas):
-            prs = githubCall.findPRS()
+            prs = githubCall.getData()
             offscreenCanvas.Clear()
             needReview = 0
             needTophat = 0
@@ -208,7 +208,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        for count in xrange(0,2):
+        while githubCall.hydrate() != True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         githubCall.setup()

@@ -6,7 +6,7 @@ import yaml
 repo = ""
 username = ""
 token = ""
-
+data = []
 def setup():
     global projectName, repo, token
     with open("config.yml", 'r') as ymlfile:
@@ -15,11 +15,14 @@ def setup():
         username = cfg['github']['username']
         token = cfg['github']['token']
 
-def findPRS():
+def getData():
+    return data
+
+def hydrate():
+    global data
     url = 'https://api.github.com/repos/'+repo+'/pulls'
     r = requests.get(url, auth=(username,token))
     PR_data = json.loads(r.text)
-    data = []
     for pr in PR_data:
         newPR =  {'approvals':0,'labels':[], 'number':pr['number'], 'title':pr['title'], 'user':pr['user']['login']}
         
@@ -37,7 +40,7 @@ def findPRS():
             newPR['labels'].append(label['name'])
         
         data.append(newPR)
-    return data
+    return True 
 
 if __name__ == "__main__":
     findPRS()

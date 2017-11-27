@@ -116,58 +116,53 @@ class main(SampleBase):
             needReview -= needWIP   
             openPR -= needWIP
             offscreenCanvas.Clear()
-            for cycle in xrange(1,255):
-                drawImage(offscreenCanvas,"./github.jpg")
-                drawSquare(offscreenCanvas,purple)
+            
+            drawImage(offscreenCanvas,"./github.jpg")
+            drawSquare(offscreenCanvas,purple)
 
 
 
-                label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
-                
-                label = "WIP"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
-                
-                label = "Need Review"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needReview))+1)), 12, severityColorsInt(needReview), str(needReview))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 12, white, label)
-                
-                label = "Need Tophat"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 26, severityColorsInt(needTophat), str(needTophat))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 26,  white, label)
+            label = "Open"
+            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
+            
+            label = "WIP"
+            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
+            
+            label = "Need Review"
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needReview))+1)), 12, severityColorsInt(needReview), str(needReview))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 12, white, label)
+            
+            label = "Need Tophat"
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 26, severityColorsInt(needTophat), str(needTophat))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 26,  white, label)
 
-                graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
-                graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
-                time.sleep(0)
-            ##############
-            for pr in prs:
-                if pr['labels'].count("WIP") != 0:
-                    continue
-                drawImage(offscreenCanvas,"./github.jpg")
-                drawSquare(offscreenCanvas,purple)
-                graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
-                graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 27, orange ,pr['title'] )
-                txtLen = "#"+str(pr['number'])
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green,txtLen)
+            offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            time.sleep(5)
+        ##############
+        for pr in prs:
+            if pr['labels'].count("WIP") != 0:
+                continue
+            drawImage(offscreenCanvas,"./github.jpg")
+            drawSquare(offscreenCanvas,purple)
+            graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
+            graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 27, orange ,pr['title'] )
+            txtLen = "#"+str(pr['number'])
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green,txtLen)
 
-                graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
-                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
-                
+            graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
+            if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
+            if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
+            if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
+            
 
 
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
-                time.sleep(1) 
-            #offscreenCanvas.Clear()
-            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            time.sleep(1) 
 
         
         def bugsnagOverview(offscreenCanvas):
@@ -175,32 +170,28 @@ class main(SampleBase):
             openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
             ignoredErrors = bugsnagCall.findErrors("ignored")
-            #offscreenCanvas.Clear()
-            for cycle in xrange(1,255):
-                drawImage(offscreenCanvas,"./bugsnag.jpg")
-                drawSquare(offscreenCanvas,purple)
+            drawImage(offscreenCanvas,"./bugsnag.jpg")
+            drawSquare(offscreenCanvas,purple)
 
-                label = "New"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
-                
-                label = "In Progress"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
-                
-                label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 12, white, label)
+            label = "New"
+            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
+            
+            label = "In Progress"
+            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
+            
+            label = "Open"
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 12, white, label)
 
-                label = "Ignored"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 26, white, label)
+            label = "Ignored"
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 26, white, label)
 
-                graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
-                graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
-                offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                offscreenCanvas.Clear()
-                time.sleep(0.1) 
+            offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            time.sleep(5) 
                 
         def bugsnagList(offscreenCanvas):
             newErrors = bugsnagCall.findErrors("new")

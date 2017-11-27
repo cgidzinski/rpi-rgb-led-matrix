@@ -122,12 +122,12 @@ class main(SampleBase):
 
 
             label = "Open"
-            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, label)
             
             label = "WIP"
-            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 26, white, label)
             
             label = "Need Review"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needReview))+1)), 12, severityColorsInt(needReview), str(needReview))
@@ -146,9 +146,9 @@ class main(SampleBase):
                     continue
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
-                graphics.DrawText(offscreenCanvas, fontBig, 34, 27, orange ,pr['title'] )
+                graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
                 txtLen = "#"+str(pr['number'])
-                graphics.DrawText(offscreenCanvas, fontBig, 34, 12, green,txtLen)
+                graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
 
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
@@ -170,12 +170,12 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,purple)
 
             label = "New"
-            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 36, 26, white, label)
             
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))

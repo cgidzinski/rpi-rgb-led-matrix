@@ -149,10 +149,10 @@ class main(SampleBase):
                 drawSquare(offscreenCanvas,purple)
                 graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green ,pr['title'] )
-                txtLen = str(pr['number'])
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, orange ,pr['title'] )
+                txtLen = "#"+pr['number']
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, orange ,"WIP" )
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()

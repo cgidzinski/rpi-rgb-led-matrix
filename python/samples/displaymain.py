@@ -204,10 +204,10 @@ class main(SampleBase):
         githubCall.setup()
         bugsnagCall.setup()
         #
-        #t = Thread(target=getData, name="getData")
-        #t.daemon = True
-        #t.start()
-        getData()
+        t = Thread(target=getData, name="getData")
+        t.daemon = True
+        t.start()
+
         while True:
             #showGif(offscreenCanvas, "./bear.gif",0.1)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break

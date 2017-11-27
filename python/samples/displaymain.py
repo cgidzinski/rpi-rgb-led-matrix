@@ -138,7 +138,6 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 26, severityColorsInt(needTophat), str(needTophat))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 26,  white, label)
 
-            offscreenCanvas.Clear()
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5)
         ##############
@@ -155,7 +154,6 @@ class main(SampleBase):
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
-                offscreenCanvas.Clear()
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(1) 
 
@@ -203,25 +201,21 @@ class main(SampleBase):
 
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
-        offscreenCanvas.Clear()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
         for cnum in xrange(0,2):
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
-        
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         for count in xrange(0,1):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
-        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         githubCall.setup()
         bugsnagCall.setup()
         #
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)
-            #bugsnagList(offscreenCanvas)
         
 
 

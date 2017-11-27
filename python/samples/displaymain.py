@@ -134,15 +134,15 @@ class main(SampleBase):
 
                 label = "Open"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
-                graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
                 label = "Need Review"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needReview), str(needReview))
-                graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
                 
                 label = "Need Tophat"
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 12, severityColorsInt(needTophat), str(needTophat))
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 12, white, label)
 
                 #label = "Ignored"
                 #graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))

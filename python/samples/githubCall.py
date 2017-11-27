@@ -34,6 +34,7 @@ def hydrate():
         r = requests.get(url, auth=(username,token))
         REV_data = json.loads(r.text)
         for review in REV_data:
+            print review
             if review['state'] == "APPROVED":
                 newPR['approvals'] += 1
         url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pr['number'])
@@ -42,8 +43,6 @@ def hydrate():
         for label in ISS_data['labels']:
             newPR['labels'].append(label['name'])
         data.append(newPR)
-        print newPR
-        print ""
     print "Got Github Data"
     ready = True
     return 

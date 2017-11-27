@@ -154,13 +154,18 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
-                graphics.DrawText(offscreenCanvas, fontBig, 255-16, 27, red ,"A" )
-                graphics.DrawText(offscreenCanvas, fontBig, 255-24, 27, red ,"A" )
-                graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )
+                if pr['approvals'] = 0:
+                    graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"A" )
+                    graphics.DrawText(offscreenCanvas, fontBig, 255-16, 27, red ,"A" )
+                else:
+                    for apr in xrange(1,pr['approvals']):
+                    graphics.DrawText(offscreenCanvas, fontBig, 255-(8*apr), 27, green ,"A" )
+
+                #graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )
 
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(200) 
+                time.sleep(5) 
             offscreenCanvas.Clear()
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 

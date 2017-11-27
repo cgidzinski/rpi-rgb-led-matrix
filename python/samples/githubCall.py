@@ -7,6 +7,7 @@ repo = ""
 username = ""
 token = ""
 data = []
+ready = False
 def setup():
     global projectName, repo, token
     with open("config.yml", 'r') as ymlfile:
@@ -18,8 +19,11 @@ def setup():
 def getData():
     return data
 
+def ready():
+    return ready
+
 def hydrate():
-    global data
+    global data, ready
     url = 'https://api.github.com/repos/'+repo+'/pulls'
     print "Getting Github Data"
     r = requests.get(url, auth=(username,token))
@@ -39,7 +43,8 @@ def hydrate():
             newPR['labels'].append(label['name'])
         data.append(newPR)
     print "Got Github Data"
-    return True 
+    ready = True
+    return 
 
 if __name__ == "__main__":
     findPRS()

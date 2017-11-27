@@ -6,7 +6,7 @@ import yaml
 projectID = ""
 token = ""
 data={'new':[],'open':[],'in_progress':[],'ignored':[]}
-
+ready = False
 def setup():
     global projectID, token
     with open("config.yml", 'r') as ymlfile:
@@ -14,11 +14,14 @@ def setup():
         projectID = cfg['bugsnag']['project']
         token = cfg['bugsnag']['token']
 
+def ready():
+    return ready
+
 def getData():
     return data
 
 def hydrate():
-    global data
+    global data, ready
     print "Getting Bugsnag Data"
     for errorType in data:
         url = 'https://api.bugsnag.com/projects/'+projectID+'/errors?sort=last_seen&direction=desc&filters[error.status][][value]='+errorType+'&filters[error.status][][type]=eq'
@@ -26,7 +29,8 @@ def hydrate():
         r = requests.get(url, headers=headers)
         data[errorType] = json.loads(r.text)
     print "Got Bugsnag Data"
-    return True
+    ready = True
+    return
 
 if __name__ == "__main__":
     test()

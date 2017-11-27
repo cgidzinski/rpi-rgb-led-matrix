@@ -48,6 +48,7 @@ class main(SampleBase):
             getData()
 
         def drawSquare(offscreenCanvas, color):
+            graphics.DrawLine(offscreenCanvas, 33, 0, 33, 32, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, color)
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)

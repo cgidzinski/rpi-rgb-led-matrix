@@ -205,7 +205,7 @@ class main(SampleBase):
         bugsnagLoaded = bugsnagCall.hydrate()
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
-            if githubLoaded == True and bugsnagLoaded == True: break
+            break
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

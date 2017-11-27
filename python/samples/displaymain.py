@@ -160,10 +160,10 @@ class main(SampleBase):
 
         
         def bugsnagOverview(offscreenCanvas):
-            newErrors = bugsnagCall.hydrate("new")
-            openErrors = bugsnagCall.hydrate("open")
-            ipErrors = bugsnagCall.hydrate("in_progress")
-            ignoredErrors = bugsnagCall.hydrate("ignored")
+            newErrors = bugsnagCall.getData("new")
+            openErrors = bugsnagCall.getData("open")
+            ipErrors = bugsnagCall.getData("in_progress")
+            ignoredErrors = bugsnagCall.getData("ignored")
             offscreenCanvas.Clear()
             drawImage(offscreenCanvas,"./bugsnag.jpg")
             drawSquare(offscreenCanvas,purple)

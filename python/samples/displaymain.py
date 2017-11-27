@@ -126,7 +126,7 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
-                label = "Open WIP"
+                label = "WIP"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
                 

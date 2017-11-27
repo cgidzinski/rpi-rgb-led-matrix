@@ -212,8 +212,10 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        while githubCall.hydrate() != True:
+        githubLoaded = githubCall.hydrate()
+        while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
+            if githubLoaded == True: break
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

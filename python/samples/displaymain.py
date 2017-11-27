@@ -107,7 +107,7 @@ class main(SampleBase):
            
             for pr in prs:
                print pr
-               sys.exit 0
+               return 
                #print pr['number']
                #print pr['title']
                #print pr['user']['login']

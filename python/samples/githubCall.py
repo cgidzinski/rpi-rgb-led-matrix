@@ -34,8 +34,7 @@ def hydrate():
         r = requests.get(url, auth=(username,token))
         REV_data = json.loads(r.text)
         for review in REV_data:
-            if review['number'] == 1550: print review
-            if review['state'] == "APPROVED":
+            print review['state']
                 newPR['approvals'] += 1
         url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pr['number'])
         r = requests.get(url, auth=(username,token))

@@ -67,7 +67,7 @@ class main(SampleBase):
         def chunk(seq, size):
             return [seq[i:i+size] for i in range(0, len(seq), size)]
 
-        def showGif(offscreenCanvas, image,speed):
+        def showGif(offscreenCanvas, image, speed, xCoord):
             image = Image.open(image)
             image.convert('RGB')
             frames = 0 
@@ -85,7 +85,7 @@ class main(SampleBase):
                 pixels =  list(image.getdata())
                 for y in xrange(0,32):
                     for x in xrange(0,32):
-                        offscreenCanvas.SetPixel(x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
+                        offscreenCanvas.SetPixel(xCoord+x,y,colors[pixels[index]][0],colors[pixels[index]][1],colors[pixels[index]][2])
                         index += 1
                 image.seek(z);
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
@@ -143,7 +143,7 @@ class main(SampleBase):
             drawImage(offscreenCanvas,"./github.jpg")
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(15) 
+            time.sleep(20) 
         ##############
             for pr in prs:
                 offscreenCanvas.Clear()
@@ -161,7 +161,7 @@ class main(SampleBase):
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-                time.sleep(2.5) 
+                time.sleep(5) 
 
         
         def bugsnagOverview(offscreenCanvas):
@@ -192,7 +192,7 @@ class main(SampleBase):
             drawImage(offscreenCanvas,"./bugsnag.jpg")
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(15) 
+            time.sleep(20) 
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
         slogansText = slogans[random.randint(0,len(slogans)-1)]
@@ -210,7 +210,8 @@ class main(SampleBase):
         #
 
         while True:
-            showGif(offscreenCanvas, "./bear.gif",0.1)
+            showGif(offscreenCanvas, "./bear.gif",0.1,0)
+            showGif(offscreenCanvas, "./bear.gif",0.1,128)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:

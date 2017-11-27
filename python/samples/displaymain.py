@@ -155,8 +155,9 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontSmall, 32, 26, white ,pr['user'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(2) 
+                time.sleep(200) 
             offscreenCanvas.Clear()
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
         def bugsnagOverview(offscreenCanvas):

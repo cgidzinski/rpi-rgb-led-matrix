@@ -151,11 +151,12 @@ class main(SampleBase):
                 graphics.DrawLine(offscreenCanvas, 1, height-1, cycle, height-1, orange)
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 11, green,str(pr['number']))
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(str(pr['number']))+1), 11, orange ,pr['title'] )
-                graphics.DrawText(offscreenCanvas, fontTiny, 32, 18, blue ,pr['title'] )
-                graphics.DrawText(offscreenCanvas, fontTiny, 32, 26, red ,pr['user'] )
+                graphics.DrawText(offscreenCanvas, fontTiny, 32, 18, white ,pr['title'] )
+                graphics.DrawText(offscreenCanvas, fontTiny, 32, 26, white ,pr['user'] )
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
                 time.sleep(2) 
+            offscreenCanvas.Clear()
 
         
         def bugsnagOverview(offscreenCanvas):

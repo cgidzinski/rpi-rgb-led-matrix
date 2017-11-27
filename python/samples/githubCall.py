@@ -19,7 +19,7 @@ def setup():
 def getData():
     return data
 
-def ready():
+def isReady():
     return ready
 
 def hydrate():

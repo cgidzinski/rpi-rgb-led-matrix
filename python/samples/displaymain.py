@@ -210,7 +210,7 @@ class main(SampleBase):
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
-            if githubCall.ready() == True and bugsnagCall.ready() == True: break
+            if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

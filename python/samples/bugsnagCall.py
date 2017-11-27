@@ -14,7 +14,7 @@ def setup():
         projectID = cfg['bugsnag']['project']
         token = cfg['bugsnag']['token']
 
-def ready():
+def isReady():
     return ready
 
 def getData():

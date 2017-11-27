@@ -53,7 +53,7 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
 
-        def drawImage(offscreenCanvas,image):
+        def drawImage(offscreenCanvas,image,xCoord):
             image = Image.open(image)
             image.thumbnail((32, 32), Image.ANTIALIAS)
             image.convert('RGB')
@@ -61,7 +61,7 @@ class main(SampleBase):
             index = 0
             for y in xrange(0,32):
                 for x in xrange(0,32):
-                    offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                    offscreenCanvas.SetPixel(xCoord+x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
 
         def chunk(seq, size):
@@ -140,7 +140,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 28, severityColorsInt(needTophat), str(needTophat))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 28,  white, label)
 
-            drawImage(offscreenCanvas,"./github.jpg")
+            drawImage(offscreenCanvas,"./github.jpg",0)
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20) 
@@ -158,7 +158,7 @@ class main(SampleBase):
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
 
-                drawImage(offscreenCanvas,"./github.jpg")
+                drawImage(offscreenCanvas,"./github.jpg",0)
                 drawSquare(offscreenCanvas,purple)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(5) 
@@ -189,7 +189,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 28, severityColors(ignoredErrors), str(len(ignoredErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 28, white, label)
 
-            drawImage(offscreenCanvas,"./bugsnag.jpg")
+            drawImage(offscreenCanvas,"./bugsnag.jpg",0)
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(20) 
@@ -210,8 +210,8 @@ class main(SampleBase):
         #
 
         while True:
-            showGif(offscreenCanvas, "./bear.gif",0.1,0)
-            showGif(offscreenCanvas, "./bear.gif",0.1,128)
+            #showGif(offscreenCanvas, "./bear.gif",0.1,0)
+            showGif(offscreenCanvas, "./bear.gif",0.05,172)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:

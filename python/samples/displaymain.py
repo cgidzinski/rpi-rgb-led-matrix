@@ -199,7 +199,7 @@ class main(SampleBase):
         for x in xrange(0,2):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
-            drawImage(offscreenCanvas,"./flow.jpg",222)
+            drawImage(offscreenCanvas,"./flow.jpg",224)
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #

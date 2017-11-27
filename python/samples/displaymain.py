@@ -154,10 +154,9 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 27, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(txtLen)+1), 27, blue ,pr['user'] )
                 
-                if int(pr['approvals']) == 0: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, red ,"[A][A]" )
-                if int(pr['approvals']) == 1: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, orange ,"[A][A]" )
-                if int(pr['approvals']) == 2: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*24), 27, green ,"[A][A]" )
-                if int(pr['approvals']) >  2: graphics.DrawText(offscreenCanvas, fontBig, 255-(2*32), 27, green ,"[A][+]" )
+                if int(pr['approvals']) == 0: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*24), 27, red ,"["+pr['approvals']+"/2]" )
+                if int(pr['approvals']) == 1: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*24), 27, orange ,"["+pr['approvals']+"/2]" )
+                if int(pr['approvals']) >= 2: graphics.DrawText(offscreenCanvas, fontBig, 255-(5*24), 27, green ,"["+pr['approvals']+"/2]" )
                 
 
 

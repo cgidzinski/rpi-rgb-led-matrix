@@ -45,6 +45,7 @@ class main(SampleBase):
             bugsnagLoaded = bugsnagCall.hydrate()
             print "--Waiting--"
             time.sleep(30)
+            getData()
 
         def drawSquare(offscreenCanvas, color):
             graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, color)

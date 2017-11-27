@@ -167,7 +167,7 @@ class main(SampleBase):
                 time.sleep(1) 
             #offscreenCanvas.Clear()
             #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
         def bugsnagOverview(offscreenCanvas):
@@ -175,7 +175,7 @@ class main(SampleBase):
             openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
             ignoredErrors = bugsnagCall.findErrors("ignored")
-            offscreenCanvas.Clear()
+            #offscreenCanvas.Clear()
             for cycle in xrange(1,255):
                 drawImage(offscreenCanvas,"./bugsnag.jpg")
                 drawSquare(offscreenCanvas,purple)

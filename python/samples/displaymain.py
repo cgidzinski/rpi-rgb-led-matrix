@@ -161,6 +161,7 @@ class main(SampleBase):
         
         def bugsnagOverview(offscreenCanvas):
             Errors = bugsnagCall.getData()
+            print Errors
             newErrors = Errors['new']
             openErrors = Errors['open']
             ipErrors = Errors['in_progress']

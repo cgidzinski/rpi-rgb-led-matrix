@@ -40,6 +40,7 @@ def hydrate():
             newPR['labels'].append(label['name'])
         
         data.append(newPR)
+    print data
     return True 
 
 if __name__ == "__main__":

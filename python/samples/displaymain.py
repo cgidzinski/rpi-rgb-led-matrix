@@ -138,8 +138,6 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 28, severityColorsInt(needTophat), str(needTophat))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 28,  white, label)
 
-            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-
             drawImage(offscreenCanvas,"./github.jpg")
             drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)

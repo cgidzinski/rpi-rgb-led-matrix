@@ -101,8 +101,8 @@ class main(SampleBase):
                 return orange
 
         def githubOverview(offscreenCanvas):
-            offscreenCanvas.Clear()
             prs = githubCall.findPRS()
+            offscreenCanvas.Clear()
             needReview = 0
             needTophat = 0
             needWIP = 0 
@@ -160,11 +160,11 @@ class main(SampleBase):
 
         
         def bugsnagOverview(offscreenCanvas):
-            offscreenCanvas.Clear()
             newErrors = bugsnagCall.findErrors("new")
             openErrors = bugsnagCall.findErrors("open")
             ipErrors = bugsnagCall.findErrors("in_progress")
             ignoredErrors = bugsnagCall.findErrors("ignored")
+            offscreenCanvas.Clear()
             drawImage(offscreenCanvas,"./bugsnag.jpg")
             drawSquare(offscreenCanvas,purple)
 
@@ -208,7 +208,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-        for count in xrange(0,1):
+        for count in xrange(0,2):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
         githubCall.setup()

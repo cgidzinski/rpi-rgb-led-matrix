@@ -10,7 +10,7 @@ import githubCall
 import bugsnagCall
 #
 fontThumb = graphics.Font()
-fontThumb.LoadFont("../../fonts/tom-thumb.bdf")
+fontThumb.LoadFont("../../fonts/4x6.bdf")
 fontTiny = graphics.Font()
 fontTiny.LoadFont("../../fonts/5x8.bdf")
 fontSmall = graphics.Font()
@@ -135,8 +135,8 @@ class main(SampleBase):
 
 
                 label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontThumb, 32+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
+                graphics.DrawText(offscreenCanvas, fontThumb, 32, 12, white, label)
                 
                 label = "Need Review"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needReview), str(needReview))

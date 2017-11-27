@@ -158,8 +158,8 @@ class main(SampleBase):
                     graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"A" )
                     graphics.DrawText(offscreenCanvas, fontBig, 255-16, 27, red ,"A" )
                 else:
-                    for apr in xrange(1,int(pr['approvals'])):
-                        graphics.DrawText(offscreenCanvas, fontBig, 255-(8*apr), 27, green ,"A" )
+                    for apr in xrange(0,int(pr['approvals'])):
+                        graphics.DrawText(offscreenCanvas, fontBig, 255-(8*(apr+1)), 27, green ,"A" )
 
                 #graphics.DrawText(offscreenCanvas, fontBig, 255-8, 27, red ,"H" )
 

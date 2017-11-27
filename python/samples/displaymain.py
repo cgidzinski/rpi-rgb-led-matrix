@@ -61,7 +61,7 @@ class main(SampleBase):
             index = 0
             for y in xrange(0,32):
                 for x in xrange(0,32):
-                    offscreenCanvas.SetPixel(xCoord+x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
+                    offscreenCanvas.SetPixel((xCoord+x+1),y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
 
         def chunk(seq, size):

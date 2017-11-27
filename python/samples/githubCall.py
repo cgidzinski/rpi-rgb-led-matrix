@@ -21,6 +21,7 @@ def getData():
 def hydrate():
     global data
     url = 'https://api.github.com/repos/'+repo+'/pulls'
+    print "Getting Github Data"
     r = requests.get(url, auth=(username,token))
     PR_data = json.loads(r.text)
     for pr in PR_data:
@@ -37,6 +38,7 @@ def hydrate():
         for label in ISS_data['labels']:
             newPR['labels'].append(label['name'])
         data.append(newPR)
+    print "Got Github Data"
     return True 
 
 if __name__ == "__main__":

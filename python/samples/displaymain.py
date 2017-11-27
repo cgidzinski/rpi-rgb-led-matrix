@@ -3,8 +3,9 @@
 from samplebase import SampleBase
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
+from threading import Thread
 from PIL import Image
-import json, os, time, commands, random
+import subprocess, json, os, time, commands, random
 #
 import githubCall
 import bugsnagCall
@@ -39,6 +40,11 @@ class main(SampleBase):
         super(main, self).__init__(*args, **kwargs)
 
     def Run(self):
+        def getData():
+            githubLoaded = githubCall.hydrate()
+            bugsnagLoaded = bugsnagCall.hydrate()
+            time.sleep(30)
+
         def drawSquare(offscreenCanvas, color):
             graphics.DrawLine(offscreenCanvas, 0, 0, width, 0, color)
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
@@ -115,11 +121,6 @@ class main(SampleBase):
                    needWIP += 1
             needReview -= needWIP   
             openPR -= needWIP
-            
-            drawImage(offscreenCanvas,"./github.jpg")
-            drawSquare(offscreenCanvas,purple)
-
-
 
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
@@ -138,22 +139,27 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)+1), 28,  white, label)
 
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            time.sleep(5)
+
+            drawImage(offscreenCanvas,"./github.jpg")
+            drawSquare(offscreenCanvas,purple)
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            time.sleep(5) 
         ##############
             for pr in prs:
                 offscreenCanvas.Clear()
                 if pr['labels'].count("WIP") != 0:
                     continue
-                drawImage(offscreenCanvas,"./github.jpg")
-                drawSquare(offscreenCanvas,purple)
+
                 graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
                 txtLen = "#"+str(pr['number'])
                 graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
-
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
+
+                drawImage(offscreenCanvas,"./github.jpg")
+                drawSquare(offscreenCanvas,purple)
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 time.sleep(1) 
 
@@ -166,8 +172,6 @@ class main(SampleBase):
             ignoredErrors = Errors['ignored']
 
             offscreenCanvas.Clear()
-            drawImage(offscreenCanvas,"./bugsnag.jpg")
-            drawSquare(offscreenCanvas,purple)
 
             label = "New"
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
@@ -185,6 +189,8 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 28, severityColors(ignoredErrors), str(len(ignoredErrors)))
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label))), 28, white, label)
 
+            drawImage(offscreenCanvas,"./bugsnag.jpg")
+            drawSquare(offscreenCanvas,purple)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5) 
 #############################################################################################################################
@@ -200,11 +206,13 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
-        githubLoaded = githubCall.hydrate()
-        bugsnagLoaded = bugsnagCall.hydrate()
+        t = Thread(target=getData, name="getData")
+        t.daemon = True
+        t.start()
+
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1)
-            if githubLoaded == True and bugsnagLoaded == True: break
+            if len(githubCall.getData()) != 0 and len(bugsnagCall.getData()) != 0: break
         while True:
             githubOverview(offscreenCanvas)
             bugsnagOverview(offscreenCanvas)

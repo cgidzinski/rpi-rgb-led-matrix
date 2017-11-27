@@ -133,15 +133,15 @@ class main(SampleBase):
 
 
                 label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(len(prs)), str(len(prs)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 label = "Need Review"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColorsInt(needReview), str(needReview))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needReview), str(needReview))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
                 label = "Need Tophat"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat)))), 12, severityColorsInt(needTophat), str(needTophat))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needTophat))+1)), 12, severityColorsInt(needTophat), str(needTophat))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 #label = "Ignored"
@@ -165,19 +165,19 @@ class main(SampleBase):
                 drawSquare(offscreenCanvas,purple)
 
                 label = "New"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
                 
                 label = "In Progress"
-                graphics.DrawText(offscreenCanvas, fontBig, 30+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
                 
                 label = "Open"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors))))), 12, severityColors(openErrors), str(len(openErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 12, white, label)
 
                 label = "Ignored"
-                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors))))), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
+                graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(ignoredErrors)))+1)), 26, severityColors(ignoredErrors), str(len(ignoredErrors)))
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*len(label)), 26, white, label)
 
                 graphics.DrawLine(offscreenCanvas, 1, height-2, cycle, height-2, orange)

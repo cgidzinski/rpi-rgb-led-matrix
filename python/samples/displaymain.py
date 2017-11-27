@@ -101,6 +101,7 @@ class main(SampleBase):
                 return orange
 
         def githubOverview(offscreenCanvas):
+            offscreenCanvas.Clear()
             prs = githubCall.findPRS()
             needReview = 0
             needTophat = 0
@@ -115,7 +116,6 @@ class main(SampleBase):
                    needWIP += 1
             needReview -= needWIP   
             openPR -= needWIP
-            offscreenCanvas.Clear()
             
             drawImage(offscreenCanvas,"./github.jpg")
             drawSquare(offscreenCanvas,purple)
@@ -141,6 +141,7 @@ class main(SampleBase):
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
             time.sleep(5)
         ##############
+            offscreenCanvas.Clear()
             for pr in prs:
                 if pr['labels'].count("WIP") != 0:
                     continue

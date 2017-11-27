@@ -206,6 +206,7 @@ class main(SampleBase):
         graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
         drawSquare(offscreenCanvas,white)
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         githubCall.setup()
         bugsnagCall.setup()

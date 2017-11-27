@@ -20,7 +20,6 @@ def getData():
 def hydrate():
     global data
     for errorType in data:
-        print "Finding "+errorType+" Errors"
         url = 'https://api.bugsnag.com/projects/'+projectID+'/errors?sort=last_seen&direction=desc&filters[error.status][][value]='+errorType+'&filters[error.status][][type]=eq'
         headers = {'Authorization': 'token '+token, 'X-Version':'2'}
         r = requests.get(url, headers=headers)

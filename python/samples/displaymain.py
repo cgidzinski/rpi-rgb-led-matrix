@@ -44,16 +44,15 @@ class main(SampleBase):
             graphics.DrawLine(offscreenCanvas, 0, height, width, height, color)
             graphics.DrawLine(offscreenCanvas, 0, 0, 0, height, color)
             graphics.DrawLine(offscreenCanvas, width, 0, width, height, color)
-            graphics.DrawLine(offscreenCanvas, 0, height-3, width, height-3, color)
 
         def drawImage(offscreenCanvas,image):
             image = Image.open(image)
-            image.thumbnail((28, 28), Image.ANTIALIAS)
+            image.thumbnail((32, 32), Image.ANTIALIAS)
             image.convert('RGB')
             pixels =  list(image.getdata())
             index = 0
-            for y in xrange(0,28):
-                for x in xrange(0,28):
+            for y in xrange(0,32):
+                for x in xrange(0,32):
                     offscreenCanvas.SetPixel(x+1,y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
 
@@ -123,12 +122,12 @@ class main(SampleBase):
 
 
             label = "Open"
-            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, label)
             
             label = "WIP"
-            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWIP))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, white, label)
             
             label = "Need Review"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(needReview))+1)), 12, severityColorsInt(needReview), str(needReview))
@@ -147,9 +146,9 @@ class main(SampleBase):
                     continue
                 drawImage(offscreenCanvas,"./github.jpg")
                 drawSquare(offscreenCanvas,purple)
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 27, orange ,pr['title'] )
+                graphics.DrawText(offscreenCanvas, fontBig, 34, 27, orange ,pr['title'] )
                 txtLen = "#"+str(pr['number'])
-                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, green,txtLen)
+                graphics.DrawText(offscreenCanvas, fontBig, 34, 12, green,txtLen)
 
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
@@ -161,7 +160,6 @@ class main(SampleBase):
         
         def bugsnagOverview(offscreenCanvas):
             Errors = bugsnagCall.getData()
-            print Errors
             newErrors = Errors['new']
             openErrors = Errors['open']
             ipErrors = Errors['in_progress']
@@ -172,12 +170,12 @@ class main(SampleBase):
             drawSquare(offscreenCanvas,purple)
 
             label = "New"
-            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 12, white, label)
             
             label = "In Progress"
-            graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-            graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
+            graphics.DrawText(offscreenCanvas, fontBig, 34+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
+            graphics.DrawText(offscreenCanvas, fontBig, 34, 26, white, label)
             
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))

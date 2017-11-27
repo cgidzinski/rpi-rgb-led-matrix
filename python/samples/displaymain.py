@@ -119,7 +119,7 @@ class main(SampleBase):
                    needReview +=1
                else:
                    needTophat +=1
-               if pr['labels'].count('WIP'):
+               if pr['labels'].count('WIP') > 0:
                    needWIP += 1
             needReview -= needWIP   
             openPR -= needWIP
@@ -211,7 +211,7 @@ class main(SampleBase):
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1,0)
-            showGif(offscreenCanvas, "./bear.gif",0.05,224)
+            #showGif(offscreenCanvas, "./bear.gif",0.05,224)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:

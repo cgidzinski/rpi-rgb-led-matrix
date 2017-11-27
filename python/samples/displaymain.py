@@ -106,8 +106,9 @@ class main(SampleBase):
             needTophat = 0
            
             for pr in prs:
-               print pr
-               return 
+               
+               print githubCall.findWip(pr['number'])
+               return
                #print pr['number']
                #print pr['title']
                #print pr['user']['login']

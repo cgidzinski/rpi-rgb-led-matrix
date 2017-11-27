@@ -15,12 +15,11 @@ def setup():
         username = cfg['github']['username']
         token = cfg['github']['token']
 
-def test():
-    setup()
-    url = 'https://api.github.com/repos/Shopify/flow/labels/1589'
+def findWip(pull):
+    url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pull)+''
     r = requests.get(url, auth=(username,token))
     json_data = json.loads(r.text)
-    print json_data
+    return json_data
 
 def findPR():
     url = 'https://api.github.com/repos/'+repo+'/pulls'

@@ -104,13 +104,14 @@ class main(SampleBase):
             prs = githubCall.findPRS()
             needReview = 0
             needTophat = 0
-           
+            needWIP = 0 
             for pr in prs: 
                if pr['approvals'] < 2:
                    needReview +=1
                else:
                    needTophat +=1
-
+                if pr[labels].count('WIP'):
+                    needWIP+=1
             
             offscreenCanvas.Clear()
             for cycle in xrange(1,255):
@@ -124,7 +125,7 @@ class main(SampleBase):
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
                 label = "Open WIP"
-                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(prsWIP), str(prsWip))
+                graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColorsInt(needWIP), str(needWip))
                 graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
                 
                 label = "Need Review"

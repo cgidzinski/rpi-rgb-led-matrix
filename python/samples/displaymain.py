@@ -166,11 +166,11 @@ class main(SampleBase):
 
                 label = "New"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 12, severityColors(newErrors), str(len(newErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 30, 12, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 12, white, label)
                 
                 label = "In Progress"
                 graphics.DrawText(offscreenCanvas, fontBig, 32+(8*len(label)+3), 26, severityColors(ipErrors), str(len(ipErrors)))
-                graphics.DrawText(offscreenCanvas, fontBig, 30, 26, white, label)
+                graphics.DrawText(offscreenCanvas, fontBig, 32, 26, white, label)
                 
                 label = "Open"
                 graphics.DrawText(offscreenCanvas, fontBig, width-(8*(len(label)+len(str(len(openErrors)))+1)), 12, severityColors(openErrors), str(len(openErrors)))

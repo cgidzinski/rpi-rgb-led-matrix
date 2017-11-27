@@ -199,6 +199,7 @@ class main(SampleBase):
         for x in xrange(0,2):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
+            drawImage(offscreenCanvas, "./flow.png",224)
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
@@ -211,7 +212,6 @@ class main(SampleBase):
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1,0)
-            drawImage(offscreenCanvas, "./github.jpg",224)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:

@@ -214,6 +214,7 @@ class main(SampleBase):
         for count in xrange(0,1):
             showGif(offscreenCanvas, "./bear.gif",0.1)
         #
+        offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         githubCall.setup()
         bugsnagCall.setup()
         #

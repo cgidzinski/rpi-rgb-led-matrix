@@ -164,10 +164,10 @@ class main(SampleBase):
 
                 offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
                 offscreenCanvas.Clear()
-                time.sleep(5) 
+                time.sleep(1) 
             #offscreenCanvas.Clear()
             #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
-            #offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
+            offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
 
         
         def bugsnagOverview(offscreenCanvas):

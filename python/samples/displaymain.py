@@ -211,7 +211,7 @@ class main(SampleBase):
 
         while True:
             showGif(offscreenCanvas, "./bear.gif",0.1,0)
-            #showGif(offscreenCanvas, "./bear.gif",0.05,224)
+            drawImage(offscreenCanvas, "./github.jpg",224)
             if githubCall.isReady() == True and bugsnagCall.isReady() == True: break
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         while True:

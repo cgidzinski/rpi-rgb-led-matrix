@@ -33,7 +33,7 @@ height =31
 bugLow = 5
 bugHigh = 10
 #
-slogans = ["Loading Bear Cave","Loading Bearnet","Loading Bear Code","Flaunching Data Into Space"]
+slogans = ["Loading Bear Cave","Loading Bearnet","Loading Bear Code","Flaunching Data","Flintigrating Flows"]
 #
 class main(SampleBase):
     def __init__(self, *args, **kwargs):
@@ -121,8 +121,6 @@ class main(SampleBase):
                    needTophat +=1
                if pr['labels'].count('WIP') > 0:
                    needWIP += 1
-#            needReview -= needWIP   
-#            openPR -= needWIP
 
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))
@@ -148,9 +146,10 @@ class main(SampleBase):
             for pr in prs:
                 offscreenCanvas.Clear()
                 if pr['labels'].count("WIP") != 0:
-                    continue
-
-                graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,WIP )
+                    graphics.DrawText(offscreenCanvas, fontBig, 60, 27, orange ,pr['title'] )
+                else:
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
                 txtLen = "#"+str(pr['number'])
                 graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )

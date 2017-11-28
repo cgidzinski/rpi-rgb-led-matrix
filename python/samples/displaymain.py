@@ -146,7 +146,7 @@ class main(SampleBase):
             for pr in prs:
                 offscreenCanvas.Clear()
                 if pr['labels'].count("WIP") != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,WIP )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,"WIP" )
                     graphics.DrawText(offscreenCanvas, fontBig, 60, 27, orange ,pr['title'] )
                 else:
                     graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
@@ -199,6 +199,7 @@ class main(SampleBase):
             graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green, slogansText)
             graphics.DrawText(offscreenCanvas, fontBig, 34, 26, blue, commands.getoutput('hostname -I'))
             drawImage(offscreenCanvas,"./flow.jpg",224)
+            graphics.DrawLine(offscreenCanvas, 224, 0, 224, 32, white)
             drawSquare(offscreenCanvas,white)
             offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #

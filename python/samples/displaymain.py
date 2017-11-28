@@ -147,11 +147,10 @@ class main(SampleBase):
                 offscreenCanvas.Clear()
                 
                 txtLen = "#"+str(pr['number'])
-                if pr['labels'].count("WIP") != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, purple ,"WIP " )
-                    graphics.DrawText(offscreenCanvas, fontBig, 68, 12, green,txtLen)
-                    txtLen = "WIP #"+str(pr['number'])
-                   
+                if len(pr['labels']) != 0:
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, purple ,pr['labels'][0] )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])), 12, green,txtLen)
+                    txtLen = pr['labels'][0]+"#"+str(pr['number'])
                 else:
                     graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
                 

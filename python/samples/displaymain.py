@@ -147,9 +147,9 @@ class main(SampleBase):
             for pr in prs:
                 offscreenCanvas.Clear()
                 
-                txtLen = ""
+                txtLen = "#"+str(pr['number']
                 if len(pr['labels']) != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, red  ,pr['labels'][0] )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, yellow,pr['labels'][0] )
                     graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])+1), 12, green,txtLen)
                     txtLen = pr['labels'][0]+" #"+str(pr['number'])
                 else:

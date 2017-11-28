@@ -148,7 +148,7 @@ class main(SampleBase):
                 
                 txtLen = "#"+str(pr['number'])
                 if pr['labels'].count("WIP") != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,"WIP " )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, purple ,"WIP " )
                     graphics.DrawText(offscreenCanvas, fontBig, 68, 12, green,txtLen)
                     txtLen = "WIP #"+str(pr['number'])
                    

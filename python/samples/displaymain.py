@@ -150,16 +150,16 @@ class main(SampleBase):
                 txtLen = "#"+str(pr['number'])
                 if len(pr['labels']) != 0:
                     graphics.DrawText(offscreenCanvas, fontBig, 36, 12, purple,"["+pr['labels'][0].upper()+"]" )
-                    graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])+1), 12, green,txtLen)
+                    graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])+3), 12, green,txtLen)
                     txtLen = "["+pr['labels'][0]+"] #"+str(pr['number'])
                 else:
                     graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
                 
                 graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
-                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )
-                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, green ,"["+str(pr['approvals'])+"/2]" )
+                if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(3*8), 12, red ,"["+str(pr['approvals'])+"]" )
+                if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(3*8), 12, orange ,"["+str(pr['approvals'])+"]" )
+                if pr['approvals'] >= 2: graphics.DrawText(offscreenCanvas, fontBig, 257-(3*8), 12, green ,"["+str(pr['approvals'])+"]" )
 
                 drawImage(offscreenCanvas,"./github.jpg",0)
                 drawSquare(offscreenCanvas,purple)

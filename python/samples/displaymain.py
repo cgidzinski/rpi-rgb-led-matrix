@@ -121,8 +121,8 @@ class main(SampleBase):
                    needTophat +=1
                if pr['labels'].count('WIP') > 0:
                    needWIP += 1
-            needReview -= needWIP   
-            openPR -= needWIP
+#            needReview -= needWIP   
+#            openPR -= needWIP
 
             label = "Open"
             graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(label)+3), 12, severityColorsInt(openPR), str(openPR))

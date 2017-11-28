@@ -22,13 +22,6 @@ def getData():
 def isReady():
     return ready
 
-def test():
-    setup()
-
-    url = 'https://api.github.com/repos/'+repo+'/pulls/1550/reviews?per_page=100'
-    r = requests.get(url, auth=(username,token))
-    REV_data = json.loads(r.text)
-
 def hydrate():
     global data, ready
     url = 'https://api.github.com/repos/'+repo+'/pulls?per_page=100'
@@ -41,6 +34,7 @@ def hydrate():
         r = requests.get(url, auth=(username,token))
         REV_data = json.loads(r.text)
         for review in REV_data:
+            print review
             newPR['approvals'] += 1
         url = 'https://api.github.com/repos/'+repo+'/issues/'+str(pr['number'])+'?per_page=100'
         r = requests.get(url, auth=(username,token))

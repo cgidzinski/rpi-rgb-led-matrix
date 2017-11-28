@@ -145,13 +145,17 @@ class main(SampleBase):
         ##############
             for pr in prs:
                 offscreenCanvas.Clear()
-                if pr['labels'].count("WIP") != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,"WIP" )
-                    graphics.DrawText(offscreenCanvas, fontBig, 60, 27, orange ,pr['title'] )
-                else:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
+                
                 txtLen = "#"+str(pr['number'])
-                graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
+                if pr['labels'].count("WIP") != 0:
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 27, purple ,"WIP " )
+                    graphics.DrawText(offscreenCanvas, fontBig, 68, 12, green,txtLen)
+                    txtLen = "WIP #"+str(pr['number'])
+                   
+                else:
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
+                
+                graphics.DrawText(offscreenCanvas, fontBig, 36, 27, orange ,pr['title'] )
                 graphics.DrawText(offscreenCanvas, fontBig, 215-(8*len(pr['user'])+1),12 , blue ,pr['user'] )
                 if pr['approvals'] == 0: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, red ,"["+str(pr['approvals'])+"/2]" )
                 if pr['approvals'] == 1: graphics.DrawText(offscreenCanvas, fontBig, 257-(5*8), 12, orange ,"["+str(pr['approvals'])+"/2]" )

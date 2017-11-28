@@ -26,6 +26,7 @@ red = graphics.Color( 255, 0, 0)
 blue = graphics.Color(0, 0, 255)
 white = graphics.Color(255, 255, 255)
 orange = graphics.Color(255, 165, 0)
+yellow = graphics.Color(255, 255, 0)
 purple = graphics.Color(155, 48, 255)
 #
 width = 255
@@ -146,11 +147,11 @@ class main(SampleBase):
             for pr in prs:
                 offscreenCanvas.Clear()
                 
-                txtLen = "#"+str(pr['number'])
+                txtLen = ""
                 if len(pr['labels']) != 0:
-                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, purple ,pr['labels'][0] )
-                    graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])), 12, green,txtLen)
-                    txtLen = pr['labels'][0]+"#"+str(pr['number'])
+                    graphics.DrawText(offscreenCanvas, fontBig, 36, 12, yellow ,pr['labels'][0].upper() )
+                    graphics.DrawText(offscreenCanvas, fontBig, 36+(8*len(pr['labels'][0])+1), 12, green,txtLen)
+                    txtLen = pr['labels'][0]+" #"+str(pr['number'])
                 else:
                     graphics.DrawText(offscreenCanvas, fontBig, 36, 12, green,txtLen)
                 

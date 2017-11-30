@@ -22,7 +22,7 @@ def getData():
 
 def hydrate():
     global data, ready
-    data = []
+    data={'new':[],'open':[],'in_progress':[],'ignored':[]}
     print "Getting Bugsnag Data"
     for errorType in data:
         url = 'https://api.bugsnag.com/projects/'+projectID+'/errors?sort=last_seen&direction=desc&filters[error.status][][value]='+errorType+'&filters[error.status][][type]=eq'

@@ -24,6 +24,7 @@ def isReady():
 
 def hydrate():
     global data, ready
+    data = []
     url = 'https://api.github.com/repos/'+repo+'/pulls?per_page=100'
     print "Getting Github Data"
     r = requests.get(url, auth=(username,token))

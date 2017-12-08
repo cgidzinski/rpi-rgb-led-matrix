@@ -83,7 +83,7 @@ class main(SampleBase):
 
 #############################################################################################################################
         offscreenCanvas = self.matrix.CreateFrameCanvas()
-        drawImage(offscreenCanvas, "./img2.png",0)
+        drawImage(offscreenCanvas, "./img.png",0)
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         while True:

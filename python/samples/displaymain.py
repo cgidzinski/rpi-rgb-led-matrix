@@ -87,7 +87,7 @@ class main(SampleBase):
         offscreenCanvas = self.matrix.SwapOnVSync(offscreenCanvas)
         #
         while True:
-        
+            time.sleep(1)        
 
 
 # Main function

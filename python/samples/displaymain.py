@@ -45,12 +45,12 @@ class main(SampleBase):
 
         def drawImage(offscreenCanvas,image,xCoord):
             image = Image.open(image)
-            image.thumbnail((32, 32), Image.ANTIALIAS)
+            image.thumbnail((256, 32), Image.ANTIALIAS)
             image.convert('RGB')
             pixels =  list(image.getdata())
             index = 0
             for y in xrange(0,32):
-                for x in xrange(0,32):
+                for x in xrange(0,256):
                     offscreenCanvas.SetPixel((xCoord+x+1),y+1,pixels[index][0],pixels[index][1],pixels[index][2])
                     index += 1
 
